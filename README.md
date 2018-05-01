@@ -17,8 +17,8 @@
 |address|text||
 |school|text||
 |company|text||
-|language_id|integer| foreign_key: true|
-|currency_id|integer| foreign_key: true|
+|language_id|references||
+|currency_id|references||
 
 ### Association
 - has_many :reviews
@@ -39,7 +39,7 @@
 ### Association
 - has_many :users
 
-## currencysテーブル
+## currenciesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -54,8 +54,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer| null: false, foreign_key: true|
-|room_id|integer| null: false, foreign_key: true|
+|user_id|references| null: false|
+|room_id|references| null: false|
 
 ### Association
 - belongs_to :user
@@ -69,14 +69,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|roomType_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|buildingTypes_id|integer|null: false, foreign_key: true|
-|bathrooms_id|integer|null: false, foreign_key: true|
-|experiences_id|integer|null: false, foreign_key: true|
-|frequencys_id|integer|null: false, foreign_key: true|
-|deadlines_id|integer|null: false, foreign_key: true|
-|currencys_id|integer|null: false, foreign_key: true|
+|roomType_id|references|null: false
+|category_id|references|null: false|
+|buildingTypes_id|references|null: false|
+|bathrooms_id|references|null: false|
+|experiences_id|references|null: false|
+|frequencys_id|references|null: false|
+|deadlines_id|references|null: false|
+|currencys_id|references|null: falsee|
 |capacity|integer|null: false|
 |address|text|null: false|
 |only_for_guest|boolean|null: false|
@@ -126,7 +126,7 @@
 
 # roomsと一対多のテーブル
 
-## roomTypesテーブル
+## room_typesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -135,7 +135,7 @@
 ### Association
 - has_many :rooms
 
-## categorysテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -144,7 +144,7 @@
 ### Association
 - has_many :rooms
 
-## buildingTypesテーブル
+## building_ypesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -168,7 +168,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|room_id|integer|null: false, foreign_key: true|
+|room_id|references|null: false|
 
 ### Association
 - belongs_to :room
@@ -182,7 +182,7 @@
 ### Association
 - has_many :rooms
 
-## frequencysテーブル
+## frequenciesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -211,15 +211,15 @@
 
 # roomsと多対多のテーブル
 
-## sharedSpaces
+## shared_spaces
 
 |Column|Type|Options|
 |------|----|-------|
 |content|string|null: false, unique: true|
 
 ### Association
-- has_many :rooms, through: :sharedSpace_rooms
-- has_many :sharedSpace_rooms
+- has_many :rooms, through: :shared_spaces_rooms
+- has_many :shared_spaces_rooms
 
 
 ## amenitiesテーブル
@@ -229,10 +229,10 @@
 |content|string|null: false, unique: true|
 
 ### Association
-- has_many :rooms, through: :amenity_rooms
-- has_many :amenity_rooms
+- has_many :rooms, through: :amenities_rooms
+- has_many :amenities_rooms
 
-## availableSpacesテーブル
+## available_spacesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -240,8 +240,8 @@
 
 
 ### Association
-- has_many :rooms, through: :availableSpace_rooms
-- has_many :availableSpace_rooms
+- has_many :rooms, through: :available_spaces_rooms
+- has_many :available_spaces_rooms
 
 
 ## requirementsテーブル
@@ -251,8 +251,8 @@
 |content|string|null: false, unique: true|
 
 ### Association
-- has_many :rooms, through: :requirement_rooms
-- has_many :requirement_rooms
+- has_many :rooms, through: :requirements_rooms
+- has_many :requirements_rooms
 
 
 ## noticesテーブル
@@ -262,62 +262,62 @@
 |content|string|null: false, unique: true|
 
 ### Association
-- has_many :rooms, through: :notice_rooms
-- has_many :notice_rooms
+- has_many :rooms, through: :notices_rooms
+- has_many :notices_rooms
 
 
 # 中間テーブル
 
-## sharedSpace_roomsテーブル
+## shared_spaces_roomsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |room_id|integer|null: false, foreign_key: true|
-|sharedSpace_id|integer|null: false, foreign_key: true|
+|shared_space_id|references|null: false|
 
 ### Association
-- belongs_to :rooms
-- belongs_to :sharedSpaces
+- belongs_to :room
+- belongs_to :shared_space
 
-## amenity_roomsテーブル
+## amenities_roomsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |room_id|integer|null: false, foreign_key: true|
-|amenitie_id|integer|null: false, foreign_key: true|
+|amenitie_id|references|null: false|
 
 ### Association
-- belongs_to :rooms
-- belongs_to :amenities
+- belongs_to :room
+- belongs_to :amenity
 
-## availableSpace_roomsテーブル
+## available_spaces_roomsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |room_id|integer|null: false, foreign_key: true|
-|availableSpace_id|integer|null: false, foreign_key: true|
+|available_space_id|references|null: false|
 
 ### Association
-- belongs_to :rooms
-- belongs_to :availableSpaces
+- belongs_to :room
+- belongs_to :available_space
 
-## requirement_roomsテーブル
+## requirements_roomsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|room_id|integer|null: false, foreign_key: true|
-|requirement_id|integer|null: false, foreign_key: true|
+|room_id|references|null: false|
+|requirement_id|references|null: false|
 
 ### Association
-- belongs_to :rooms
-- belongs_to :requirements
+- belongs_to :room
+- belongs_to :requirement
 
-## notice_roomsテーブル
+## notices_roomsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |room_id|integer|null: false, foreign_key: true|
-|notice_id|integer|null: false, foreign_key: true|
+|notice_id|references|null: false|
 
 ### Association
 - belongs_to :rooms
@@ -331,9 +331,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|room_id|integer|null: false, foreign_key: true|
-|reservation_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false|
+|room_id|references|null: false|
+|reservation_id|references|null: false|
 |check_in_date|date|null: false|
 |check_out_date|date|null: false|
 |number_of_adult|integer|null: false|
@@ -369,14 +369,14 @@
 |------|----|-------|
 |title|string||
 |body|text|null: false|
-|messageStatus_id|integer|null: false, foreign_key: true|
+|messageStatus_id|references|null: false|
 
 ### Association
-- has_many :users , through: :user_messages
-- has_many :user_messages
-- belongs_to :messageStatus
+- has_many :users , through: :users_messages
+- has_many :users_messages
+- belongs_to :message_status
 
-## messageStatusesテーブル
+## message_statusesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -385,13 +385,13 @@
 ### Association
 - has_many :messages
 
-## user_messagesテーブル
+## users_messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|send_user_id|integer|null: false, foreign_key: true|
-|receive_user_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|send_user_id|references|null: false|
+|receive_user_id|references|null: false|
+|message_id|references|null: false|
 
 ### Association
 - belongs_to :message
@@ -412,8 +412,8 @@
 |location_rate|integer|null: false|
 |check_in_rate|integer|null: false|
 |costPerformance_rate|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|room_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false|
+|room_id|references|null: false|
 
 ### Association
 - belongs_to :user
@@ -427,8 +427,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer||
-|room_id|integer||
+|user_id|references|null: false|
+|room_id|references|null: false|
 
 ### Association
 - belongs_to :user

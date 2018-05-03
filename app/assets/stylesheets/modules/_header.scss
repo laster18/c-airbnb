@@ -1,0 +1,40 @@
+header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e4e4e4 !important;
+  box-shadow: none !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 85px;
+  .header-body {
+    display: table !important;
+    width: 100% !important;
+    line-height: 85px;
+    padding: 0 20px;
+    margin: 0 auto;
+    .header-left {
+      float: left;
+      .head-logo {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin: auto 0;
+        .head-logo-i {
+          text-align: center;
+        }
+      }
+      .head-search {
+        float: left;
+      }
+    }
+    .header-right {
+      float: right;
+      .head-right-body {
+        .head-right-i {
+          li {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

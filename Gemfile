@@ -66,4 +66,6 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
+gem 'haml-rails'
+gem 'erb2haml'
 # gem 'compass-rails','~> 2.0'

@@ -4,6 +4,8 @@ header {
   box-shadow: none !important;
   width: 100% !important;
   height: 85px;
+  position: fixed;
+  z-index: 999;
   .header-body {
     padding: 0 30px;
     margin: 0 auto;

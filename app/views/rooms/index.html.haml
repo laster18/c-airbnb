@@ -1,1 +1,39 @@
 = render partial: "./header"
+
+.t-main-wrapper
+  %div
+    .t-main-content
+      .t-main-content__title
+        Airbnbで探す
+      .t-main-inner
+        %a{href: "#", class: "t-main-inner__link"}
+          %img{alt: "", src: "assets/top_image2", style: "width: 96px; height: 72px;"}
+          %span 宿泊先
+        %a{href: "#", class: "t-main-inner__link"}
+          %img{alt: "", src: "assets/top_image3", style: "width: 96px; height: 72px;"}
+          %span 体験
+        %a{href: "#", class: "t-main-inner__link"}
+          %img{alt: "", src: "assets/top_image4", style: "width: 96px; height: 72px;"}
+          %span レストラン
+
+    .t-main-content
+      .t-main-content__title
+        Airbnb Plusが新登場
+      .airbnb-plus
+        %img{alt: "", src: "assets/new_airbnb", style: "width: 91%;"}
+        %p.airbnb-plus__text
+          Airbnbの宿泊先の新グレード。
+          %br
+          品質と快適性は認証済み。
+        %a{href: "#"}
+          %button{type: "button", class: "airbnb-plus__button"}
+            %span
+              .airbnb-plus__button__text
+                Airbnb Plus認証済みホームを探す
+
+
+    .t-main-content
+      .t-main-content__title
+        世界のお家
+      .house-content.clearfix
+        = render partial: "house-content"

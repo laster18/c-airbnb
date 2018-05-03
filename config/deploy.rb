@@ -39,7 +39,7 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # set :ssh_options, verify_host_key: :secure
 
 # config valid only for current version of Capistrano
-lock '~> 3.10.2'
+lock '3.10.2'
 
 set :application, 'c-airbnb'
 set :repo_url,  'git@github.com:laster18/c-airbnb.git'

@@ -35,7 +35,8 @@
       .t-main-content__title
         世界のお家
       .house-content.clearfix
-        = render partial: "house-item"
+        - 8.times do |i|
+          = render partial: "house-item"
 
     .t-main-content
       .t-main-content__title
@@ -43,4 +44,5 @@
         %p.t-main-content__sub-title
           現地の仲間と何か新しいことにチャレンジ
       .house-content.clearfix
-        = render partial: "experience-item"
+        - 8.times do |i|
+          = render partial: "experience-item"

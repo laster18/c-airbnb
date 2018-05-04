@@ -1,0 +1,25 @@
+.login-modal-wrapper#login-modal
+  .modal
+    .close-button.clearfix
+      %i.fa.fa-2x.fa-times
+    .login-title ログイン
+    .login-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+        .login-field
+          .login-field__input
+            = f.email_field :email, class: "login-field__text", placeholder: 'メールアドレス'
+            %i.fa.fa-envelope
+
+        .login-field
+          .login-field__input
+            = f.password_field :password, autocomplete: "off", class: "login-field__text", placeholder: 'パスワードを入力'
+            %i.fa.fa-key
+
+        .login-button
+          = f.submit "ログイン", class: 'login-button__submit'
+
+        %a.remember-pass{href: "#"}
+          パスワードをお忘れですか？
+
+        %p.select-line または

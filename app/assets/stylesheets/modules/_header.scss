@@ -51,16 +51,15 @@ header {
             display: block;
             float: right;
             margin-left: 20px;
-            // border-bottom: 2px solid transparent !important;
             &:hover {
               cursor: pointer;
               .nav-i:hover {
-                border-bottom: 2px solid gray !important;
+                border-bottom: 2px solid gray;
               }
             }
             button {
               font-size: 14px;
-              border: none !important;
+              border: none;
               background-color: transparent;
               border: none;
               cursor: pointer;
@@ -73,7 +72,6 @@ header {
             }
           }
         }
-
       }
     }
   }

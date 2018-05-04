@@ -2,8 +2,8 @@
   padding: 0 95px;
   min-height: 800px;
   padding-top: 85px;
-
 }
+
 .t-main-content {
   padding: 40px 0;
   min-height: 100px;
@@ -36,10 +36,9 @@
 }
 
 .airbnb-plus {
-  border-radius: 3px !important;
-  overflow: hidden !important;
-  position: relative !important;
-
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
   &__text {
     position: absolute;
     top: 15%;
@@ -52,25 +51,25 @@
     position: absolute;
     top: 40%;
     left: 5%;
-    text-align: center !important;
-    text-decoration: none !important;
-    border-radius: 4px !important;
-    width: auto !important;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    width: auto;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    font-size: 16px !important;
-    line-height: 22px !important;
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
-    color: #484848 !important;
-    font-weight: 700 !important;
-    border-width: 2px !important;
-    border-style: solid !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    min-width: 77.66563145999496px !important;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05) !important;
-    background: #ffffff !important;
-    border-color: transparent !important;
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #484848;
+    font-weight: 700;
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 24px;
+    padding-right: 24px;
+    min-width: 77.66563145999496px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-color: transparent;
     &:hover {
       cursor: pointer;
     }

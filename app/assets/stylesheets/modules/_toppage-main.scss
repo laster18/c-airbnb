@@ -5,12 +5,16 @@
 }
 
 .t-main-content {
-  padding: 40px 0;
+  padding-top: 40px;
   min-height: 100px;
   &__title {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 24px;
+  }
+  &__sub-title {
+    font-size: 22px;
+    font-weight: normal;
   }
   .t-main-inner {
     &__link {
@@ -77,10 +81,8 @@
 }
 
 .house-content {
-  min-height: 600px;
-  max-height: 1400px;
   .house-item {
-    width: 33%;
+    width: 25%;
     float: left;
     padding-right: 15px;
     margin-bottom: 40px;

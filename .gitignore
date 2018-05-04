@@ -17,3 +17,5 @@
 .byebug_history
 
 secrets.yml
+
+/app/assets/images/*

@@ -9,11 +9,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|(not uproad)
-|gender|string|null: false|(not uproad)
-|email|string|null: false, unique: true|(not uproad)
-|phone|integer|null: false, unique: true|(not uproad)
-|birthday|string|null: false|(not uproad)
+|name|string|null: false|(not update)
+|email|string|null: false, unique: true|(not update)
+|birthday|string|null: false|(not update)
+|phone|integer| unique: true|
 
 ### Association
 - has_many :reviews
@@ -31,6 +30,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|gender|string||(not update)
+|avatar|string||
 |introduction|text||
 |address|text||
 |school|text||

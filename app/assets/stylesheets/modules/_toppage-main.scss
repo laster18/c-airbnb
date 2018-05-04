@@ -1,6 +1,5 @@
 .t-main-wrapper {
   padding: 0 95px;
-  background-color: #fffafa;
   min-height: 800px;
   padding-top: 85px;
 
@@ -82,12 +81,12 @@
   min-height: 600px;
   max-height: 1400px;
   .house-item {
-    width: 23%;
+    width: 33%;
     float: left;
-    margin-right: 15px;
+    padding-right: 15px;
     margin-bottom: 40px;
     &__image {
-
+      text-decoration: none;
     }
     .house-item-text {
       text-decoration: none;

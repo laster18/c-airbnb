@@ -1,0 +1,100 @@
+.s-main {
+  padding-top: 85px;
+}
+
+.s-top-wrapper {
+  overflow: hidden;
+  width: 100vw;
+  height: 520px;
+  position: relative;
+  & img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+  }
+  .btn {
+    text-align: center !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 15px !important;
+    line-height: 35px !important;
+    margin-top: 8px;
+    color: #484848 !important;
+    font-weight: normal !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    min-width: 51.77708763999664px !important;
+    background: #ffffff !important;
+    border-color: transparent !important;
+    height: 35px;
+    cursor: pointer;
+  }
+  .save-button {
+    position: absolute;
+    top: 25px;
+    right: 46px;
+  }
+  .share-button {
+    position: absolute;
+    top: 25px;
+    right: 150px;
+  }
+  .photo-button {
+    position: absolute;
+    bottom: 26px;
+    left: 30px;
+  }
+}
+
+.s-main-wrapper {
+  padding: 40px 25px;
+  .s-main-body {
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 1000px;
+    .s-main-left {
+      float: left;
+      width: 50%;
+      min-height: 1500px;
+      border: 1px solid #d3d3d3;
+      .s-main-left-body {
+        padding: 20px;
+      }
+    }
+    .s-main-right {
+      min-height: 400px;
+      margin-left: 2%;
+      float: right;
+      width: 40%;
+      border: 1px solid #d3d3d3;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 110px;
+      .s-main-right-body {
+        padding: 20px 35px;
+        .s-main-right-head {
+          border-bottom: 1.3px solid #d3d3d3;
+          &__fee {
+            font-size: 24px;
+            font-weight: bold;
+          }
+          &__one {
+            font-size: 14px;
+          }
+          &__rate {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

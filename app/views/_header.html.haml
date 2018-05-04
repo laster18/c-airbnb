@@ -2,8 +2,8 @@
   .header-body
     .header-left
       .head-logo
-        %a.head-logo-i{:href => "#", :style => ""}
-          %img.head-logo-i_image{:src => "assets/logo.png", :style => "width: 50px; height: 50px;"}
+        %a.head-logo-i{ href:"/", style: ""}
+          %img.head-logo-i_image{:src => "http://www.logoeps.net/wp-content/uploads/2016/12/airbnb_logo.png", :style => "width: 50px; height: 50px;"}
       = form_tag( "/articles/search", method: :get, class: "head-search") do
         %span.fa.fa-search.head-search__fa
         %input.head-search__input{autocomplete: "off", name: "q", placeholder: "「東京」などのエリアを入力", required: "", type: "search"}

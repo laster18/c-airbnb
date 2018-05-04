@@ -5,7 +5,7 @@ header {
   width: 100% !important;
   height: 85px;
   position: fixed;
-  z-index: 999;
+  z-index: 10;
   .header-body {
     padding: 0 30px;
     margin: 0 auto;
@@ -51,6 +51,9 @@ header {
             display: block;
             float: right;
             margin-left: 20px;
+            & a {
+              display: block;
+            }
             &:hover {
               cursor: pointer;
               .nav-i:hover {

@@ -2,7 +2,7 @@
   .header-body
     .header-left
       .head-logo
-        %a.head-logo-i{ href:"#", style: ""}
+        = link_to root_path, style: "", class: "head-logo-i" do
           %img.head-logo-i_image{src: "http://www.logoeps.net/wp-content/uploads/2016/12/airbnb_logo.png", style:  "width: 50px; height: 50px;"}
       = form_tag( "#", method: :get, class: "head-search") do
         %span.fa.fa-search.head-search__fa
@@ -11,14 +11,21 @@
     .header-right
       .head-right-body
         %ul.head-right-i
-          %li
-            .nav-i
-              %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
-                ログイン
-          %li
-            .nav-i
-              %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
-                アカウント作成
+          - if user_signed_in?
+            %li
+              .nav-i
+                = link_to destroy_user_session_path, method: :delete do
+                  %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
+                    ログアウト
+          - else
+            %li
+              .nav-i.login-show
+                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
+                  ログイン
+            %li
+              .nav-i.signup-show
+                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
+                  アカウント作成
           %li
             .nav-i
               %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}

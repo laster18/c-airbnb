@@ -9,10 +9,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|(not update)
-|email|string|null: false, unique: true|(not update)
-|birthday|string|null: false|(not update)
-|phone|integer| unique: true|
+|first_name|string|null: false|(not update)
+|last_name|string|null: false|(not update)
+|birthday_month|integer|null: false|(not update)
+|birthday_day|integer|null: false|(not update)
+|birthday_year|integer|null: false|(not update)
+|email|string|null: false, unique: true|
 
 ### Association
 - has_many :reviews
@@ -31,6 +33,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |gender|string||(not update)
+|phone|integer| unique: true|
 |avatar|string||
 |introduction|text||
 |address|text||

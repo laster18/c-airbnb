@@ -59,42 +59,98 @@
     margin: 0 auto;
     width: 90vw;
     max-width: 1000px;
-    .s-main-left {
-      float: left;
-      width: 50%;
-      min-height: 1500px;
-      border: 1px solid #d3d3d3;
-      .s-main-left-body {
-        padding: 20px;
+  }
+}
+
+.s-main-right {
+  min-height: 400px;
+  margin-left: 2%;
+  float: right;
+  width: 36%;
+  border: 1px solid #d3d3d3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 110px;
+  .s-main-right-body {
+    padding: 20px 35px;
+    .s-main-right-head {
+      border-bottom: 1.3px solid #d3d3d3;
+      &__fee {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      &__one {
+        font-size: 14px;
+      }
+      &__rate {
+        font-size: 14px;
+        color: gray;
+        margin-bottom: 10px;
       }
     }
-    .s-main-right {
-      min-height: 400px;
-      margin-left: 2%;
-      float: right;
-      width: 40%;
-      border: 1px solid #d3d3d3;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 110px;
-      .s-main-right-body {
-        padding: 20px 35px;
-        .s-main-right-head {
-          border-bottom: 1.3px solid #d3d3d3;
-          &__fee {
-            font-size: 24px;
-            font-weight: bold;
-          }
-          &__one {
-            font-size: 14px;
-          }
-          &__rate {
-            font-size: 14px;
-            color: gray;
-            margin-bottom: 10px;
-          }
-        }
+  }
+}
+
+.s-main-left {
+  float: left;
+  width: 60%;
+  min-height: 1500px;
+  .s-main-left-body {
+    padding: 0 5px;
+    .s-info-head {
+      border-bottom: 1px solid #D8D8D8;
+      padding-bottom: 10px;
+      &__type {
+        font-size: 13px;
       }
+      &__main {
+        width: 84%;
+        float: left;
+      }
+      &__title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      &__adrress {
+        color: gray;
+      }
+      &__user {
+        float: left;
+        text-decoration: none;
+      }
+      &__user-avatar {
+
+      }
+      &__user-name {
+        text-align: center;
+        color: #A4A4A4;
+        font-size: 14px;
+      }
+      &__content {
+        padding-top: 12px;
+        font-style: italic;
+        color: #A4A4A4
+      }
+    }
+    .s-info-space {
+      color: gray;
+      &__title {
+        padding-top: 12px;
+        font-size: 20px;
+      }
+      &__text {
+        padding-top: 12px;
+        font-size: 18px;
+      }
+      &__message {
+        text-decoration: none;
+        color: #87ceeb;
+        display: block;
+        padding-top: 12px;
+        font-size: 18px;
+      }
+    }
+    .s-info-amenity {
     }
   }
 }

@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   config.generators do |g|
-      g.javascripts false
-      g.helper false
-      g.test_framework false
+    g.javascripts false
+    g.helper false
+    g.test_framework false
   end
 
   def configure_permitted_parameters

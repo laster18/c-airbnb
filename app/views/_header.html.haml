@@ -39,5 +39,6 @@
                 ヘルプ
           %li
             .nav-i
-              %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
-                ホストを始める
+              = link_to edit_user_registration_path do
+                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
+                  ホストを始める

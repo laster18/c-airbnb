@@ -1,0 +1,114 @@
+.profile-wrapper {
+  padding-top: 85px;
+  color: #ADADAD;
+  font-family: serif;
+  .profile-body {
+    width: 70%;
+    margin: 24px auto 20px;
+    .profile-menu {
+      float: left;
+      width: 25%;
+    }
+  }
+}
+
+.profile-main {
+  float: left;
+  width: 75%;
+}
+
+.profile-required {
+  border: 1px solid #cccccc;
+  &__head {
+    background-color: #e6e6e6;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 20px;
+    font-weight: lighter;
+    color: #696969;
+    border-bottom: 1px solid #cccccc;
+  }
+  &__title {
+  }
+}
+
+.required-body {
+  padding: 20px 20px;
+  .profile-item {
+    margin-bottom: 20px;
+    &__text {
+      width: 20%;
+      display: inline-block;
+      float: left;
+      text-align: right;
+      padding-right: 10px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+    }
+    &__input {
+      width: 75%;
+      display: block;
+      float: left;
+      & input {
+        width: 100%;
+        height: 40px;
+      }
+      & textarea {
+        width: 100%;
+        height: 130px;
+        font-size: 16px;
+        border: 1px solid #cccccc;
+      }
+      & p {
+        padding-top: 10px;
+        font-size: 14px;
+      }
+      &__select {
+        height: 40px;
+        & select {
+          font-size: 20px;
+          border: 2px;
+          height: 40px;
+          width: 80px;
+        }
+        .day {
+          width: 55px;
+        }
+      }
+    }
+  }
+}
+
+.profile-menu {
+  padding-right: 20px;
+  .p-menu-body {
+    .profile-menu-list {
+      & li {
+        padding: 5px 0;
+        font-size: 16px;
+        & a {
+          text-decoration: none;
+          display: inline-block;
+          width: 100%;
+          color: #ADADAD;
+        }
+      }
+      &__edit {
+
+      }
+      &__avatar {
+
+      }
+      &__trust {
+
+      }
+      &__review {
+
+      }
+      &__introduction {
+
+      }
+    }
+  }
+}

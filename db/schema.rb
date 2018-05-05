@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180505091507) do
     t.string   "preferred_locale"
     t.integer  "tel_number"
     t.text     "about",                  limit: 65535
+    t.string   "current_city"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

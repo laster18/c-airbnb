@@ -15,6 +15,10 @@
 |birthday_day|integer|null: false|(not update)
 |birthday_year|integer|null: false|(not update)
 |email|string|null: false, unique: true|
+|sex|string||
+|native_currency|string||
+|preferred_locale|string||
+|tel_number|integer||
 
 ### Association
 - has_many :reviews
@@ -32,21 +36,16 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|gender|string||(not update)
-|phone|integer| unique: true|
-|avatar|string||
 |introduction|text||
 |address|text||
 |school|text||
 |company|text||
-|language_id|references||
-|currency_id|references||
 
 ### Association
 - belongs_to :user, foreign_key: 'id'
 
 
-## languagesテーブル
+<!-- ## languagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -65,7 +64,7 @@
 ### Association
 - has_many :users
 - has_many :rooms
-
+ -->
 
 ## hostsテーブル(中間テーブル)
 

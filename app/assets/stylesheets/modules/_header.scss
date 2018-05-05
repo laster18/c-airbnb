@@ -54,6 +54,17 @@ header {
             & a {
               display: block;
             }
+            .nav-i {
+              line-height: 85px;
+              &__button-avatar {
+              }
+              &__avatar {
+                border-radius: 50%;
+              }
+              & a {
+                text-decoration: none;
+              }
+            }
             &:hover {
               cursor: pointer;
               .nav-i:hover {
@@ -69,6 +80,8 @@ header {
               outline: none;
               appearance: none;
               color: gray;
+              display: block;
+              height: 85px;
               &:hover {
                 cursor: pointer;
               }

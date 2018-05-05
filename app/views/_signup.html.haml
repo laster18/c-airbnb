@@ -45,9 +45,9 @@
           ご登録は18歳以上の方に限ります。誕生日は非公開です。
 
         .field-birthday
-          = f.select :birthday_month, [["1月", "1"], ["2月", "2"], ["3月", "3"], ["4月", "4"], ["5月", "5"], ["6月", "6"], ["7月", "7"], ["8月", "8"], ["9月", "9"], ["10月", "10"], ["11月", "11"], ["12月", "12"]], {}, { autofocus: 'true', class: 'field-birthday__month'}
+          = f.select :birthday_month, options_for_select((1..12).map{|n| ["#{n}月", n]}),  {}, { autofocus: 'true', class: 'field-birthday__month'}
           = f.select :birthday_day, options_for_select((1..31).map{|n| ["#{n}日", n]}),  {}, { autofocus: 'true', class: 'field-birthday__day'}
-          = f.select :birthday_year, options_for_select((1900..2018).map{|n| ["#{n}年", n]}),  {}, { autofocus: 'true', class: 'field-birthday__year'}
+          = f.select :birthday_year, options_for_select((-2018..1900).map{|n| ["#{- n.to_i}年", - n.to_i]}),  {}, { autofocus: 'true', class: 'field-birthday__year'}
 
         .signup-button
           = f.submit "登録", class: 'signup-button__submit'

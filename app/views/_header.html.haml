@@ -14,8 +14,9 @@
           - if user_signed_in?
             %li
               .nav-i
-                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button", class: "nav-i__button-avatar"}
-                  %img{src: "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3", style: "width: 30px; height: 30px;", class: "nav-i__avatar"}
+                = link_to "/rooms/new" do
+                  %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button", class: "nav-i__button-avatar"}
+                    %img{src: "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3", style: "width: 30px; height: 30px;", class: "nav-i__avatar"}
             %li
               .nav-i
                 = link_to destroy_user_session_path, method: :delete do

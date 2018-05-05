@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20180504080508) do
     t.integer  "birthday_month",                      null: false
     t.integer  "birthday_day",                        null: false
     t.integer  "birthday_year",                       null: false
+    t.string   "gender"
+    t.string   "native_currency"
+    t.string   "preferred_locale"
+    t.integer  "tel_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

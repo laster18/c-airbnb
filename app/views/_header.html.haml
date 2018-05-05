@@ -14,7 +14,7 @@
           - if user_signed_in?
             %li
               .nav-i
-                = link_to "/rooms/new" do
+                = link_to edit_user_path(current_user) do
                   %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button", class: "nav-i__button-avatar"}
                     %img{src: "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3", style: "width: 30px; height: 30px;", class: "nav-i__avatar"}
             %li
@@ -39,6 +39,6 @@
                 ヘルプ
           %li
             .nav-i
-              = link_to edit_user_registration_path do
+              = link_to "#" do
                 %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
                   ホストを始める

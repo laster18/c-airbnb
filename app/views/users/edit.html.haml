@@ -1,0 +1,26 @@
+= render partial: "./header"
+
+.profile-wrapper
+  .profile-body.clearfix
+
+    .profile-menu
+      .p-menu-body
+        %ul.profile-menu-list
+          %li.profile-menu-list__edit
+            = link_to edit_user_path(current_user), id: "current-menu" do
+              プロフィールを編集
+          %li.profile-menu-list__avatar
+            = link_to avatar_users_path(current_user) do
+              写真
+          %li.profile-menu-list__trust
+            = link_to "#" do
+              信頼＆認証確認
+          %li.profile-menu-list__review
+            = link_to "#" do
+              レビュー
+          %li.profile-menu-list__introduction
+            = link_to "#" do
+              紹介文
+
+    .profile-main
+      =render partial: "profile-main"

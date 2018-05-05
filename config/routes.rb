@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
   root 'rooms#index'
   resources :rooms, only: [:index, :show, :new]
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update] do
+    collection do
+      get 'avatar'
+    end
+  end
 end

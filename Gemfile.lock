@@ -92,7 +92,7 @@ GEM
     ffi (1.9.23)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (2.0.0)
+    fog (1.42.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
@@ -440,7 +440,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   erb2haml
-  fog
+  fog (~> 1.38)
   font-awesome-rails
   font-awesome-sass
   haml-rails

@@ -17,7 +17,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-secrets.yml
+config/secrets.yml
 
 /app/assets/images/*
 uploads/*

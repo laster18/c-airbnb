@@ -1,0 +1,36 @@
+.avatar-body {
+  padding: 20px;
+}
+
+.avatar-image {
+  padding: 0 10px;
+  .avatar-frame {
+    width: 225px;
+    margin: 0 auto;
+    height: 245px;
+    position: relative;
+    &__background {
+      position: absolute;
+      opacity: 0.3;
+    }
+    &__front {
+      position: absolute;
+      & img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.avatar-form {
+  &__info {
+    font-size: 15px;
+    color: #333333;
+  }
+  &__field {
+
+  }
+  &__hidden {
+
+  }
+}

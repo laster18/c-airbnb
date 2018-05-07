@@ -1,5 +1,6 @@
 $(function(){
   var userId = $('.avatar-form').data('id');
+
   $("#user_avatar").change(function(){
     $('#edit_user_' + `${userId}`).submit();
   })
@@ -19,13 +20,10 @@ $(function(){
     .done(function(data){
       console.log(data)
       $('#current_avatar').attr("src", `${data.avatar}`);
-
+    })
+    .fail(function(){
+      alert('アップロードに失敗しました');
     })
   });
-
-
-
-
 });
 
-$("セレクタ").attr("変更したい属性の名前","変更後の属性値");

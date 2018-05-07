@@ -20,7 +20,8 @@
       .profile-item.clearfix
         =f.label :性別, class: "profile-item__text", autofocus: true
         .profile-item__input
-          =f.text_field :gender
+          .profile-item__input__select
+            = f.select :gender, [["性別", ""], ["男性", "Male"], ["女性", "Female"], ["その他", "other"]],  {}, { autofocus: 'true', class: ''}
           %p
             この情報は解析用です。他ユーザーに共有されることはありません。
 
@@ -30,7 +31,7 @@
           .profile-item__input__select
             = f.select :birthday_month, options_for_select((1..12).map{|n| ["#{n}月", n]}, selected: current_user.try(:birthday_month)),  {}, {  class: 'month'}
             = f.select :birthday_day, options_for_select((1..31).map{|n| ["#{n}日", n]}, selected: current_user.try(:birthday_day)),  {}, { class: 'day'}
-            = f.select :birthday_year, options_for_select((-2018..1900).map{|n| ["#{- n.to_i}年", - n.to_i]}, selected: current_user.try(:birthday_year)),  {}, { class: 'year'}
+            = f.select :birthday_year, options_for_select((-2018..-1900).map{|n| ["#{- n.to_i}年", - n.to_i]}, selected: current_user.try(:birthday_year)),  {}, { class: 'year'}
           %p
             あなたがこの世に生を受けた記念すべき日。この大切な個人情報は決して外部使用されることはありませんので、ご安心ください。
 
@@ -51,21 +52,23 @@
       .profile-item.clearfix
         =f.label :ご希望の言語, class: "profile-item__text", autofocus: true
         .profile-item__input
-          =f.text_field :preferred_locale
+          .profile-item__input__select
+            = f.select :preferred_locale, [["未選択", ""], ["日本語", "ja"], ["English", "en"], ["한국어", "ko"]],  {}, { autofocus: 'true', class: ''}
           %p
             受け取るメッセージの表示言語です。
 
       .profile-item.clearfix
         =f.label :ご希望の通貨, class: "profile-item__text", autofocus: true
         .profile-item__input
-          =f.text_field :native_currency
+          .profile-item__input__select
+            = f.select :native_currency, [["未選択", ""], ["日本円", "JPY"], ["米ドル", "USD"], ["韓国ウォン", "KRW"]],  {}, { autofocus: 'true', class: ''}
           %p
             この通貨で価格を表示します。
 
       .profile-item.clearfix
         =f.label :現住所, class: "profile-item__text", autofocus: true
         .profile-item__input
-          =f.text_field :current_city
+          =f.text_field :current_city, placeholder: "例:フランスパリ、ニューヨーク州ブルックリン"
 
       .profile-item.clearfix
         =f.label :自己紹介, class: "profile-item__text", autofocus: true

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update] do
     collection do
       get 'avatar'
-      get 'avatar_updoad'
     end
   end
 end

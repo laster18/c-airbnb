@@ -47,7 +47,7 @@
         .field-birthday
           = f.select :birthday_month, options_for_select((1..12).map{|n| ["#{n}月", n]}),  {}, { autofocus: 'true', class: 'field-birthday__month'}
           = f.select :birthday_day, options_for_select((1..31).map{|n| ["#{n}日", n]}),  {}, { autofocus: 'true', class: 'field-birthday__day'}
-          = f.select :birthday_year, options_for_select((-2018..1900).map{|n| ["#{- n.to_i}年", - n.to_i]}),  {}, { autofocus: 'true', class: 'field-birthday__year'}
+          = f.select :birthday_year, options_for_select((-2018..-1900).map{|n| ["#{- n.to_i}年", - n.to_i]}),  {}, { autofocus: 'true', class: 'field-birthday__year'}
 
         .signup-button
           = f.submit "登録", class: 'signup-button__submit'

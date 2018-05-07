@@ -44,8 +44,6 @@
 
             = form_for current_user do |f|
               = f.label :avatar, class: "avatar-form__field" do
-                / = f.button "パソコンからファイルをアップロード", class: "avatar-form__button"
-                / = fa_icon 'picture-o', class: 'fa'
                 パソコンからファイルをアップロード
                 = f.file_field :avatar, class: "avatar-form__hidden"
 

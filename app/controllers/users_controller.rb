@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(profile_params)
       respond_to do |format|
-        format.html { redirect_to edit_user_path }
+        format.html { redirect_to edit_user_path, notice: 'プロフィールを更新しました。' }
         format.json
       end
     else

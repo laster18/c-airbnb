@@ -20,5 +20,5 @@
 secrets.yml
 
 /app/assets/images/*
-uploads/user/*
+uploads/*
 

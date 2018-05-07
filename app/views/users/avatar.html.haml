@@ -33,14 +33,17 @@
               .avatar-frame__background
                 %img{ src: "https://a0.muscache.com/defaults/user_pic-225x225.png?v=3", style: "width: 225px; height: 225px;"}
               .avatar-frame__front
-                %img{ src: "https://a0.muscache.com/defaults/user_pic-225x225.png?v=3", style: "width: 225px; height: 225px;"}
-          .avatar-form
+                %img{ src: current_user.avatar, style: "width: 225px; height: 225px;", id: "current_avatar"}
+          .avatar-form{"data-id": current_user.id }
             %p.avatar-form__info
               正面から撮った鮮明な顔写真は、ホストとゲストが互いを知るうえでとても重要です。風景写真の人をなんの抵抗もなく受け入れられる人は少数派です! 写真は顔がはっきりわかるものを選び、個人情報や、先方のホストやゲストに伏せておきたい情報が写っていないことを確かめましょう。
 
             = form_for current_user do |f|
-              .avatar-form__field
+              = f.label :avatar, class: "avatar-form__field" do
+                / = f.button "パソコンからファイルをアップロード", class: "avatar-form__button"
+                / = fa_icon 'picture-o', class: 'fa'
+                パソコンからファイルをアップロード
                 = f.file_field :avatar, class: "avatar-form__hidden"
-                = f.button "パソコンからファイルをアップロード", class: "avatar-form__button"
+
 
 

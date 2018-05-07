@@ -4,14 +4,25 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(profile_params)
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to edit_user_path }
+        format.json
+      end
     else
       render :edit
     end
   end
 
   def avatar
-    current_user.update(avatar: params[:avatar])
+    @user_id = current_user.id
+  end
+
+  def avatar_upload
+    current_user.updoad(avatar_params)
+    respond_to do |format|
+      format.html { redirect_to root_path}
+      format.json
+    end
   end
 
   private
@@ -21,5 +32,6 @@ class UsersController < ApplicationController
   end
 
   def avatar_params
+    params.require(:user).permit(:avatar)
   end
 end

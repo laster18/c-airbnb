@@ -85,12 +85,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|category_id|references|null: false|
-|building_types_id|references|null: false|
+|room_category_id|references|null: false|
+|building_type_id|references|null: false|
 |bathroom_id|references|null: false|
 |experience_id|references|null: false|
 |deadline_id|references|null: false|
 |currency_id|references|null: falsee|
+
 |room_type|integer|null: false|
 |capacity|integer|null: false|
 |address|text|null: false|
@@ -104,6 +105,7 @@
 |day_fee|integer|null: false|
 |experience|ingeger||
 |frequency|integer||
+
 |child|boolean| default: false|
 |child_not_reason|text||
 |infant|boolean| default: false|

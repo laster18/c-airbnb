@@ -1,128 +1,18 @@
 = render partial: "./header"
 
-.profile-wrapper
-  .profile-body.clearfix
-
-    .profile-menu
-      .p-menu-body
-        %ul.profile-menu-list
-          %li.profile-menu-list__edit
-            %a{href: "#", class: "profile-menu-list__current"}
-              プロフィールを編集
-          %li.profile-menu-list__avatar
-            %a{href: "#"}
-              写真
-          %li.profile-menu-list__trust
-            %a{href: "#"}
-              信頼＆認証確認
-          %li.profile-menu-list__review
-            %a{href: "#"}
-              レビュー
-          %li.profile-menu-list__introduction
-            %a{href: "#"}
-              紹介文
-
-    .profile-main
-
-      .profile-required
-        .profile-required__head
-          .profile-required__title 必須項目
-
-        .required-body
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              名
-            .profile-item__input
-              %input{type: "text"}
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              姓
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                公開用プロフィールにはファーストネームのみ表示されます。予約をリクエストする際、ホストにはフルネームが表示されます
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              性別
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                この情報は解析用です。他ユーザーに共有されることはありません。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              生年月日
-            .profile-item__input
-              .profile-item__input__select
-                %select.month{type: "text"}
-                %select.day{type: "text"}
-                %select.year{type: "text"}
-              %p
-                あなたがこの世に生を受けた記念すべき日。この大切な個人情報は決して外部使用されることはありませんので、ご安心ください。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              メールアドレス
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                メールアドレスが一般のAirbnbユーザーに共有されることはありません。詳細はこちら。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              電話番号
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                この情報は関係者同士の連絡手段。予約確定「後」まで先方のAirbnbユーザーにも秘密です。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              ご希望の言語
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                受け取るメッセージの表示言語です。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              ご希望の通貨
-            .profile-item__input
-              %input{type: "text"}
-              %p
-                受け取るメッセージの表示言語です。
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              現住所
-            .profile-item__input
-              %input{type: "text"}
-
-          .profile-item.clearfix
-            %label.profile-item__text
-              自己紹介
-            .profile-item__input
-              %textarea{type: "text"}
-              %p
-                Airbnbの基本は人間関係です。自分を知ってもらう努力をしましょう。
-                %br
-                %br
-                好きなものを教えてください。これなしでは生きていけないものを5つ挙げるとしたら何ですか？　お気に入りの旅先、本、映画、番組、音楽、食べ物は？　
-                %br
-                %br
-                自分はゲストやホストとしてどうでしょう？　旅のスタイル（こだわり、流儀）、Airbnbでホストする際のスタイルを教えてください。
-                %br
-                %br
-                自分の人柄も知ってもらいましょう。人生のモットーは何ですか？
-
-      %button.profile-send-button{type: "submit"}
-        保存する
-
-
-
-
-
-
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        さあ、#{current_user.first_name}さん!
+        %br
+        お部屋の掲載準備をはじめましょう。
+      .rooms-form-body__head
+        .rooms-form-body__sub
+          ステップ1
+        .rooms-form-body__question
+          掲載するのはどんな部屋ですか？
+      .rooms-form-body__room-type
+      .rooms-form-body__person-capacity
+      .rooms-form-body__address
+      .rooms-form-body__next-button

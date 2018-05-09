@@ -1,0 +1,26 @@
+.rooms-new-main {
+  padding-top: 85px;
+  color: #4d4d4d;
+}
+
+.rooms-form {
+  width: 50%;
+  min-height: 800px;
+  background-color: #fffaf0;
+  margin: 20px 80px;
+}
+
+.rooms-form-body {
+  padding: 30px 35px;
+  &__title {
+    font-size: 30px;
+  }
+  &__sub {
+    color: #c0c0c0;
+    margin-top: 20px;
+  }
+  &__question {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}

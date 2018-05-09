@@ -1,0 +1,2 @@
+class RoomSharedSpace < ApplicationRecord
+end

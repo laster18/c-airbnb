@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509104907) do
+ActiveRecord::Schema.define(version: 20180509105758) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",    null: false
@@ -40,6 +40,24 @@ ActiveRecord::Schema.define(version: 20180509104907) do
     t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "room_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",    null: false
+    t.integer  "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_room_amenities_on_amenity_id", using: :btree
+    t.index ["room_id"], name: "index_room_amenities_on_room_id", using: :btree
+  end
+
+  create_table "room_available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",            null: false
+    t.integer  "available_space_id", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["available_space_id"], name: "index_room_available_spaces_on_available_space_id", using: :btree
+    t.index ["room_id"], name: "index_room_available_spaces_on_room_id", using: :btree
   end
 
   create_table "room_bathrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,6 +99,33 @@ ActiveRecord::Schema.define(version: 20180509104907) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_room_images_on_room_id", using: :btree
+  end
+
+  create_table "room_notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",    null: false
+    t.integer  "notice_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notice_id"], name: "index_room_notices_on_notice_id", using: :btree
+    t.index ["room_id"], name: "index_room_notices_on_room_id", using: :btree
+  end
+
+  create_table "room_requirements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",        null: false
+    t.integer  "requirement_id", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["requirement_id"], name: "index_room_requirements_on_requirement_id", using: :btree
+    t.index ["room_id"], name: "index_room_requirements_on_room_id", using: :btree
+  end
+
+  create_table "room_shared_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",         null: false
+    t.integer  "shared_space_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["room_id"], name: "index_room_shared_spaces_on_room_id", using: :btree
+    t.index ["shared_space_id"], name: "index_room_shared_spaces_on_shared_space_id", using: :btree
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -152,8 +197,18 @@ ActiveRecord::Schema.define(version: 20180509104907) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "room_amenities", "amenities"
+  add_foreign_key "room_amenities", "rooms"
+  add_foreign_key "room_available_spaces", "available_spaces"
+  add_foreign_key "room_available_spaces", "rooms"
   add_foreign_key "room_calendars", "rooms"
   add_foreign_key "room_images", "rooms"
+  add_foreign_key "room_notices", "notices"
+  add_foreign_key "room_notices", "rooms"
+  add_foreign_key "room_requirements", "requirements"
+  add_foreign_key "room_requirements", "rooms"
+  add_foreign_key "room_shared_spaces", "rooms"
+  add_foreign_key "room_shared_spaces", "shared_spaces"
   add_foreign_key "rooms", "currencies"
   add_foreign_key "rooms", "room_bathrooms"
   add_foreign_key "rooms", "room_building_types"

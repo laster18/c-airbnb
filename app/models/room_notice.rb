@@ -1,0 +1,2 @@
+class RoomNotice < ApplicationRecord
+end

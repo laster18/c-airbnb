@@ -103,8 +103,8 @@
 |min_lodging|integer|null: false|
 |max_lodging|integer|null: false|
 |day_fee|integer|null: false|
-|experience|ingeger||
-|frequency|integer||
+|experience|ingeger||/経験
+|frequency|integer||/頻度
 
 |child|boolean| default: false|
 |child_not_reason|text||

@@ -1,0 +1,2 @@
+class RoomBuildingType < ApplicationRecord
+end

@@ -52,7 +52,7 @@
 |country|string|null: false, unique: true|
 
 ### Association
-- has_many :users
+- has_many :users -->
 
 
 ## currenciesテーブル
@@ -62,9 +62,9 @@
 |name|string|null: false, unique: true|
 
 ### Association
-- has_many :users
-- has_many :rooms
- -->
+- has_one :user
+- has_one :room
+
 
 ## hostsテーブル(中間テーブル)
 
@@ -88,11 +88,10 @@
 |room_category_id|references|null: false|
 |building_type_id|references|null: false|
 |bathroom_id|references|null: false|
-|experience_id|references|null: false|
 |deadline_id|references|null: false|
-|currency_id|references|null: falsee|
+|currency_id|references|null: false|
 |room_type|integer|null: false|
-|capacity|integer|null: false|
+|person_capacity|integer|null: false|
 |address|text|null: false|
 |only_for_guest|boolean|null: false|
 |bedroom_number|integer|null: false|
@@ -104,13 +103,13 @@
 |day_fee|integer|null: false|
 |experience|ingeger||/経験
 |frequency|integer||/頻度
-|child|boolean| default: false|
+|child_permission|boolean| default: false|
 |child_not_reason|text||
-|infant|boolean| default: false|
+|infant_permission|boolean| default: false|
 |infant_not_reason|text||
-|pet|boolean| default: false|
-|smoking|boolean| default: false|
-|party|boolean| default: false|
+|pet_permission|boolean| default: false|
+|smoking_permission|boolean| default: false|
+|party_permission|boolean| default: false|
 
 ### Association
 - has_many :users , through: :favorites
@@ -132,8 +131,8 @@
 - has_many :favarites
 - has_many :images
 - has_many :calenders
-- belongs_to :category
-- belongs_to :building_ype
+- belongs_to :room_category
+- belongs_to :building_type
 - belongs_to :bathroom
 - belongs_to :deadline
 - belongs_to :currency

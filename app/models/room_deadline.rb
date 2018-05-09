@@ -1,0 +1,2 @@
+class RoomDeadline < ApplicationRecord
+end

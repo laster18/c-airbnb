@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509105758) do
+ActiveRecord::Schema.define(version: 20180509114219) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",    null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20180509105758) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_hosts_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -129,19 +138,19 @@ ActiveRecord::Schema.define(version: 20180509105758) do
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "room_type"
-    t.integer  "person_capacity"
-    t.text     "address",               limit: 65535
+    t.integer  "room_type",                                           null: false
+    t.integer  "person_capacity",                                     null: false
+    t.text     "address",               limit: 65535,                 null: false
     t.boolean  "only_for_guest",                      default: false
-    t.integer  "bedroom_number"
-    t.integer  "bed_number"
-    t.string   "check_in_from"
-    t.string   "check_in_to"
-    t.integer  "min_lodging"
-    t.integer  "max_lodging"
-    t.integer  "day_fee"
-    t.integer  "experience"
-    t.integer  "frequency"
+    t.integer  "bedroom_number",                                      null: false
+    t.integer  "bed_number",                                          null: false
+    t.string   "check_in_from",                                       null: false
+    t.string   "check_in_to",                                         null: false
+    t.integer  "min_lodging",                                         null: false
+    t.integer  "max_lodging",                                         null: false
+    t.integer  "day_fee",                                             null: false
+    t.integer  "experience",                                          null: false
+    t.integer  "frequency",                                           null: false
     t.boolean  "child_permission",                    default: false
     t.text     "child_not_reason",      limit: 65535
     t.boolean  "infant_permission",                   default: false
@@ -150,10 +159,10 @@ ActiveRecord::Schema.define(version: 20180509105758) do
     t.boolean  "party_permission",                    default: false
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
-    t.integer  "room_category_id"
-    t.integer  "room_building_type_id"
-    t.integer  "room_bathroom_id"
-    t.integer  "room_deadline_id"
+    t.integer  "room_category_id",                                    null: false
+    t.integer  "room_building_type_id",                               null: false
+    t.integer  "room_bathroom_id",                                    null: false
+    t.integer  "room_deadline_id",                                    null: false
     t.integer  "currency_id"
     t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
     t.index ["room_bathroom_id"], name: "index_rooms_on_room_bathroom_id", using: :btree
@@ -197,6 +206,8 @@ ActiveRecord::Schema.define(version: 20180509105758) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "hosts", "rooms"
+  add_foreign_key "hosts", "users"
   add_foreign_key "room_amenities", "amenities"
   add_foreign_key "room_amenities", "rooms"
   add_foreign_key "room_available_spaces", "available_spaces"

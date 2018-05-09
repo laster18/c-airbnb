@@ -1,0 +1,2 @@
+class SharedSpace < ApplicationRecord
+end

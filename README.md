@@ -91,7 +91,6 @@
 |experience_id|references|null: false|
 |deadline_id|references|null: false|
 |currency_id|references|null: falsee|
-
 |room_type|integer|null: false|
 |capacity|integer|null: false|
 |address|text|null: false|
@@ -105,7 +104,6 @@
 |day_fee|integer|null: false|
 |experience|ingeger||/経験
 |frequency|integer||/頻度
-
 |child|boolean| default: false|
 |child_not_reason|text||
 |infant|boolean| default: false|

@@ -22,7 +22,11 @@
                 = link_to destroy_user_session_path, method: :delete do
                   %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                     ログアウト
-
+            %li
+              .nav-i
+                = link_to new_room_path do
+                  %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
+                    ホストを始める
           - else
             %li
               .nav-i.login-show
@@ -32,13 +36,14 @@
               .nav-i.signup-show
                 %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                   アカウント作成
+
+            %li
+              .nav-i.login-show
+                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
+                  ホストを始める
           / ↓共通表示
           %li
             .nav-i
               %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                 ヘルプ
-          %li
-            .nav-i
-              = link_to new_room_path do
-                %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup" => "true", type: "button"}
-                  ホストを始める
+

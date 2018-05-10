@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510020637) do
+ActiveRecord::Schema.define(version: 20180510024042) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",                   null: false
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20180510020637) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.index ["room_id"], name: "index_house_rules_on_room_id", using: :btree
+  end
+
+  create_table "notice_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -131,10 +137,12 @@ ActiveRecord::Schema.define(version: 20180510020637) do
   end
 
   create_table "room_notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "room_id",    null: false
-    t.integer  "notice_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "room_id",               null: false
+    t.integer  "notice_id",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "notice_description_id"
+    t.index ["notice_description_id"], name: "index_room_notices_on_notice_description_id", using: :btree
     t.index ["notice_id"], name: "index_room_notices_on_notice_id", using: :btree
     t.index ["room_id"], name: "index_room_notices_on_room_id", using: :btree
   end
@@ -256,6 +264,7 @@ ActiveRecord::Schema.define(version: 20180510020637) do
   add_foreign_key "room_available_spaces", "rooms"
   add_foreign_key "room_calendars", "rooms"
   add_foreign_key "room_images", "rooms"
+  add_foreign_key "room_notices", "notice_descriptions"
   add_foreign_key "room_notices", "notices"
   add_foreign_key "room_notices", "rooms"
   add_foreign_key "room_recommendations", "recommendations"

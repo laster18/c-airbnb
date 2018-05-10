@@ -25,6 +25,7 @@ class Room < ApplicationRecord
   belongs_to :room_building_type
   belongs_to :room_bathroom
   belongs_to :room_deadline
+  belongs_to :user
 
   # enum管理
 

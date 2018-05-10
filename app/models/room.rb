@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  # アソシエーション
   has_many :shared_spaces, through: :room_shared_spaces
   has_many :room_shared_spaces
   has_many :amenities, through: :room_amenities
@@ -25,4 +26,7 @@ class Room < ApplicationRecord
   belongs_to :room_bathroom
   belongs_to :room_deadline
 
+  # enum管理
+
+  enum room_type: { entire_home: 0, private_room: 1, shared_room: 2 }
 end

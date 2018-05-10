@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510024042) do
+ActiveRecord::Schema.define(version: 20180510102338) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",                   null: false
@@ -184,27 +184,32 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "room_type",                                           null: false
-    t.integer  "person_capacity",                                     null: false
-    t.text     "address",               limit: 65535,                 null: false
-    t.boolean  "only_for_guest",                      default: false
-    t.integer  "bedroom_number",                                      null: false
-    t.integer  "bed_number",                                          null: false
-    t.string   "check_in_from",                                       null: false
-    t.string   "check_in_to",                                         null: false
-    t.integer  "min_lodging",                                         null: false
-    t.integer  "max_lodging",                                         null: false
-    t.integer  "day_fee",                                             null: false
-    t.integer  "experience",                                          null: false
-    t.integer  "frequency",                                           null: false
-    t.string   "title",                                               null: false
-    t.text     "overview",              limit: 65535,                 null: false
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.integer  "room_category_id",                                    null: false
-    t.integer  "room_building_type_id",                               null: false
-    t.integer  "room_bathroom_id",                                    null: false
-    t.integer  "room_deadline_id",                                    null: false
+    t.integer  "room_type"
+    t.integer  "person_capacity"
+    t.boolean  "only_for_guest"
+    t.integer  "bedroom_number"
+    t.integer  "bed_number"
+    t.string   "check_in_from"
+    t.string   "check_in_to"
+    t.integer  "min_lodging"
+    t.integer  "max_lodging"
+    t.integer  "day_fee"
+    t.integer  "experience"
+    t.integer  "frequency"
+    t.string   "title"
+    t.text     "overview",              limit: 65535
+    t.string   "country"
+    t.integer  "zipcode"
+    t.text     "state",                 limit: 65535
+    t.text     "city",                  limit: 65535
+    t.text     "street",                limit: 65535
+    t.text     "apartment",             limit: 65535
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "room_category_id"
+    t.integer  "room_building_type_id"
+    t.integer  "room_bathroom_id"
+    t.integer  "room_deadline_id"
     t.integer  "currency_id"
     t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
     t.index ["room_bathroom_id"], name: "index_rooms_on_room_bathroom_id", using: :btree

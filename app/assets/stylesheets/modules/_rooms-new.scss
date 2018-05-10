@@ -1,5 +1,27 @@
+.host-header {
+  height: 65px;
+  border-bottom: 3px solid #cccccc;
+}
+
+.host-header-body {
+  &__logo {
+    float: left;
+    padding: 0 16px;
+    border-right: 1px solid #cccccc;
+  }
+  &__image {
+    padding-top: 4px;
+  }
+  &__step {
+    line-height: 65px;
+    float: left;
+    font-size: 20px;
+    padding-left: 15px;
+    color: #999999;
+  }
+}
+
 .rooms-new-main {
-  padding-top: 85px;
   color: #4d4d4d;
 }
 

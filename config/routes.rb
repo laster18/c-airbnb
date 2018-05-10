@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'rooms#index'
-  resources :rooms, only: [:index, :show, :new, :create]
+  resources :rooms, only: [:index, :show, :new, :create] do
+    collection do
+      get 'room'
+      post 'bedrooms'
+      post 'location'
+    end
+  end
   resources :users, only: [:edit, :update] do
     collection do
       get 'avatar'
+      get 'room'
+      post 'bedrooms'
+      post 'location'
     end
   end
 end

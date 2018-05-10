@@ -1,0 +1,2 @@
+class SafetyAmenity < ApplicationRecord
+end

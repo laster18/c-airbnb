@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509114219) do
+ActiveRecord::Schema.define(version: 20180510020637) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "content",                   null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,8 +40,27 @@ ActiveRecord::Schema.define(version: 20180509114219) do
     t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
+  create_table "house_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "child_permission",                default: false
+    t.text     "child_not_reason",  limit: 65535
+    t.boolean  "infant_permission",               default: false
+    t.text     "infant_not_reason", limit: 65535
+    t.boolean  "pet_permission",                  default: false
+    t.boolean  "party_permission",                default: false
+    t.integer  "room_id",                                         null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.index ["room_id"], name: "index_house_rules_on_room_id", using: :btree
+  end
+
   create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recommendations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,6 +139,15 @@ ActiveRecord::Schema.define(version: 20180509114219) do
     t.index ["room_id"], name: "index_room_notices_on_room_id", using: :btree
   end
 
+  create_table "room_recommendations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",           null: false
+    t.integer  "recommendation_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["recommendation_id"], name: "index_room_recommendations_on_recommendation_id", using: :btree
+    t.index ["room_id"], name: "index_room_recommendations_on_room_id", using: :btree
+  end
+
   create_table "room_requirements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "room_id",        null: false
     t.integer  "requirement_id", null: false
@@ -126,6 +155,15 @@ ActiveRecord::Schema.define(version: 20180509114219) do
     t.datetime "updated_at",     null: false
     t.index ["requirement_id"], name: "index_room_requirements_on_requirement_id", using: :btree
     t.index ["room_id"], name: "index_room_requirements_on_room_id", using: :btree
+  end
+
+  create_table "room_safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",           null: false
+    t.integer  "safety_amenity_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["room_id"], name: "index_room_safety_amenities_on_room_id", using: :btree
+    t.index ["safety_amenity_id"], name: "index_room_safety_amenities_on_safety_amenity_id", using: :btree
   end
 
   create_table "room_shared_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -151,12 +189,8 @@ ActiveRecord::Schema.define(version: 20180509114219) do
     t.integer  "day_fee",                                             null: false
     t.integer  "experience",                                          null: false
     t.integer  "frequency",                                           null: false
-    t.boolean  "child_permission",                    default: false
-    t.text     "child_not_reason",      limit: 65535
-    t.boolean  "infant_permission",                   default: false
-    t.text     "infant_not_reason",     limit: 65535
-    t.boolean  "pet_permission",                      default: false
-    t.boolean  "party_permission",                    default: false
+    t.string   "title",                                               null: false
+    t.text     "overview",              limit: 65535,                 null: false
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.integer  "room_category_id",                                    null: false
@@ -169,6 +203,13 @@ ActiveRecord::Schema.define(version: 20180509114219) do
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree
     t.index ["room_category_id"], name: "index_rooms_on_room_category_id", using: :btree
     t.index ["room_deadline_id"], name: "index_rooms_on_room_deadline_id", using: :btree
+  end
+
+  create_table "safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content",                   null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "shared_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -208,6 +249,7 @@ ActiveRecord::Schema.define(version: 20180509114219) do
 
   add_foreign_key "hosts", "rooms"
   add_foreign_key "hosts", "users"
+  add_foreign_key "house_rules", "rooms"
   add_foreign_key "room_amenities", "amenities"
   add_foreign_key "room_amenities", "rooms"
   add_foreign_key "room_available_spaces", "available_spaces"
@@ -216,8 +258,12 @@ ActiveRecord::Schema.define(version: 20180509114219) do
   add_foreign_key "room_images", "rooms"
   add_foreign_key "room_notices", "notices"
   add_foreign_key "room_notices", "rooms"
+  add_foreign_key "room_recommendations", "recommendations"
+  add_foreign_key "room_recommendations", "rooms"
   add_foreign_key "room_requirements", "requirements"
   add_foreign_key "room_requirements", "rooms"
+  add_foreign_key "room_safety_amenities", "rooms"
+  add_foreign_key "room_safety_amenities", "safety_amenities"
   add_foreign_key "room_shared_spaces", "rooms"
   add_foreign_key "room_shared_spaces", "shared_spaces"
   add_foreign_key "rooms", "currencies"

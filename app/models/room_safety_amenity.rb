@@ -1,0 +1,2 @@
+class RoomSafetyAmenity < ApplicationRecord
+end

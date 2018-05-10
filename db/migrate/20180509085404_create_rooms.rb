@@ -14,12 +14,8 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.integer :day_fee, null: false
       t.integer :experience, null: false
       t.integer :frequency, null: false
-      t.boolean :child_permission, default: false
-      t.text :child_not_reason
-      t.boolean :infant_permission, default: false
-      t.text :infant_not_reason
-      t.boolean :pet_permission, default: false
-      t.boolean :party_permission, default: false
+      t.string :title, null: false
+      t.text :overview, null: false
       t.timestamps
     end
   end

@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "frequency"
     t.string   "title"
     t.text     "overview",              limit: 65535
-    t.string   "country"
+    t.integer  "country"
     t.integer  "zipcode"
     t.text     "state",                 limit: 65535
     t.text     "city",                  limit: 65535

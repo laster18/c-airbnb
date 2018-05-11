@@ -16,7 +16,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.integer :frequency
       t.string :title
       t.text :overview
-      t.string :country
+      t.integer :country
       t.integer :zipcode
       t.text :state
       t.text :city

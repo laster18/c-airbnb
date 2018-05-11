@@ -75,13 +75,32 @@ class RoomsController < ApplicationController
       @room.amenity_ids = @amenity_ids
       @room.safety_amenity_ids = @safety_amenity_ids
       @room.available_space_ids = params[:room][:available_space_ids]
-      redirect_to review_room_path(@room)
+      redirect_to room_review_room_path(@room)
     else
       redirect_to :index
     end
   end
 
   def room_review
+    @room = Room.find(params[:id])
+  end
+
+  def photos
+    @room = Room.find(params[:id])
+    @room_image = @room.room_images.new
+  end
+
+  def photos_create
+    @room_image = RoomImage.new(image_params)
+    binding.pry
+    if @room_image.save
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      render :photos_create
+    end
   end
 
   private
@@ -107,6 +126,10 @@ class RoomsController < ApplicationController
     @amenity_ids = session[:amenity_ids]
     @safety_amenity_ids = session[:safety_amenity_ids]
     @available_space_ids = session[:available_space_ids]
+  end
+
+  def image_params
+    params.require(:room_image).permit(:image).merge(room_id: params[:id])
   end
 
 end

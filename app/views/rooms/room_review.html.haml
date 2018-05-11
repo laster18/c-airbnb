@@ -1,0 +1,28 @@
+= render partial: "./header"
+
+.rooms-review-back
+  .rooms-review-main
+    .rooms-review-body
+      .rooms-review-body__title
+        だいぶはかどりましたね、#{current_user.first_name}さん！
+      .rooms-review-body__sub-title
+        さあ、今度はリスティング掲載用にお部屋の詳しい説明を書きましょう。
+
+      .review-step1
+        .review-step1__text
+          ステップ1
+          %br
+          ベッド数、バスルーム数、アメニティなど
+        = link_to "", class: "review-step1__link" do
+          変更する
+
+      .review-step2
+        .review-step2__text
+          ステップ2
+          %br
+          次に特徴をPR
+          %br
+          写真、概要、タイトル
+
+        = link_to photos_room_path(@room), class: "review-step2__link" do
+          変更する

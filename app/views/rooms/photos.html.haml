@@ -1,0 +1,14 @@
+= render partial: "step2-header"
+
+.photos-back
+  .photos-main
+    .photos-body
+      .photos-body__title
+        お部屋の様子を写真で旅行者に紹介しよう
+
+      = form_for [@room, @room_image], url: { controllers: :rooms, action: :photos_create } do |f|
+        .photos-form
+          .photos-frame
+            = f.label :image, class: "photos-frame__field" do
+              写真をアップロード
+              = f.file_field :image, class: "photos-frame__hidden"

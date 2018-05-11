@@ -1,0 +1,53 @@
+.photos-back {
+
+}
+
+.photos-main {
+  padding: 25px 70px;
+}
+
+.photos-body {
+  &__title {
+    font-size: 28px;
+    border-radius: 6px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+ }
+
+.photos-form {
+  border: 2px dashed #bbb;
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+.photos-frame {
+  width: 180px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+   &__field {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin: auto auto;
+    border-color: #ff7e82;
+    background-color: #ff7e82;
+    color: #fff;
+    text-align: center;
+    line-height: 70px;
+    margin: 0 auto;
+  }
+  &__hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.rooms-review-back {
+  padding-top: 85px;
+}
+
+.rooms-review-main {
+  width: 60%;
+  min-height: 800px;
+  background-color: #fffaf0;
+  margin: 20px 80px;
+}
+
+.rooms-review-body {
+  padding: 35px 45px;
+  &__title {
+    font-size: 30px;
+  }
+  &__sub-title {
+    color: #c0c0c0;
+    margin-top: 20px;
+  }
+}

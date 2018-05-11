@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get 'location'
       get 'amenities'
       get 'spaces'
+      get 'photos'
+      post 'photos_create'
     end
   end
   resources :users, only: [:edit, :update] do

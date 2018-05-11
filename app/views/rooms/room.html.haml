@@ -20,16 +20,16 @@
           掲載するのはどんな部屋ですか？
 
       = form_for @rooms, url: { controllers: :rooms, action: :bedrooms } do |f|
-        .rooms-form-body__room-type
+        .rooms-form-body__category
           = f.label :まずカテゴリを絞りましょう
           = f.collection_select :room_category_id, RoomCategory.all, :id, :name
-        .rooms-form-body__person-capacity
+        .rooms-form-body__building-type
           = f.label :次に建物タイプを選んでください
           = f.collection_select :room_building_type_id, RoomBuildingType.all, :id, :name
-        .rooms-form-body__address
+        .rooms-form-body__room-type
           = f.label :部屋タイプは？
           = f.select :room_type, Room.room_types.keys.to_a, {}
-        .rooms-form-body__next-button
+        .rooms-form-body__guest-only
           = f.label :こちらはゲスト専用の部屋ですか？
           %label
             = f.radio_button :only_for_guest, "true"
@@ -39,5 +39,5 @@
             いいえ、こちらに私物も置いています
 
         .pagenate
-          .pagenate__next
+          .pagenate__next-button
             = f.button "次へ", type: "submit"

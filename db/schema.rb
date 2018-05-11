@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510102338) do
+ActiveRecord::Schema.define(version: 20180510024042) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",                   null: false
@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 20180510102338) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "room_id",    null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_hosts_on_room_id", using: :btree
-    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
   create_table "house_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -210,12 +201,14 @@ ActiveRecord::Schema.define(version: 20180510102338) do
     t.integer  "room_building_type_id"
     t.integer  "room_bathroom_id"
     t.integer  "room_deadline_id"
+    t.integer  "user_id",                             null: false
     t.integer  "currency_id"
     t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
     t.index ["room_bathroom_id"], name: "index_rooms_on_room_bathroom_id", using: :btree
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree
     t.index ["room_category_id"], name: "index_rooms_on_room_category_id", using: :btree
     t.index ["room_deadline_id"], name: "index_rooms_on_room_deadline_id", using: :btree
+    t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
   end
 
   create_table "safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -260,8 +253,6 @@ ActiveRecord::Schema.define(version: 20180510102338) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "hosts", "rooms"
-  add_foreign_key "hosts", "users"
   add_foreign_key "house_rules", "rooms"
   add_foreign_key "room_amenities", "amenities"
   add_foreign_key "room_amenities", "rooms"
@@ -285,4 +276,5 @@ ActiveRecord::Schema.define(version: 20180510102338) do
   add_foreign_key "rooms", "room_building_types"
   add_foreign_key "rooms", "room_categories"
   add_foreign_key "rooms", "room_deadlines"
+  add_foreign_key "rooms", "users"
 end

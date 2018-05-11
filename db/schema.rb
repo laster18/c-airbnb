@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.boolean  "only_for_guest"
     t.integer  "bedroom_number"
     t.integer  "bed_number"
+    t.integer  "bathroom_number"
     t.string   "check_in_from"
     t.string   "check_in_to"
     t.integer  "min_lodging"

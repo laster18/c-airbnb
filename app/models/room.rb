@@ -20,14 +20,15 @@ class Room < ApplicationRecord
   has_many :room_images
 
   has_one :house_rule
+  has_one :room_bathroom
 
   belongs_to :room_category
   belongs_to :room_building_type
-  belongs_to :room_bathroom
   belongs_to :room_deadline
   belongs_to :user
 
   # enum管理
 
   enum room_type: { entire_home: 0, private_room: 1, shared_room: 2 }
+  enum country: { japan: 0, America: 1, China: 2 }
 end

@@ -1,0 +1,17 @@
+= render partial: 'step1-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        ゲストが利用可能なスペースは?
+
+      = form_for @room, url: { controllers: :rooms, action: :first_step_finish } do |f|
+        .shared-spaces
+          = fields_for :available_spaces do |ff|
+            = collection_check_boxes(:room, :available_space_ids, AvailableSpace.all, :id, :content) do |b|
+              = b.label { b.check_box + b.text }
+
+        .pagenate
+          .pagenate__next-button
+            = f.button "完了", type: "submit"

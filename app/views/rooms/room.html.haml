@@ -1,10 +1,4 @@
-.host-header
-  .host-header-body.clearfix
-    .host-header-body__logo.clearfix
-      = link_to "#" do
-        %img{src: "http://airbnb-info.com/wp/wp-content/uploads/2014/08/image5.jpg", style: "height: 54px;", class: "host-header-body__image"}
-    %span.host-header-body__step.clearfix
-      ステップ1: 最初は基本情報から
+= render partial: 'step1-header'
 
 .rooms-new-main
   .rooms-form
@@ -19,7 +13,7 @@
         .rooms-form-body__question
           掲載するのはどんな部屋ですか？
 
-      = form_for @rooms, url: { controllers: :rooms, action: :bedrooms } do |f|
+      = form_for @room, url: { controllers: :rooms, action: :bedrooms } do |f|
         .rooms-form-body__category
           = f.label :まずカテゴリを絞りましょう
           = f.collection_select :room_category_id, RoomCategory.all, :id, :name

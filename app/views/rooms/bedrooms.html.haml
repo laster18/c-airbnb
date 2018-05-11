@@ -1,21 +1,15 @@
-.host-header
-  .host-header-body.clearfix
-    .host-header-body__logo.clearfix
-      = link_to "#" do
-        %img{src: "http://airbnb-info.com/wp/wp-content/uploads/2014/08/image5.jpg", style: "height: 54px;", class: "host-header-body__image"}
-    %span.host-header-body__step.clearfix
-      ステップ1: 最初は基本情報から
+= render partial: 'step1-header'
 
 .rooms-new-main
   .rooms-form
     .rooms-form-body
       .rooms-form-body__title
         最大何人まで宿泊可能ですか?
-      = form_for @rooms, url: { controllers: :rooms, action: :bathrooms } do |f|
+      = form_for @room, url: { controllers: :rooms, action: :bathrooms } do |f|
         .capacity-count
           = f.label :定員, class: "capacity-count__info"
           = f.text_field :person_capacity, class: "capacity-count__input", value: "1", tabindex: "1"
-          .bed-count__button
+          .capacity-count__button
             = f.button "+", type: "button", class: "capacity-count__spinner-up"
             = f.button "−", type: "button", class: "capacity-count__spinner-down"
 
@@ -37,8 +31,3 @@
         .pagenate
           .pagenate__next-button
             = f.button "次へ", type: "submit"
-
-
-
-
-/ = f.text_field :capacity, class: "capacity_count", value: "1"

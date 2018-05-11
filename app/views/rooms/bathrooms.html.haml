@@ -1,0 +1,18 @@
+= render partial: 'step1-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        バスルームの数
+
+      = form_for @room, url: { controllers: :rooms, action: :location } do |f|
+        .bathroom-count
+          = f.label :バスルームの数, class: "bathroom-count__info"
+          = f.button "+", type: "button", class: "bathroom-count__spinner-up"
+          = f.text_field :bathroom_number, class: "bathroom-count__input", value: "1", tabindex: "1"
+          = f.button "−", type: "button", class: "bathroom-count__spinner-down"
+
+        .pagenate
+          .pagenate__next-button
+            = f.button "次へ", type: "submit"

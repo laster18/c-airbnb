@@ -1,3 +1,3 @@
 class RoomBathroom < ApplicationRecord
-  has_many :rooms
+  belongs_to :rooms
 end

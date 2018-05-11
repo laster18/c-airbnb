@@ -1,0 +1,23 @@
+= render partial: 'step1-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        ご用意するアメニティ・設備は?
+
+      = form_for @room, url: { controlllers: :rooms, action: :spaces } do |f|
+        .amenities
+          = fields_for :amenities do |ff|
+            = collection_check_boxes(:room, :amenity_ids, Amenity.all, :id, :content) do |b|
+              = b.label { b.check_box + b.text }
+
+        .safety_amenities
+          %p 安全対策アメニティ
+          = fields_for :safety_amenities do |fff|
+            = collection_check_boxes(:room, :safety_amenity_ids, SafetyAmenity.all, :id, :content) do |bb|
+              = bb.label { bb.check_box + bb.text }
+
+        .pagenate
+          .pagenate__next-button
+            = f.button "次へ", type: "submit"

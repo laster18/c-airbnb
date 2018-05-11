@@ -1,0 +1,43 @@
+= render partial: 'step1-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        所在地は？
+      = form_for @room, url: { controllers: :rooms, action: :amenities } do |f|
+        .location
+          .location-county
+            .location-country__info
+              国/地域
+            .location-country__form
+              = f.select :country, Room.countries.keys.to_a, {}
+          .location-postal-code
+            .location-postal-code__info
+              郵便番号
+            .location-postal-code__form
+              = f.text_field :zipcode, class: "location-postal-code__input"
+          .location-state
+            .location-state__info
+              都道府県(例: Tokyo)
+            .location-state__form
+              = f.text_field :state, class: "location-state__input"
+          .location-city
+            .location-city__info
+              市区町村(例: Minato-ku)
+            .location-city__form
+              = f.text_field :city, class: "location-city__input"
+          .location-street
+            .location-street__info
+              所番地(例: 1-1-1 Roppongi)※数字は半角
+            .location-street__form
+              = f.text_field :street, class: "location-street__input"
+          .location-apartment
+            .location-apartment__info
+              アパート名、部屋番号(任意)
+            .location-apartment__form
+              = f.text_field :apartment, class: "location-apartment__input"
+
+        .pagenate
+          .pagenate__next-button
+            = f.button "次へ", type: "submit"

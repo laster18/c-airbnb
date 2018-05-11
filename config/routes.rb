@@ -8,15 +8,18 @@ Rails.application.routes.draw do
     collection do
       get 'room'
       post 'bedrooms'
+      get 'bedrooms'
+      post 'bathrooms'
+      get 'bathrooms'
       post 'location'
+      get 'location'
+      post 'amenities'
+      get 'amenities'
     end
   end
   resources :users, only: [:edit, :update] do
     collection do
       get 'avatar'
-      get 'room'
-      post 'bedrooms'
-      post 'location'
     end
   end
 end

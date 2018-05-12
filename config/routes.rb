@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'has_rooms_list'
     end
     member do
+      get 'room_type'
       get 'confirmation'
       get 'bedrooms'
       get 'bathrooms'
@@ -29,6 +30,12 @@ Rails.application.routes.draw do
       patch 'title'
       patch 'second_step_finish'
       get 'calendar'
+      patch 'bedrooms'
+      patch 'bathrooms'
+      patch 'location'
+      patch 'amenities'
+      patch 'spaces'
+      patch 'first_step_finish'
     end
   end
 

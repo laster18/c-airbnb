@@ -13,7 +13,7 @@
           ステップ1
           %br
           ベッド数、バスルーム数、アメニティなど
-        = link_to "", class: "review-step1__link" do
+        = link_to room_type_room_path(@room), class: "review-step1__link" do
           変更する
 
       .review-step2
@@ -34,6 +34,6 @@
           予約準備を整えてフィニッシュ！
           %br
           予約受付設定、カレンダー、料金
-
+          
         = link_to photos_room_path(@room), class: "review-step2__link" do
           変更する

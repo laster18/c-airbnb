@@ -2,6 +2,10 @@ class RoomsController < ApplicationController
 
   before_action :set_room, only: [ :room_type, :bedrooms, :bathrooms, :location, :amenities, :spaces, :confirmation, :photos, :description, :title, :second_step_finish]
 
+  before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
+
+  before_action :second_step_update, only: [ :title, :second_step_finish]
+
   def index
   end
 
@@ -53,33 +57,22 @@ class RoomsController < ApplicationController
   end
 
   def first_step_finish
-    set_sessions_first
-    @room = Room.new(
-      user_id: current_user.id,
-      room_category_id: @room_category_id,
-      room_building_type_id: @room_building_type_id,
-      room_type: @room_type,
-      only_for_guest: @only_for_guest,
-      person_capacity: @person_capacity,
-      bedroom_number: @bedroom_number,
-      bed_number: @bed_number,
-      bathroom_number: @bathroom_number,
-      country: @country,
-      zipcode: @zipcode,
-      state: @state,
-      city: @city,
-      street: @street,
-      apartment: @apartment,
-    )
-    if current_user.id == @room.user_id
+    if params[:id]
+      @room = Room.find(params[:id])
+      first_step_update
+    else
+      set_sessions_first
+      @room = new_room
+      if current_user.id == @room.user_id
       @room.save
       @room.amenity_ids = @amenity_ids
       @room.safety_amenity_ids = @safety_amenity_ids
       @room.available_space_ids = params[:room][:available_space_ids]
-      redirect_to confirmation_room_path(@room)
-    else
-      redirect_to :index
+      else
+        redirect_to :index
+      end
     end
+    redirect_to confirmation_room_path(@room)
   end
 
   def confirmation
@@ -105,19 +98,11 @@ class RoomsController < ApplicationController
   end
 
   def title
-    session[:overview] = params[:room][:overview]
-    session[:recommendation_ids] = params[:room][:recommendation_ids]
+    @room.recommendation_ids = params[:room][:recommendation_ids]
   end
 
   def second_step_finish
-    set_sessions_second
-    if current_user.id == @room.user_id
-      @room.update(overview: @overview, title: params[:room][:title])
-      @room.recommendation_ids = @recommendation_ids
-      redirect_to confirmation_room_path(@room)
-    else
-      redirect_to :index
-    end
+    redirect_to confirmation_room_path(@room) 
   end
 
   def calendar
@@ -151,6 +136,42 @@ class RoomsController < ApplicationController
     @amenity_ids = session[:amenity_ids]
     @safety_amenity_ids = session[:safety_amenity_ids]
     @available_space_ids = session[:available_space_ids]
+  end
+
+  def new_room
+    Room.new(
+      user_id: current_user.id,
+      room_category_id: @room_category_id,
+      room_building_type_id: @room_building_type_id,
+      room_type: @room_type,
+      only_for_guest: @only_for_guest,
+      person_capacity: @person_capacity,
+      bedroom_number: @bedroom_number,
+      bed_number: @bed_number,
+      bathroom_number: @bathroom_number,
+      country: @country,
+      zipcode: @zipcode,
+      state: @state,
+      city: @city,
+      street: @street,
+      apartment: @apartment,
+    )
+  end
+
+  def first_step_update
+    @room.update(first_step_update_params) if params[:id]
+  end
+
+  def second_step_update
+    @room.update(second_step_update_params)
+  end
+
+  def first_step_update_params
+    params.require(:room).permit(:room_category_id, :room_building_type_id, :room_type, :only_for_guest, :person_capacity, :bedroom_number, :bed_number, :bathroom_number, :country, :zipcode, :state, :city, :street, :apartment, amenity_ids: [], safety_amenity_ids: [], available_space_ids: [])
+  end
+
+  def second_step_update_params
+    params.require(:room).permit(:overview, :title)
   end
 
   def set_sessions_second

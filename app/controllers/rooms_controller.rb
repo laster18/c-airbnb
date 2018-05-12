@@ -64,10 +64,10 @@ class RoomsController < ApplicationController
       set_sessions_first
       @room = new_room
       if current_user.id == @room.user_id
-      @room.save
-      @room.amenity_ids = @amenity_ids
-      @room.safety_amenity_ids = @safety_amenity_ids
-      @room.available_space_ids = params[:room][:available_space_ids]
+        @room.save
+        @room.amenity_ids = @amenity_ids
+        @room.safety_amenity_ids = @safety_amenity_ids
+        @room.available_space_ids = params[:room][:available_space_ids]
       else
         redirect_to :index
       end
@@ -111,11 +111,7 @@ class RoomsController < ApplicationController
   private
 
   def set_room
-    if params[:id].present?
-      @room = Room.find(params[:id])
-    else
-      @room = Room.new
-    end
+    params[:id].present? ? @room = Room.find(params[:id]) : @room = Room.new
   end
 
   def set_sessions_first

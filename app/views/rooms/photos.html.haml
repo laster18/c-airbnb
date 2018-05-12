@@ -12,3 +12,12 @@
             = f.label :image, class: "photos-frame__field" do
               写真をアップロード
               = f.file_field :image, class: "photos-frame__hidden"
+
+        .add-photos.photos-form-hidden
+          .add-photos__first
+          .add-photos__more
+
+        .pagenate
+          .pagenate__next-button
+            = link_to '次へ', introduction_room_path(@room)
+

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if current_user.update(profile_params)
       respond_to do |format|
         format.html { redirect_to edit_user_path, notice: 'プロフィールを更新しました。' }

@@ -17,6 +17,9 @@ class RoomsController < ApplicationController
   def room
   end
 
+  def has_rooms_list
+  end
+
   def bedrooms
     session[:room_category_id] = params[:room][:room_category_id]
     session[:room_building_type_id] = params[:room][:room_building_type_id]
@@ -92,7 +95,6 @@ class RoomsController < ApplicationController
 
   def photos_create
     @room_image = RoomImage.new(image_params)
-    binding.pry
     if @room_image.save
       respond_to do |format|
         format.html
@@ -101,6 +103,10 @@ class RoomsController < ApplicationController
     else
       render :photos_create
     end
+  end
+
+  def introduction
+
   end
 
   private

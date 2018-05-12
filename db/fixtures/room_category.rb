@@ -1,29 +1,8 @@
-RoomCategory.seed do |s|
-  s.id = 1
-  s.name = "マンション・アパート"
-end
-
-RoomCategory.seed do |s|
-  s.id = 2
-  s.name = "住宅"
-end
-
-RoomCategory.seed do |s|
-  s.id = 3
-  s.name = "サブユニット"
-end
-
-RoomCategory.seed do |s|
-  s.id = 4
-  s.name = "ユニークな施設"
-end
-
-RoomCategory.seed do |s|
-  s.id = 5
-  s.name = "B&B"
-end
-
-RoomCategory.seed do |s|
-  s.id = 6
-  s.name = "デザイナーズホテルその他"
-end
+RoomCategory.seed(:id,
+  { id: 1, name: "マンション・アパート" },
+  { id: 2, name: "住宅" },
+  { id: 3, name: "サブユニット" },
+  { id: 4, name: "ユニークな施設" },
+  { id: 5, name: "B&B" },
+  { id: 6, name: "デザイナーズホテルその他" }
+)

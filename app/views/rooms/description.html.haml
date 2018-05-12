@@ -1,0 +1,27 @@
+= render partial: "step2-header"
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        説明文を編集する
+
+      = form_for @room, url: { controllers: :rooms, action: :title } do |f|
+        .rooms-introduction
+          .rooms-introduction__info
+            概要
+          .rooms-introduction__input-form
+            = f.text_area :overview, class: "rooms-introduction__input"
+
+        .rooms-match-person
+          .rooms-match-person__info
+            こんな旅にぴったりの宿です
+
+          .rooms-math-person__list
+            = fields_for :recommendations do |ff|
+              = collection_check_boxes(:room, :recommendation_ids, Recommendation.all, :id, :content) do |b|
+                = b.label { b.check_box + b.text }
+
+        .pagenate
+          .pagenate__next-button
+            = f.button "次へ", type: "submit"

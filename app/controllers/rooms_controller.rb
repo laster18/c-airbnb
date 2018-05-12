@@ -45,13 +45,11 @@ class RoomsController < ApplicationController
     session[:street] = params[:room][:street]
     session[:apartment] = params[:room][:apartment]
     @amenities = @room.amenities.new
-    # @amenities = Amenity.all
   end
 
   def spaces
     session[:amenity_ids] = params[:room][:amenity_ids]
     session[:safety_amenity_ids] = params[:room][:safety_amenity_ids]
-    # @available_spaces = @room.available_spaces.new
   end
 
   def first_step_finish
@@ -84,6 +82,10 @@ class RoomsController < ApplicationController
     end
   end
 
+  def second_step_finish
+
+  end
+
   def room_review
     @room = Room.find(params[:id])
   end
@@ -107,6 +109,12 @@ class RoomsController < ApplicationController
 
   def description
     @room = Room.find(params[:id])
+  end
+
+  def title
+    @room = Room.find(params[:id])
+    session[:overview] = params[:room][:overview]
+    session[:recommendation_ids] = params[:room][:recommendation_ids]
   end
 
   private

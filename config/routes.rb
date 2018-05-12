@@ -24,7 +24,8 @@ Rails.application.routes.draw do
       get 'spaces'
       get 'photos'
       post 'photos_create'
-      get 'introduction'
+      get 'description'
+      post 'title'
     end
   end
   resources :users, only: [:edit, :update] do

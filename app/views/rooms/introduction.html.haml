@@ -1,2 +1,9 @@
 = render partial: "step2-header"
 
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      .rooms-form-body__title
+        説明文を編集する
+
+      = form_for @room, url: { controllers: :rooms, action: :location } do |f|

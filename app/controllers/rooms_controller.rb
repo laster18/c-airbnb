@@ -105,8 +105,8 @@ class RoomsController < ApplicationController
     end
   end
 
-  def introduction
-
+  def description
+    @room = Room.find(params[:id])
   end
 
   private

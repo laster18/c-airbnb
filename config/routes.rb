@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:index, :show, :new, :create] do
     collection do
-      get 'room'
+      get 'room_type'
       post 'bedrooms'
       post 'bathrooms'
       post 'location'

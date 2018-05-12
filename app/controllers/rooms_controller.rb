@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
 
-  before_action :set_room, only: [ :room, :bedrooms, :bathrooms, :location, :amenities, :spaces, :confirmation, :photos, :description, :title, :second_step_finish]
+  before_action :set_room, only: [ :room_type, :bedrooms, :bathrooms, :location, :amenities, :spaces, :confirmation, :photos, :description, :title, :second_step_finish]
 
   def index
   end
@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   def create
   end
 
-  def room
+  def room_type
   end
 
   def has_rooms_list
@@ -54,7 +54,6 @@ class RoomsController < ApplicationController
 
   def first_step_finish
     set_sessions_first
-    binding.pry
     @room = Room.new(
       user_id: current_user.id,
       room_category_id: @room_category_id,

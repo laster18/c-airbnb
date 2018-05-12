@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post 'amenities'
       post 'spaces'
       post 'first_step_finish'
+      get 'has_rooms_list'
     end
     member do
       get 'room_review'

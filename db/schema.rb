@@ -234,7 +234,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "birthday_month",                                    null: false
     t.integer  "birthday_day",                                      null: false
     t.integer  "birthday_year",                                     null: false
-    t.string   "gender"
+    t.integer  "gender"
     t.string   "native_currency"
     t.string   "preferred_locale"
     t.integer  "tel_number"

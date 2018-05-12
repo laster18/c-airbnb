@@ -15,7 +15,7 @@
 |birthday_day|integer|null: false|(not update)
 |birthday_year|integer|null: false|(not update)
 |email|string|null: false, unique: true|
-|gender|string||
+|gender|integer||
 |native_currency|string||
 |preferred_locale|string||
 |tel_number|integer||

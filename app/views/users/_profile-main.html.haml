@@ -21,7 +21,7 @@
         =f.label :性別, class: "profile-item__text", autofocus: true
         .profile-item__input
           .profile-item__input__select
-            = f.select :gender, [["性別", ""], ["男性", "Male"], ["女性", "Female"], ["その他", "other"]],  {}, { autofocus: 'true', class: ''}
+            = f.select :gender, User.genders.keys.to_a, {}
           %p
             この情報は解析用です。他ユーザーに共有されることはありません。
 

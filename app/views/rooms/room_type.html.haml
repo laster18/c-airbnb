@@ -22,7 +22,7 @@
           = f.collection_select :room_building_type_id, RoomBuildingType.all, :id, :name
         .rooms-form-body__room-type
           = f.label :部屋タイプは？
-          = f.select :room_type, Room.room_types_i18n.values.to_a, {}
+          = f.select :room_type, Room.room_types_i18n.keys.map { |k| [Room.room_types_i18n[k], k]}
         .rooms-form-body__guest-only
           = f.label :こちらはゲスト専用の部屋ですか？
           %label

@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   has_many :rooms
 
-  enum gender: { male: 0, female: 1, not_select: 3}
+  enum gender: { male: 0, female: 1, noselect: 2 }
 
 end

@@ -4,16 +4,14 @@ ja:
       gender:
         male: 男性
         female: 女性
-        not_select: 未選択
+        noselect: 未選択
 
-ja:
-  enums:
     room:
       room_type:
         entire_home: 住宅全体
         private_room: 個室
         shared_room: シェアルーム
       country: 
-       japan: 日本
-       America: アメリカ
-       China: 中国
+        japan: 日本
+        America: アメリカ
+        China: 中国

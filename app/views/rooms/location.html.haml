@@ -11,7 +11,7 @@
             .location-country__info
               国/地域
             .location-country__form
-              = f.select :country, Room.countries_i18n.values.to_a, {}
+              = f.select :country, Room.countries_i18n.keys.map {|k| [Room.countries_i18n[k], k]} 
           .location-postal-code
             .location-postal-code__info
               郵便番号

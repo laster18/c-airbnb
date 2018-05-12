@@ -21,7 +21,7 @@
         =f.label :性別, class: "profile-item__text", autofocus: true
         .profile-item__input
           .profile-item__input__select
-            = f.select :gender, User.genders_i18n.values.to_a, {}
+            = f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]}
           %p
             この情報は解析用です。他ユーザーに共有されることはありません。
 

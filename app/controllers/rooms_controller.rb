@@ -4,8 +4,6 @@ class RoomsController < ApplicationController
 
   before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
 
-  before_action :second_step_update, only: [ :title, :second_step_finish]
-
   def index
   end
 
@@ -98,10 +96,12 @@ class RoomsController < ApplicationController
   end
 
   def title
+    @room.update(second_step_update_params)
     @room.recommendation_ids = params[:room][:recommendation_ids]
   end
 
   def second_step_finish
+    @room.update(second_step_update_params)
     redirect_to confirmation_room_path(@room) 
   end
 
@@ -156,10 +156,6 @@ class RoomsController < ApplicationController
 
   def first_step_update
     @room.update(first_step_update_params) if params[:id]
-  end
-
-  def second_step_update
-    @room.update(second_step_update_params)
   end
 
   def first_step_update_params

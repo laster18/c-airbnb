@@ -6,7 +6,7 @@
       .rooms-form-body__title
         説明文を編集する
 
-      = form_for @room, url: { controllers: :rooms, action: :title } do |f|
+      = form_for @room, url: { controllers: :rooms, action: :title }, method: :post do |f|
         .rooms-introduction
           .rooms-introduction__info
             概要

@@ -6,4 +6,10 @@
       .rooms-form-body__title
         物件に名前を付ける
 
+      = form_for @room, url: { controllers: :rooms, action: :second_step_finish } do |f|
+        .rooms-title
+          = f.text_field :title, class: "rooms-title__input"
 
+        .pagenate
+          .pagenate__next-button
+            = f.button "次へ", type: "submit"

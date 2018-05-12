@@ -53,7 +53,7 @@ class RoomsController < ApplicationController
   end
 
   def first_step_finish
-    set_sessions
+    set_sessions_first
     @room = Room.new(
       user_id: current_user.id,
       room_category_id: @room_category_id,
@@ -80,10 +80,6 @@ class RoomsController < ApplicationController
     else
       redirect_to :index
     end
-  end
-
-  def second_step_finish
-
   end
 
   def room_review
@@ -117,12 +113,20 @@ class RoomsController < ApplicationController
     session[:recommendation_ids] = params[:room][:recommendation_ids]
   end
 
+  def second_step_finish
+    set_sessions_second
+    @room = Room.find(params[:id])
+    @room.update(overview: @overview, title: params[:room][:title])
+    @room.recommendation_ids = @recommendation_ids
+    redirect_to room_review_room_path(@room)
+  end
+
   private
   def set_instans
     @room = Room.new
   end
 
-  def set_sessions
+  def set_sessions_first
     @room_category_id = session[:room_category_id]
     @room_building_type_id = session[:room_building_type_id]
     @room_type = session[:room_type]
@@ -140,6 +144,11 @@ class RoomsController < ApplicationController
     @amenity_ids = session[:amenity_ids]
     @safety_amenity_ids = session[:safety_amenity_ids]
     @available_space_ids = session[:available_space_ids]
+  end
+
+  def set_sessions_second
+    @overview = session[:overview]
+    @recommendation_ids  = session[:recommendation_ids]
   end
 
   def image_params

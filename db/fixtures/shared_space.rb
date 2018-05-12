@@ -1,4 +1,0 @@
-SharedSpace.seed(:id,
-
-)
-

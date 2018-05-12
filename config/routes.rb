@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'rooms#index'
+
   resources :rooms, only: [:index, :show, :new, :create] do
     collection do
       get 'room'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
       get 'has_rooms_list'
     end
     member do
-      get 'room_review'
+      get 'confirmation'
       get 'bedrooms'
       get 'bathrooms'
       get 'location'
@@ -27,11 +28,14 @@ Rails.application.routes.draw do
       get 'description'
       patch 'title'
       patch 'second_step_finish'
+      get 'calendar'
     end
   end
+
   resources :users, only: [:edit, :update] do
     collection do
       get 'avatar'
     end
   end
+
 end

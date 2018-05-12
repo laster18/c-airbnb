@@ -86,13 +86,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.index ["room_id"], name: "index_room_available_spaces_on_room_id", using: :btree
   end
 
-  create_table "room_bathrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "number",                         null: false
-    t.boolean  "only_for_guest", default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-  end
-
   create_table "room_building_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -200,12 +193,10 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "updated_at",                          null: false
     t.integer  "room_category_id"
     t.integer  "room_building_type_id"
-    t.integer  "room_bathroom_id"
     t.integer  "room_deadline_id"
     t.integer  "user_id",                             null: false
     t.integer  "currency_id"
     t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
-    t.index ["room_bathroom_id"], name: "index_rooms_on_room_bathroom_id", using: :btree
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree
     t.index ["room_category_id"], name: "index_rooms_on_room_category_id", using: :btree
     t.index ["room_deadline_id"], name: "index_rooms_on_room_deadline_id", using: :btree
@@ -273,7 +264,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   add_foreign_key "room_shared_spaces", "rooms"
   add_foreign_key "room_shared_spaces", "shared_spaces"
   add_foreign_key "rooms", "currencies"
-  add_foreign_key "rooms", "room_bathrooms"
   add_foreign_key "rooms", "room_building_types"
   add_foreign_key "rooms", "room_categories"
   add_foreign_key "rooms", "room_deadlines"

@@ -12,7 +12,6 @@ Amenity.seed(:id,
   { id: 11, content: "アイロン" },
   { id: 12, content: "ヘアドライヤー" },
   { id: 13, content: "ペットOK" },
-  { id: 14, content: "専用の玄関" },
-  { id: 15, content: "煙感知器" },
+  { id: 14, content: "専用の玄関" }
 )
 

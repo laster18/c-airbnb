@@ -20,7 +20,6 @@ class Room < ApplicationRecord
   has_many :room_images
 
   has_one :house_rule
-  has_one :room_bathroom
 
   belongs_to :room_category
   belongs_to :room_building_type

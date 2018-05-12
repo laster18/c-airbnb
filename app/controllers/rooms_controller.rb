@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
 
-  before_action :set_instans, only: [ :room, :bedrooms, :bathrooms, :location, :amenities, :spaces]
+  before_action :set_room, only: [ :room, :bedrooms, :bathrooms, :location, :amenities, :spaces, :confirmation, :photos, :description, :title, :second_step_finish]
 
   def index
   end
@@ -54,6 +54,7 @@ class RoomsController < ApplicationController
 
   def first_step_finish
     set_sessions_first
+    binding.pry
     @room = Room.new(
       user_id: current_user.id,
       room_category_id: @room_category_id,
@@ -76,18 +77,16 @@ class RoomsController < ApplicationController
       @room.amenity_ids = @amenity_ids
       @room.safety_amenity_ids = @safety_amenity_ids
       @room.available_space_ids = params[:room][:available_space_ids]
-      redirect_to room_review_room_path(@room)
+      redirect_to confirmation_room_path(@room)
     else
       redirect_to :index
     end
   end
 
-  def room_review
-    @room = Room.find(params[:id])
+  def confirmation
   end
 
   def photos
-    @room = Room.find(params[:id])
     @room_image = @room.room_images.new
   end
 
@@ -104,26 +103,35 @@ class RoomsController < ApplicationController
   end
 
   def description
-    @room = Room.find(params[:id])
   end
 
   def title
-    @room = Room.find(params[:id])
     session[:overview] = params[:room][:overview]
     session[:recommendation_ids] = params[:room][:recommendation_ids]
   end
 
   def second_step_finish
     set_sessions_second
-    @room = Room.find(params[:id])
-    @room.update(overview: @overview, title: params[:room][:title])
-    @room.recommendation_ids = @recommendation_ids
-    redirect_to room_review_room_path(@room)
+    if current_user.id == @room.user_id
+      @room.update(overview: @overview, title: params[:room][:title])
+      @room.recommendation_ids = @recommendation_ids
+      redirect_to confirmation_room_path(@room)
+    else
+      redirect_to :index
+    end
+  end
+
+  def calendar
   end
 
   private
-  def set_instans
-    @room = Room.new
+
+  def set_room
+    if params[:id].present?
+      @room = Room.find(params[:id])
+    else
+      @room = Room.new
+    end
   end
 
   def set_sessions_first

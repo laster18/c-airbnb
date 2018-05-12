@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       get 'photos'
       post 'photos_create'
       get 'description'
-      post 'title'
+      patch 'title'
       patch 'second_step_finish'
     end
   end

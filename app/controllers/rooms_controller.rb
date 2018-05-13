@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
   end
 
   def room_type
+    test
   end
 
   def has_rooms_list

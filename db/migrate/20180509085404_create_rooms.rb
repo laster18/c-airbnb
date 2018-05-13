@@ -3,7 +3,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
     create_table :rooms do |t|
       t.integer :room_type
       t.integer :person_capacity
-      t.boolean :only_for_guest
+      t.boolean :only_for_guest, default: false
       t.integer :bedroom_number
       t.integer :bed_number
       t.integer :bathroom_number

@@ -5,6 +5,5 @@ class CreateRoomRequirements < ActiveRecord::Migration[5.0]
       t.references :requirement, foreign_key: true, null: false
       t.timestamps
     end
-    add_index      :room_requirements, [:room_id, :requirement_id]
   end
 end

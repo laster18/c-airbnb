@@ -5,6 +5,5 @@ class CreateRoomSharedSpaces < ActiveRecord::Migration[5.0]
       t.references :shared_space, foreign_key: true, null: false
       t.timestamps
     end
-    add_index      :room_shared_spaces, [:room_id, :shared_space_id]
   end
 end

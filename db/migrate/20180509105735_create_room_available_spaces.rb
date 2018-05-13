@@ -5,6 +5,5 @@ class CreateRoomAvailableSpaces < ActiveRecord::Migration[5.0]
       t.references :available_space, foreign_key: true, null: false
       t.timestamps
     end
-    add_index      :room_available_spaces, [:room_id, :available_space_id]
   end
 end

@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-
   before_action :set_room, only: [ :room_type, :bedrooms, :bathrooms, :location, :amenities, :spaces, :confirmation, :photos, :description, :title, :second_step_finish]
 
   before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
@@ -102,7 +101,7 @@ class RoomsController < ApplicationController
 
   def second_step_finish
     @room.update(second_step_update_params)
-    redirect_to confirmation_room_path(@room) 
+    redirect_to confirmation_room_path(@room)
   end
 
   def calendar
@@ -119,7 +118,7 @@ class RoomsController < ApplicationController
     @room_building_type_id = session[:room_building_type_id]
     @room_type = session[:room_type]
     @only_for_guest = session[:only_for_guest]
-    @person_capacity  = session[:person_capacity]
+    @person_capacity = session[:person_capacity]
     @bedroom_number = session[:bedroom_number]
     @bed_number = session[:bed_number]
     @bathroom_number = session[:bathroom_number]
@@ -150,7 +149,7 @@ class RoomsController < ApplicationController
       state: @state,
       city: @city,
       street: @street,
-      apartment: @apartment,
+      apartment: @apartment
     )
   end
 
@@ -168,11 +167,10 @@ class RoomsController < ApplicationController
 
   def set_sessions_second
     @overview = session[:overview]
-    @recommendation_ids  = session[:recommendation_ids]
+    @recommendation_ids = session[:recommendation_ids]
   end
 
   def image_params
     params.require(:room_image).permit(:image).merge(room_id: params[:id])
   end
-
 end

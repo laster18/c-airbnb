@@ -1,8 +1,9 @@
 = render partial: "./header"
 
 .profile-wrapper
-  - flash.each do |key, value|
-    = content_tag(:div, value, class: "#{key}", id: "flash-message")
+  %p#notice
+    %span#flash-message
+      = notice
   .profile-body.clearfix
 
     .profile-menu

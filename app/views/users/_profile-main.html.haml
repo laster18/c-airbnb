@@ -50,18 +50,18 @@
             この情報は関係者同士の連絡手段。予約確定「後」まで先方のAirbnbユーザーにも秘密です。
 
       .profile-item.clearfix
-        =f.label :ご希望の言語, class: "profile-item__text", autofocus: true
+        =f.label :ご希望の言語, class: "profile-item__text"
         .profile-item__input
           .profile-item__input__select
-            = f.select :preferred_locale, [["未選択", ""], ["日本語", "ja"], ["English", "en"], ["한국어", "ko"]],  {}, { autofocus: 'true', class: ''}
+            = f.select :preferred_locale, [["未選択", ""], ["日本語", "ja"], ["English", "en"], ["한국어", "ko"]]
           %p
             受け取るメッセージの表示言語です。
 
       .profile-item.clearfix
-        =f.label :ご希望の通貨, class: "profile-item__text", autofocus: true
+        =f.label :ご希望の通貨, class: "profile-item__text"
         .profile-item__input
           .profile-item__input__select
-            = f.select :native_currency, [["未選択", ""], ["日本円", "JPY"], ["米ドル", "USD"], ["韓国ウォン", "KRW"]],  {}, { autofocus: 'true', class: ''}
+            = f.select :native_currency, [["未選択", ""], ["日本円", "JPY"], ["米ドル", "USD"], ["韓国ウォン", "KRW"]]
           %p
             この通貨で価格を表示します。
 

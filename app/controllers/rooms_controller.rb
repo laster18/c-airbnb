@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
     session[:city] = params[:room][:city]
     session[:street] = params[:room][:street]
     session[:apartment] = params[:room][:apartment]
-    @amenities = @room.amenities.new
+    @amenities = @room.amenities.build
   end
 
   def spaces
@@ -69,7 +69,7 @@ class RoomsController < ApplicationController
   def confirmation() end
 
   def photos
-    @room_image = @room.room_images.new
+    @room_image = @room.room_images.build
   end
 
   def photos_create

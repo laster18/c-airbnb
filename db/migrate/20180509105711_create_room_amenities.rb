@@ -5,5 +5,6 @@ class CreateRoomAmenities < ActiveRecord::Migration[5.0]
       t.references :amenity, foreign_key: true, null: false
       t.timestamps
     end
+    add_index      :room_amenities, [:room_id, :amenity_id]
   end
 end

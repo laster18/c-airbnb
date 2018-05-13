@@ -5,5 +5,6 @@ class CreateRoomRecommendations < ActiveRecord::Migration[5.0]
       t.references :recommendation, foreign_key: true, null: false
       t.timestamps
     end
+    add_index      :room_recommendations, [:room_id, :recommendation_id]
   end
 end

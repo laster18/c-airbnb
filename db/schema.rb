@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["amenity_id"], name: "index_room_amenities_on_amenity_id", using: :btree
+    t.index ["room_id", "amenity_id"], name: "index_room_amenities_on_room_id_and_amenity_id", using: :btree
     t.index ["room_id"], name: "index_room_amenities_on_room_id", using: :btree
   end
 
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["available_space_id"], name: "index_room_available_spaces_on_available_space_id", using: :btree
+    t.index ["room_id", "available_space_id"], name: "index_room_available_spaces_on_room_id_and_available_space_id", using: :btree
     t.index ["room_id"], name: "index_room_available_spaces_on_room_id", using: :btree
   end
 
@@ -128,6 +130,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "notice_description_id"
     t.index ["notice_description_id"], name: "index_room_notices_on_notice_description_id", using: :btree
     t.index ["notice_id"], name: "index_room_notices_on_notice_id", using: :btree
+    t.index ["room_id", "notice_id"], name: "index_room_notices_on_room_id_and_notice_id", using: :btree
     t.index ["room_id"], name: "index_room_notices_on_room_id", using: :btree
   end
 
@@ -137,6 +140,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["recommendation_id"], name: "index_room_recommendations_on_recommendation_id", using: :btree
+    t.index ["room_id", "recommendation_id"], name: "index_room_recommendations_on_room_id_and_recommendation_id", using: :btree
     t.index ["room_id"], name: "index_room_recommendations_on_room_id", using: :btree
   end
 
@@ -146,6 +150,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["requirement_id"], name: "index_room_requirements_on_requirement_id", using: :btree
+    t.index ["room_id", "requirement_id"], name: "index_room_requirements_on_room_id_and_requirement_id", using: :btree
     t.index ["room_id"], name: "index_room_requirements_on_room_id", using: :btree
   end
 
@@ -154,6 +159,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "safety_amenity_id", null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["room_id", "safety_amenity_id"], name: "index_room_safety_amenities_on_room_id_and_safety_amenity_id", using: :btree
     t.index ["room_id"], name: "index_room_safety_amenities_on_room_id", using: :btree
     t.index ["safety_amenity_id"], name: "index_room_safety_amenities_on_safety_amenity_id", using: :btree
   end
@@ -163,6 +169,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "shared_space_id", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["room_id", "shared_space_id"], name: "index_room_shared_spaces_on_room_id_and_shared_space_id", using: :btree
     t.index ["room_id"], name: "index_room_shared_spaces_on_room_id", using: :btree
     t.index ["shared_space_id"], name: "index_room_shared_spaces_on_shared_space_id", using: :btree
   end
@@ -170,7 +177,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "room_type"
     t.integer  "person_capacity"
-    t.boolean  "only_for_guest"
+    t.boolean  "only_for_guest",                      default: false
     t.integer  "bedroom_number"
     t.integer  "bed_number"
     t.integer  "bathroom_number"
@@ -189,12 +196,12 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.text     "city",                  limit: 65535
     t.text     "street",                limit: 65535
     t.text     "apartment",             limit: 65535
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "room_category_id"
     t.integer  "room_building_type_id"
     t.integer  "room_deadline_id"
-    t.integer  "user_id",                             null: false
+    t.integer  "user_id",                                             null: false
     t.integer  "currency_id"
     t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree

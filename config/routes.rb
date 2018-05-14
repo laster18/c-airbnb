@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'rooms#index'
 
   resources :rooms, only: [:index, :show, :new, :create] do
-    resources :room_calendars, only: [:new, :create, :update, :destroy]
+    resources :room_calendars, only: [:index, :create]
+    delete '/room_calendars' => 'room_calendars#destroy'
+
     collection do
       get 'room_type'
       post 'bedrooms'

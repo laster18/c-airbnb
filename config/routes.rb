@@ -10,14 +10,14 @@ Rails.application.routes.draw do
     delete '/room_calendars' => 'room_calendars#destroy'
 
     collection do
-      get 'room_type'
+      get  'room_type'
+      get  'has_rooms_list'
       post 'bedrooms'
       post 'bathrooms'
       post 'location'
       post 'amenities'
       post 'spaces'
       post 'first_step_finish'
-      get 'has_rooms_list'
     end
     member do
       get 'room_type'
@@ -47,5 +47,4 @@ Rails.application.routes.draw do
       get 'avatar'
     end
   end
-
 end

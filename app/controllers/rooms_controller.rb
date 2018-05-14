@@ -3,23 +3,17 @@ class RoomsController < ApplicationController
 
   before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
 
-  def index
-  end
+  def index() end
 
-  def show
-  end
+  def show() end
 
-  def new
-  end
+  def new() end
 
-  def create
-  end
+  def create() end
 
-  def room_type
-  end
+  def room_type() end
 
-  def has_rooms_list
-  end
+  def has_rooms_list() end
 
   def bedrooms
     session[:room_category_id] = params[:room][:room_category_id]
@@ -45,7 +39,7 @@ class RoomsController < ApplicationController
     session[:city] = params[:room][:city]
     session[:street] = params[:room][:street]
     session[:apartment] = params[:room][:apartment]
-    @amenities = @room.amenities.new
+    @amenities = @room.amenities.build
   end
 
   def spaces
@@ -72,11 +66,10 @@ class RoomsController < ApplicationController
     redirect_to confirmation_room_path(@room)
   end
 
-  def confirmation
-  end
+  def confirmation() end
 
   def photos
-    @room_image = @room.room_images.new
+    @room_image = @room.room_images.build
   end
 
   def photos_create
@@ -91,8 +84,7 @@ class RoomsController < ApplicationController
     end
   end
 
-  def description
-  end
+  def description() end
 
   def title
     @room.update(second_step_update_params)
@@ -104,8 +96,7 @@ class RoomsController < ApplicationController
     redirect_to confirmation_room_path(@room)
   end
 
-  def calendar
-  end
+  def calendar() end
 
   private
 

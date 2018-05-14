@@ -78,5 +78,4 @@ gem 'enum_help'
 gem 'rubocop'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
-gem "simple_calendar", "~> 2.0"
 # gem 'compass-rails','~> 2.0'

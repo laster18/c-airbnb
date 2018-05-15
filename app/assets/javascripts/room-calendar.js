@@ -4,7 +4,7 @@ $(function(){
   //もう一度クリックでデータベースから削除し、reservation-trueを消す。
 
   // ↓すでに予約可能日として保存してある要素にreservation-trueを付ける。
-  var dates = $('.room_calendars').val();
+  var dates = gon.dates_json
   var dates = JSON.parse(dates);
   dates.forEach(function(date){
     $(`[ data-date= ${date}]`).addClass('reservation-true');
@@ -38,7 +38,4 @@ $(function(){
   $('.fc-other-month').attr('data-date','');
   $('.fc-other-month').removeClass('fc-day');
   $('.fc-past').removeClass('fc-day');
-  $('#calendar').fullCalendar({ // fullcalendarの日本語化
-      lang: 'ja'
-  });
 });

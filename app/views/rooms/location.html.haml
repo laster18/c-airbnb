@@ -7,11 +7,11 @@
         所在地は？
       = form_for @room, url: { controllers: :rooms, action: :amenities } do |f|
         .location
-          .location-county
+          .location-country
             .location-country__info
               国/地域
             .location-country__form
-              = f.select :country, Room.countries_i18n.keys.map {|k| [Room.countries_i18n[k], k]} 
+              = f.select :country, Room.countries_i18n.keys.map {|k| [Room.countries_i18n[k], k]}
           .location-postal-code
             .location-postal-code__info
               郵便番号
@@ -38,6 +38,8 @@
             .location-apartment__form
               = f.text_field :apartment, class: "location-apartment__input"
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+        .pagenate.clearfix
+          .pagenate__button-frame.back-button
+            = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root 'rooms#index'
 
   resources :rooms, only: [:index, :show, :new, :create] do
+    resources :room_calendars, only: [:index, :create]
+    delete '/room_calendars' => 'room_calendars#destroy'
+
     collection do
       get  'room_type'
       get  'has_rooms_list'
@@ -17,17 +20,17 @@ Rails.application.routes.draw do
       post 'first_step_finish'
     end
     member do
-      get   'room_type'
-      get   'confirmation'
-      get   'bedrooms'
-      get   'bathrooms'
-      get   'location'
-      get   'amenities'
-      get   'spaces'
-      get   'photos'
-      get   'calendar'
-      get   'description'
-      post  'photos_create'
+      get 'room_type'
+      get 'confirmation'
+      get 'bedrooms'
+      get 'bathrooms'
+      get 'location'
+      get 'amenities'
+      get 'spaces'
+      get 'photos'
+      get 'description'
+      get 'calendar'
+      post 'photos_create'
       patch 'title'
       patch 'second_step_finish'
       patch 'bedrooms'

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get 'spaces'
       get 'photos'
       get 'description'
-      get 'calendar'
+      get 'fee'
       post 'photos_create'
       patch 'title'
       patch 'second_step_finish'

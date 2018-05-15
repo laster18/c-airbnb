@@ -13,3 +13,7 @@
         %span.possible
       .calendar-frame
         #calendar
+
+    .pagenate.clearfix
+      .pagenate__button-frame.next-button
+        = button_to "次へ", fee_room_path(@room), method: :get, class: "pagenate__button"

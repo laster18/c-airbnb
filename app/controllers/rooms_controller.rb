@@ -96,7 +96,10 @@ class RoomsController < ApplicationController
     redirect_to confirmation_room_path(@room)
   end
 
-  def calendar() end
+  def fee
+
+  end
+
 
   private
 

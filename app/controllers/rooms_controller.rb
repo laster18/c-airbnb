@@ -101,9 +101,9 @@ class RoomsController < ApplicationController
   end
 
   def availability_settings
-
+    @room = Room.find(params[:id])
+    @room.update(third_step_update_params)
   end
-
 
   private
 
@@ -161,6 +161,10 @@ class RoomsController < ApplicationController
 
   def second_step_update_params
     params.require(:room).permit(:overview, :title)
+  end
+
+  def third_step_update_params
+    params.require(:room).permit(:day_fee, :native_currency)
   end
 
   def set_sessions_second

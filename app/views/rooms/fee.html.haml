@@ -5,7 +5,7 @@
     .rooms-form-body
       %h2.rooms-form-body__title
         お部屋の料金
-      = form_for @room, url: availability_settings_room_path(@room) do |f|
+      = form_for @room, url: availability_settings_room_path do |f|
         .fee-info
           予約が入る機会を増やそう
           %br
@@ -25,4 +25,11 @@
             通貨
           .fee-currency__input
             = f.select :native_currency, Room.native_currencies_i18n.keys.map {|k| [Room.native_currencies_i18n[k], k]}
+
+        .pagenate.clearfix
+          / .pagenate__button-frame.back-button
+          /   = link_to "戻る", bedrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"
+
 

@@ -47,3 +47,43 @@
     margin-bottom: 20px;
   }
 }
+.pagenate {
+  border-top: 1px solid #dcdcdc;
+  padding-top: 17px;
+  margin-top: 25px;
+  &__button-frame {
+    width: 80px;
+    height: 45px;
+  }
+  &__button {
+      width: 100%;
+      height: 100%;
+      color: rgb(255, 255, 255);
+      background: rgb(0, 132, 137);
+      border-color: transparent ;
+      font-weight: 700;
+      border-radius: 4px;
+      font-size: 19px ;
+      cursor: pointer;
+      @include hover();
+    }
+}
+
+.back-button {
+  float: left;
+  width: 80px;
+  height: 45px;
+}
+
+.pagenate__button {
+  line-height: 45px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.next-button {
+  float: right;
+}

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get 'description'
       get 'fee'
       post 'photos_create'
+      patch 'availability_questions'
       patch 'availability_settings'
       patch 'title'
       patch 'second_step_finish'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
       patch 'amenities'
       patch 'spaces'
       patch 'first_step_finish'
+      patch 'third_step_finish'
     end
   end
 

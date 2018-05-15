@@ -9,8 +9,6 @@ class RoomsController < ApplicationController
 
   def new() end
 
-  def create() end
-
   def has_rooms_list() end
 
   def room_type() end
@@ -100,7 +98,16 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def availability_questions
+    @room = Room.find(params[:id])
+  end
+
   def availability_settings
+    @room = Room.find(params[:id])
+    @room.update(third_step_update_params)
+  end
+
+  def third_step_finish
     @room = Room.find(params[:id])
     @room.update(third_step_update_params)
   end
@@ -164,7 +171,7 @@ class RoomsController < ApplicationController
   end
 
   def third_step_update_params
-    params.require(:room).permit(:day_fee, :native_currency)
+    params.require(:room).permit(:day_fee, :native_currency, :experience, :frequency, :deadline, :check_in_from, :check_in_to, :min_lodging, :max_lodging)
   end
 
   def set_sessions_second

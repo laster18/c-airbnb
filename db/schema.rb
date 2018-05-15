@@ -169,8 +169,8 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "min_lodging"
     t.integer  "max_lodging"
     t.integer  "day_fee"
-    t.integer  "experience"
-    t.integer  "frequency"
+    t.string   "experience"
+    t.string   "frequency"
     t.string   "title"
     t.text     "overview",              limit: 65535
     t.integer  "country"
@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.text     "street",                limit: 65535
     t.text     "apartment",             limit: 65535
     t.integer  "native_currency",                     default: 0
-    t.integer  "deadline"
+    t.string   "deadline"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.integer  "room_category_id"

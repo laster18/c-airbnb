@@ -1,0 +1,42 @@
+.rooms-calendar-main {
+  width: 100vw;
+  min-height: 1000px;
+  border-color: red;
+}
+
+.calendar-form {
+  width: 65%;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.calendar-body {
+  padding: 20px 20px;
+  &__title {
+    font-size: 28px;
+  }
+  &__info {
+    .impossible {
+      background-color: gray;
+      display: inline-block;
+      height: 14px;
+      width: 14px;
+    }
+  }
+}
+
+.calendar-frame {
+  padding-top: 30px;
+}
+
+.fc-day {
+  background-color: gray;
+}
+
+.reservation-true {
+  background-color: white;
+}
+
+.fc-past {
+  background-color: gray;
+}

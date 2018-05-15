@@ -11,7 +11,11 @@ ja:
         entire_home: 住宅全体
         private_room: 個室
         shared_room: シェアルーム
-      country: 
+      country:
         japan: 日本
         America: アメリカ
         China: 中国
+      native_currency:
+        JPY: 日本円
+        USD: 米ドル
+        KRW: ウォン

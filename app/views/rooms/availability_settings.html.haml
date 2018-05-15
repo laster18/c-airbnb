@@ -1,0 +1,41 @@
+= render partial: './rooms/step3-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      = form_for @room, url: third_step_finish_room_path do |f|
+        .deadline
+          .deadline__info
+            予約締切りは到着何日前にしますか？
+          .deadline__input
+            = f.select :deadline, [["当日", "当日"], ["1日前", "1日前"], ["2日前", "2日前"], ["3日前", "3日前"], ["7日前", "7日前"]]
+
+        .checkin.clearfix
+          .checkin__info
+            チェックインできる時間帯は？
+          .checkin__from
+            %p
+              = f.label :From：
+            = f.text_field :check_in_from, placeholder: "例)17:00 ~", class: "check-form"
+          .checkin__to
+            %p
+              = f.label :To：
+            = f.text_field :check_in_to, placeholder: "例)~ 22:00", class: "check-form"
+
+        .lodging
+          .lodging-min
+            .lodging-min__info
+              何泊から宿泊可能ですか？
+            .lodging-min__input
+              = f.select :min_lodging, options_for_select((1..10).map{|n| ["#{n}日", n]})
+          .lodging-max
+            .lodging-max__info
+              最大何泊まで宿泊可能ですか？
+            .lodging-max__input
+              = f.select :max_lodging, options_for_select((1..30).map{|n| ["#{n}日", n]})
+
+        .pagenate.clearfix
+          / .pagenate__button-frame.back-button
+          /   = link_to "戻る", bedrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"

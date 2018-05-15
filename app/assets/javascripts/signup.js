@@ -5,4 +5,5 @@ $(function() {
   $('.close-button').click(function() {
     $('#signup-modal').fadeOut();
   });
+  console.log('test');
 });

@@ -1,0 +1,25 @@
+= render partial: './rooms/step3-header'
+
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      %h2.rooms-form-body__title
+        質問に答えて予約の設定を進めましょう
+
+      = form_for @room, url: availability_settings_room_path do |f|
+        .experience
+          .experience__info
+            今までお部屋を貸したことはありますか？
+          .experience__input
+            = f.select :experience, [["初心者","初心者"], ["経験者","経験者"]]
+        .frequency
+          .frequency__info
+            泊めたい頻度は？
+          .frequency__input
+            = f.select :frequency, [["まだわかりません", "まだわかりません"], ["パートタイム", "パートタイム"], ["できるだけ頻繁", "できるだけ頻繁"]]
+
+        .pagenate.clearfix
+          / .pagenate__button-frame.back-button
+          /   = link_to "戻る", bedrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"

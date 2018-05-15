@@ -1,3 +1,5 @@
+= javascript_include_tag "spinner.js"
+
 = render partial: 'step1-header'
 
 .rooms-new-main
@@ -30,6 +32,6 @@
 
         .pagenate.clearfix
           / .pagenate__button-frame.back-button
-          /   = link_to "戻る", room_type_rooms_path, class: "pagenate__button"
+          /   = link_to "戻る", room_type_room_path, class: "pagenate__button"
           .pagenate__button-frame.next-button
             = f.button "次へ", type: "submit", class: "pagenate__button"

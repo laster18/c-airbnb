@@ -1,0 +1,30 @@
+.deadline, .checkin, .lodging-min, .lodging-max {
+  &__info {
+    font-size: 20px;
+    padding-top: 16px;
+    padding-bottom: 10px;
+  }
+  &__input {
+    width: 200px;
+    height: 36px;
+    & select {
+      width: 100%;
+      height: 100%;
+      padding: 0 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+.checkin {
+  &__from {
+    float: left;
+    margin-right: 30px;
+  }
+}
+
+.check-form {
+  height: 46px;
+  width: 220px;
+  padding: 10px;
+}

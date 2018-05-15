@@ -9,8 +9,6 @@ class RoomsController < ApplicationController
 
   def new() end
 
-  def create() end
-
   def has_rooms_list() end
 
   def room_type() end
@@ -96,7 +94,23 @@ class RoomsController < ApplicationController
     redirect_to confirmation_room_path(@room)
   end
 
-  def calendar() end
+  def fee
+    @room = Room.find(params[:id])
+  end
+
+  def availability_questions
+    @room = Room.find(params[:id])
+  end
+
+  def availability_settings
+    @room = Room.find(params[:id])
+    @room.update(third_step_update_params)
+  end
+
+  def third_step_finish
+    @room = Room.find(params[:id])
+    @room.update(third_step_update_params)
+  end
 
   private
 
@@ -154,6 +168,10 @@ class RoomsController < ApplicationController
 
   def second_step_update_params
     params.require(:room).permit(:overview, :title)
+  end
+
+  def third_step_update_params
+    params.require(:room).permit(:day_fee, :native_currency, :experience, :frequency, :deadline, :check_in_from, :check_in_to, :min_lodging, :max_lodging)
   end
 
   def set_sessions_second

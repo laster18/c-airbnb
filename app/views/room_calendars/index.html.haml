@@ -1,3 +1,7 @@
+= javascript_include_tag "calendar"
+= javascript_include_tag "room_calendar.js"
+= javascript_include_tag "room_calender_setting.js"
+
 = render partial: './rooms/step3-header'
 
 .rooms-calendar-main
@@ -13,3 +17,7 @@
         %span.possible
       .calendar-frame
         #calendar
+
+    .pagenate.clearfix
+      .pagenate__button-frame.next-button
+        = button_to "次へ", fee_room_path(@room), method: :get, class: "pagenate__button"

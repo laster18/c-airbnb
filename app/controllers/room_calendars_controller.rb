@@ -1,5 +1,6 @@
 class RoomCalendarsController < ApplicationController
   def index
+    @room = Room.find(params[:room_id])
     @dates = RoomCalendar.where(room_id: params[:room_id]).pluck(:date)
     gon.dates_json = @dates.to_json.html_safe
     respond_to do |format|

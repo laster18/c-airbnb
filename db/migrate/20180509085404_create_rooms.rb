@@ -12,8 +12,8 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.integer :min_lodging
       t.integer :max_lodging
       t.integer :day_fee
-      t.integer :experience
-      t.integer :frequency
+      t.string  :experience
+      t.string  :frequency
       t.string  :title
       t.text    :overview
       t.integer :country
@@ -22,6 +22,8 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.text    :city
       t.text    :street
       t.text    :apartment
+      t.integer :native_currency, default: 0
+      t.string :deadline
       t.timestamps
     end
   end

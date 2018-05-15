@@ -14,24 +14,31 @@
           掲載するのはどんな部屋ですか？
 
       = form_for @room, url: { controllers: :rooms, action: :bedrooms } do |f|
-        .rooms-form-body__category
-          = f.label :まずカテゴリを絞りましょう
-          = f.collection_select :room_category_id, RoomCategory.all, :id, :name
-        .rooms-form-body__building-type
-          = f.label :次に建物タイプを選んでください
-          = f.collection_select :room_building_type_id, RoomBuildingType.all, :id, :name
-        .rooms-form-body__room-type
-          = f.label :部屋タイプは？
-          = f.select :room_type, Room.room_types_i18n.keys.map { |k| [Room.room_types_i18n[k], k]}
-        .rooms-form-body__guest-only
-          = f.label :こちらはゲスト専用の部屋ですか？
-          %label
+        .room-type-form
+          %p.room-type-form__info
+            まずカテゴリを絞りましょう
+          .room-type-form__input
+            = f.collection_select :room_category_id, RoomCategory.all, :id, :name
+        .room-type-form
+          %p.room-type-form__info
+            次に建物タイプを選んでください
+          .room-type-form__input
+            = f.collection_select :room_building_type_id, RoomBuildingType.all, :id, :name
+        .room-type-form
+          %p.room-type-form__info
+            部屋タイプは？
+          .room-type-form__input
+            = f.select :room_type, Room.room_types_i18n.keys.map { |k| [Room.room_types_i18n[k], k]}
+        .room-type-form
+          %p.room-type-form__info
+            = f.label :こちらはゲスト専用の部屋ですか？
+          .room-type-form__button
             = f.radio_button :only_for_guest, "true"
             はい、主にゲスト専用のお部屋です
-          %label
+          .room-type-form__button
             = f.radio_button :only_for_guest, "false"
             いいえ、こちらに私物も置いています
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+        .pagenate.clearfix
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"

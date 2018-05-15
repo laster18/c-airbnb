@@ -1,7 +1,7 @@
 class RoomCalendarsController < ApplicationController
   def index
     @dates = RoomCalendar.where(room_id: params[:room_id]).pluck(:date)
-    @dates_json = @dates.to_json.html_safe
+    gon.dates_json = @dates.to_json.html_safe
     respond_to do |format|
       format.html
       format.json { @dates_json }

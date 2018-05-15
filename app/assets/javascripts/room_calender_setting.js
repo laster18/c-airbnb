@@ -7,7 +7,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(dates){
-      console.log("test")
       dates.forEach(function(date){
         $(`[ data-date= ${date.date}]`).addClass('reservation-true');
       });

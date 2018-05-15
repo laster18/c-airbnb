@@ -1,5 +1,5 @@
 $(document).ready ->
   $('#calendar').fullCalendar {
-    lang: 'ja'
+  lang: 'ja'
   }
   return

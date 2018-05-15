@@ -101,12 +101,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "room_deadlines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "date",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "room_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "image",      null: false
     t.integer  "room_id",    null: false
@@ -185,16 +179,15 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.text     "city",                  limit: 65535
     t.text     "street",                limit: 65535
     t.text     "apartment",             limit: 65535
-    t.integer  "native_currency"
+    t.integer  "native_currency",                     default: 0
+    t.integer  "deadline"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.integer  "room_category_id"
     t.integer  "room_building_type_id"
-    t.integer  "room_deadline_id"
     t.integer  "user_id",                                             null: false
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree
     t.index ["room_category_id"], name: "index_rooms_on_room_category_id", using: :btree
-    t.index ["room_deadline_id"], name: "index_rooms_on_room_deadline_id", using: :btree
     t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
   end
 
@@ -260,6 +253,5 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   add_foreign_key "room_shared_spaces", "shared_spaces"
   add_foreign_key "rooms", "room_building_types"
   add_foreign_key "rooms", "room_categories"
-  add_foreign_key "rooms", "room_deadlines"
   add_foreign_key "rooms", "users"
 end

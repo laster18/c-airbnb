@@ -22,7 +22,8 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.text    :city
       t.text    :street
       t.text    :apartment
-      t.integer :native_currency
+      t.integer :native_currency, default: 0
+      t.integer :deadline
       t.timestamps
     end
   end

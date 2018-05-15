@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.string   "check_in_to"
     t.integer  "min_lodging"
     t.integer  "max_lodging"
-    t.integer  "day_fee"
+    t.integer  "day_fee_cents"
     t.string   "experience"
     t.string   "frequency"
     t.string   "title"
@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.text     "city",                  limit: 65535
     t.text     "street",                limit: 65535
     t.text     "apartment",             limit: 65535
-    t.integer  "native_currency",                     default: 0
+    t.integer  "currency"
     t.string   "deadline"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false

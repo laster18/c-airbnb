@@ -29,5 +29,7 @@ class Room < ApplicationRecord
   # enum管理
   enum room_type: { entire_home: 0, private_room: 1, shared_room: 2 }
   enum country: { japan: 0, America: 1, China: 2 }
-  enum native_currency: { JPY: 0, USD: 1, KRW: 2 }
+  enum currency: { JPY: 0, USD: 1, KRW: 2 }
+
+  monetize :day_fee_cents, with_model_currency: :currency
 end

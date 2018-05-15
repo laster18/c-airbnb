@@ -11,7 +11,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.string  :check_in_to
       t.integer :min_lodging
       t.integer :max_lodging
-      t.integer :day_fee
+      t.integer :day_fee_cents
       t.string  :experience
       t.string  :frequency
       t.string  :title
@@ -22,7 +22,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.text    :city
       t.text    :street
       t.text    :apartment
-      t.integer :native_currency, default: 0
+      t.integer :currency
       t.string :deadline
       t.timestamps
     end

@@ -1,7 +1,26 @@
 = render partial: './rooms/step3-header'
 
-.rooms-calendar-main
-  .calendar-form
-    .calendar-body
-      %h2.calendar-body__title
-        カレンダーの更新を
+.rooms-new-main
+  .rooms-form
+    .rooms-form-body
+      %h2.rooms-form-body__title
+        お部屋の料金
+
+      .fee-info
+        予約が入る機会を増やそう
+        %br
+        スマートプライシングを設定すると、地域の需要変動に合わせて競争力のある価格が自動的に適用されます。
+      %h3.fee-sub
+        1泊あたりの料金を同じ基本料金に設定する
+      .fee-basic
+        .fee-basic__title
+          基本料金
+        .fee-basic__info
+          スマートプライシングを一泊オフにした場合、それがデフォルト料金になります。
+        .fee-basic__input
+
+      .fee-currency
+        .fee-currency__title
+          通貨
+        .fee-currency__input
+

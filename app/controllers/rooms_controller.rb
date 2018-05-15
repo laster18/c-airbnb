@@ -11,9 +11,9 @@ class RoomsController < ApplicationController
 
   def create() end
 
-  def room_type() end
-
   def has_rooms_list() end
+
+  def room_type() end
 
   def bedrooms
     session[:room_category_id] = params[:room][:room_category_id]

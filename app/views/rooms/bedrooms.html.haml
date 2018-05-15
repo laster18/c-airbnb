@@ -8,26 +8,28 @@
       = form_for @room, url: { controllers: :rooms, action: :bathrooms } do |f|
         .capacity-count
           = f.label :定員, class: "capacity-count__info"
-          = f.text_field :person_capacity, class: "capacity-count__input", value: "1", tabindex: "1"
-          .capacity-count__button
-            = f.button "+", type: "button", class: "capacity-count__spinner-up"
-            = f.button "−", type: "button", class: "capacity-count__spinner-down"
+          = f.button "−", type: "button", class: "capacity-count__spinner-down spinner-button"
+          = f.number_field :person_capacity, class: "capacity-count__input number-input", value: "1", tabindex: "1"
+          = f.button "+", type: "button", class: "capacity-count__spinner-up spinner-button"
 
-        .bedroom-count
-          %p.bedroom-count__info
+
+        .room-type-form
+          %p.room-type-form__info
             ゲストが使用できるベッドルーム数は?
-          .bedroom-count__form
+          .room-type-form__input
             = f.select :bedroom_number, options_for_select((1..50).map{|n| ["#{n}ベッドルーム", n]}, selected: current_user.try(:birthday_month)),  {}, {  class: 'bedroom-count__input'}
 
         .bed-count
           %p.bed-count__info
             ゲスト用のベッド台数は?
           %p
-            = f.text_field :bed_number, class: "bed-count__input", value: "1", tabindex: "2"
-            .bed-count__button
-              = f.button "+", type: "button", class: "bed-count__spinner-up"
-              = f.button "−", type: "button", class: "bed-count__spinner-down"
+            = f.label :ベッド数, class: "bed-count__sub"
+            = f.button "−", type: "button", class: "bed-count__spinner-down spinner-button"
+            = f.number_field :bed_number, class: "bed-count__input number-input", value: "1", tabindex: "2"
+            = f.button "+", type: "button", class: "bed-count__spinner-up spinner-button"
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+        .pagenate.clearfix
+          .pagenate__button-frame.back-button
+            = link_to "戻る", room_type_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"

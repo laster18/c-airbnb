@@ -22,6 +22,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.text    :city
       t.text    :street
       t.text    :apartment
+      t.integer :native_currency
       t.timestamps
     end
   end

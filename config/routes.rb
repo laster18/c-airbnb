@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get 'description'
       get 'fee'
       post 'photos_create'
+      patch 'availability_settings'
       patch 'title'
       patch 'second_step_finish'
       patch 'bedrooms'

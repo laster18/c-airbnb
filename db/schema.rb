@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "currencies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "house_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "child_permission",                default: false
     t.text     "child_not_reason",  limit: 65535
@@ -84,7 +78,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["available_space_id"], name: "index_room_available_spaces_on_available_space_id", using: :btree
-    t.index ["room_id", "available_space_id"], name: "index_room_available_spaces_on_room_id_and_available_space_id", using: :btree
     t.index ["room_id"], name: "index_room_available_spaces_on_room_id", using: :btree
   end
 
@@ -130,7 +123,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "notice_description_id"
     t.index ["notice_description_id"], name: "index_room_notices_on_notice_description_id", using: :btree
     t.index ["notice_id"], name: "index_room_notices_on_notice_id", using: :btree
-    t.index ["room_id", "notice_id"], name: "index_room_notices_on_room_id_and_notice_id", using: :btree
     t.index ["room_id"], name: "index_room_notices_on_room_id", using: :btree
   end
 
@@ -140,7 +132,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["recommendation_id"], name: "index_room_recommendations_on_recommendation_id", using: :btree
-    t.index ["room_id", "recommendation_id"], name: "index_room_recommendations_on_room_id_and_recommendation_id", using: :btree
     t.index ["room_id"], name: "index_room_recommendations_on_room_id", using: :btree
   end
 
@@ -150,7 +141,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["requirement_id"], name: "index_room_requirements_on_requirement_id", using: :btree
-    t.index ["room_id", "requirement_id"], name: "index_room_requirements_on_room_id_and_requirement_id", using: :btree
     t.index ["room_id"], name: "index_room_requirements_on_room_id", using: :btree
   end
 
@@ -169,7 +159,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.integer  "shared_space_id", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["room_id", "shared_space_id"], name: "index_room_shared_spaces_on_room_id_and_shared_space_id", using: :btree
     t.index ["room_id"], name: "index_room_shared_spaces_on_room_id", using: :btree
     t.index ["shared_space_id"], name: "index_room_shared_spaces_on_shared_space_id", using: :btree
   end
@@ -196,14 +185,13 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.text     "city",                  limit: 65535
     t.text     "street",                limit: 65535
     t.text     "apartment",             limit: 65535
+    t.integer  "native_currency"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.integer  "room_category_id"
     t.integer  "room_building_type_id"
     t.integer  "room_deadline_id"
     t.integer  "user_id",                                             null: false
-    t.integer  "currency_id"
-    t.index ["currency_id"], name: "index_rooms_on_currency_id", using: :btree
     t.index ["room_building_type_id"], name: "index_rooms_on_room_building_type_id", using: :btree
     t.index ["room_category_id"], name: "index_rooms_on_room_category_id", using: :btree
     t.index ["room_deadline_id"], name: "index_rooms_on_room_deadline_id", using: :btree
@@ -270,7 +258,6 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   add_foreign_key "room_safety_amenities", "safety_amenities"
   add_foreign_key "room_shared_spaces", "rooms"
   add_foreign_key "room_shared_spaces", "shared_spaces"
-  add_foreign_key "rooms", "currencies"
   add_foreign_key "rooms", "room_building_types"
   add_foreign_key "rooms", "room_categories"
   add_foreign_key "rooms", "room_deadlines"

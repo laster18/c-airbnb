@@ -97,6 +97,10 @@ class RoomsController < ApplicationController
   end
 
   def fee
+    @room = Room.find(params[:id])
+  end
+
+  def availability_settings
 
   end
 

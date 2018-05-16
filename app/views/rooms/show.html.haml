@@ -19,52 +19,150 @@
         .s-main-left-body
 
           .s-info-head
-            .s-info-head__type 一軒家
+            .s-info-head__type
+              = @room.room_type_i18n
             .clearfix
               .s-info-head__main
-                %h1.s-info-head__title I SETTE CONI - TRULLO EDERA
-                .s-info-head__adrress オストゥーニ
-              %a.s-info-head__user{href: "#"}
-                %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
-                .s-info-head__user-name aoba
+                %h1.s-info-head__title
+                  = @room.title
+                .s-info-head__adrress
+                  = @room.state
+              %a.s-info-head__user{href: "#{}"}
+                - if current_user.avatar?
+                  %img.s-info-head__user-avatar{src: @room.user.avatar, style: "width: 60px; height: 60px;"}
+                - else
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .s-info-head__user-name
+                  = @room.user.first_name
             .s-info-head__content
-              %span ゲスト4人
-              %span 1寝室
-              %span ベッド2台
-              %span 1バスルーム
+              %span
+                ゲスト #{@room.person_capacity}人
+              %span
+                #{@room.bedroom_number}寝室
+              %span
+                ベッド#{@room.bed_number}台
+              %span
+                #{@room.bathroom_number}バスルーム
 
-
-          .s-info-space
-            .s-info-space__title スペース
-            .s-info-space__text
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              %br
-            %a.s-info-space__message{ href: "#"}
-              ホストに連絡
+          .s-info-overview
+            .s-info-overview__title
+              宿泊先の説明欄
+            .s-info-overview__text
+              = simple_format(@room.overview)
+            .s-info-overview__message
+              %a{ href: "#"}
+                ホストに連絡
 
           .s-info-amenity
-          .s-info-bed
-          .s-info-rule
+            .s-info-amenity__title
+              アメニティ・設備
+            .amenity-items
+              .amenities.clearfix
+                %p - アメニティ
+                - @room.amenities.each do |amenity|
+                  .amenities__item
+                    = amenity.content
+              .available-spaces.clearfix
+                %p - 設備
+                - @room.available_spaces.each do |available_space|
+                  .available-spaces__item
+                    = available_space.content
+              .safety-amenities.clearfix
+                %p - 安全設備
+                - @room.safety_amenities.each do |safety_amenity|
+                  .safety-amenities__item
+                    = safety_amenity.content
+
+            .s-info-amenity__detail
+              18項目を全て表示
+
           .s-info-cancel
+            .s-info-cancel__title
+              キャンセル
+            .s-info-cancel__detail
+              %p
+                普通 - チェックイン7日前までキャンセル無料
+              %ul.s-info-cancel__list
+                %li
+                  チェックイン７日前までに解約すれば、手数料全てを含んだ全額が返金されます。
+                %li
+                  チェックイン7日以内に解約すると、手数料を含む宿泊料金の合計の50%が返金されます。
+                %li
+                  宿泊の途中でキャンセルすると、一部返金される場合もあります。
+
           .s-info-review
+            .review-head.clearfix
+              .review-head__title
+                レビュー●●●件
+              .review-head-left
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    正確さ
+                  .review-head-item__rate
+                    ★★★★★
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    コミュニケーション
+                  .review-head-item__rate
+                    ★★★★★
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    清潔さ
+                  .review-head-item__rate
+                    ★★★★★
+              .review-head-right
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    ロケーション
+                  .review-head-item__rate
+                    ★★★★★
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    チェックイン
+                  .review-head-item__rate
+                    ★★★★★
+                .review-head-item.clearfix
+                  .review-head-item__content
+                    コスパ
+                  .review-head-item__rate
+                    ★★★★★
+
+            .review-main
+              .review-user-info.clearfix
+                .review-user-info__avatar
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .review-user-info__name
+                  Jane
+                .review-user-info__date
+                  2018年4月
+              .review-rate
+                ★★★★★
+              .review-comment
+                最高な宿でした。
 
       .s-main-right
         .s-main-right-body
           .s-main-right-head
             .div
-              %span.s-main-right-head__fee ¥ 9,501
+              %span.s-main-right-head__fee
+                = humanized_money @room.day_fee_cents
               %span.s-main-right-head__one /1泊
             .s-main-right-head__rate ★★★★ 300
-          .s-main-right-form
+          .reservation-form
+            .reservation-date
+              .reservation-date__info
+                日付
+              .reservation-date__input
+                .reservation-date__check-in
+                  %input{type: "text"}
+                .reservation-date__check-out
+                  %input{type: "text"}
+
+
+            .reservation-person-number
+              .reservation-person-number__info
+                人数
+              .reservation-person-number__input
+
+
+

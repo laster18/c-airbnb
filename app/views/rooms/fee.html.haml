@@ -20,14 +20,14 @@
           .fee-basic__info
             スマートプライシングを一泊オフにした場合、それがデフォルト料金になります。
           .fee-basic__input
-            = f.text_field :day_fee, data: { autonumeric: { mDec: 0 } }
+            = f.text_field :day_fee_cents, data: { autonumeric: { mDec: 0 } }
             / f.text_field :amount, data: { autonumeric: true } %>
 
         .fee-currency
           .fee-currency__title
             通貨
           .fee-currency__input
-            = f.select :currency, Room.currencies_i18n.keys.map {|k| [Room.currencies_i18n[k], k]}
+            = f.select :currency, [["日本円", "JPY"], ["米ドル", "USD"], ["韓国ウォン", "KRW"]]
 
         .pagenate.clearfix
           / .pagenate__button-frame.back-button

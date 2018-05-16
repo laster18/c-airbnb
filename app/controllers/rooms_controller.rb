@@ -5,7 +5,9 @@ class RoomsController < ApplicationController
 
   def index() end
 
-  def show() end
+  def show
+    @room = Room.find(params[:id])
+  end
 
   def new() end
 
@@ -101,7 +103,6 @@ class RoomsController < ApplicationController
   def availability_questions
     @room = Room.find(params[:id])
     @room.update(third_step_update_params)
-    binding.pry
   end
 
   def availability_settings
@@ -173,7 +174,7 @@ class RoomsController < ApplicationController
   end
 
   def third_step_update_params
-    params.require(:room).permit(:day_fee, :currency, :experience, :frequency, :deadline, :check_in_from, :check_in_to, :min_lodging, :max_lodging)
+    params.require(:room).permit(:day_fee_cents, :currency, :experience, :frequency, :deadline, :check_in_from, :check_in_to, :min_lodging, :max_lodging)
   end
 
   def set_sessions_second

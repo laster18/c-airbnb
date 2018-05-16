@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.string   "check_in_to"
     t.integer  "min_lodging"
     t.integer  "max_lodging"
-    t.integer  "day_fee_cents"
+    t.integer  "day_fee"
     t.string   "experience"
     t.string   "frequency"
     t.string   "title"

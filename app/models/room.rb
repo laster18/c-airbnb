@@ -31,5 +31,5 @@ class Room < ApplicationRecord
   enum country: { japan: 0, America: 1, China: 2 }
   enum currency: { JPY: 0, USD: 1, KRW: 2 }
 
-  monetize :day_fee_cents, with_model_currency: :currency
+  # monetize :day_fee, with_model_currency: :currency
 end

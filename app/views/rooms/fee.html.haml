@@ -1,3 +1,5 @@
+= javascript_include_tag "sales.js"
+
 = render partial: './rooms/step3-header'
 
 .rooms-new-main
@@ -18,13 +20,14 @@
           .fee-basic__info
             スマートプライシングを一泊オフにした場合、それがデフォルト料金になります。
           .fee-basic__input
-            = f.telephone_field :day_fee
+            = f.text_field :day_fee, data: { autonumeric: { mDec: 0 } }
+            / f.text_field :amount, data: { autonumeric: true } %>
 
         .fee-currency
           .fee-currency__title
             通貨
           .fee-currency__input
-            = f.select :native_currency, Room.native_currencies_i18n.keys.map {|k| [Room.native_currencies_i18n[k], k]}
+            = f.select :currency, Room.currencies_i18n.keys.map {|k| [Room.currencies_i18n[k], k]}
 
         .pagenate.clearfix
           / .pagenate__button-frame.back-button

@@ -1,5 +1,8 @@
 .s-main {
   padding-top: 85px;
+  color: #484848;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .s-top-wrapper {
@@ -102,6 +105,7 @@
       padding-bottom: 10px;
       &__type {
         font-size: 13px;
+        color: #008489;
       }
       &__main {
         width: 84%;
@@ -129,7 +133,7 @@
       &__content {
         padding-top: 12px;
         font-style: italic;
-        color: #A4A4A4
+        color: #A4A4A4;
       }
     }
     .s-info-space {
@@ -150,7 +154,126 @@
         font-size: 18px;
       }
     }
-    .s-info-amenity {
+  }
+}
+
+.s-info-overview {
+  color: gray;
+  border-bottom: 1px solid #D8D8D8;
+  &__title {
+    padding-top: 12px;
+    font-size: 17px;
+  }
+  &__text {
+    padding-top: 12px;
+    font-size: 15px;
+  }
+  &__message {
+    padding: 12px 0;
+    & a {
+      text-decoration: none;
+      color: #008489;
+      font-size: 16px;
     }
   }
+}
+
+.s-info-amenity {
+  padding: 23px 0;
+  border-bottom: 1px solid #D8D8D8;
+  &__title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__detail {
+    color: #008489;
+    margin-top: 8px;
+  }
+}
+
+.amenity-items {
+  padding: 10px 0;
+}
+
+.amenities, .available-spaces, .safety-amenities {
+  & p {
+    padding: 5px 0;
+  }
+  &__item {
+    float: left;
+    width: 50%;
+    padding-bottom: 2px;
+  }
+}
+
+.s-info-cancel {
+  padding: 23px 0;
+  border-bottom: 1px solid #D8D8D8;
+  &__title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__detail {
+    & p{
+      padding-bottom: 10px;
+    }
+  }
+  &__list {
+    list-style-type: square;
+    list-style-position: inside;
+  }
+}
+
+.s-info-review {
+  padding: 13px 0;
+}
+
+.review-head {
+  padding-bottom: 30px;
+  &__title {
+    padding: 14px 0;
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+
+.review-head-left, .review-head-right {
+  float: left;
+  width: 50%;
+  padding-right: 20px;
+}
+
+.review-head-item {
+  font-size: 18px;
+  padding: 4px 0;
+  &__content {
+    float: left;
+  }
+  &__rate {
+    float: right;
+  }
+}
+
+.review-user-info {
+  padding: 6px 0;
+  &__avatar {
+    float: left;
+    margin-right: 16px;
+  }
+  &__name {
+    font-weight: bold;
+  }
+  &__date {
+    font-size: 14px;
+    padding-top: 5px;
+  }
+}
+
+.review-rate {
+  padding-bottom: 8px;
+}
+
+.review-comment {
+  font-family: 'arial';
+  font-size: 16px;
 }

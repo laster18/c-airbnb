@@ -15,7 +15,7 @@ ja:
         japan: 日本
         America: アメリカ
         China: 中国
-      native_currency:
+      currency:
         JPY: 日本円
         USD: 米ドル
         KRW: ウォン

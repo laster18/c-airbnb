@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require autonumeric
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja

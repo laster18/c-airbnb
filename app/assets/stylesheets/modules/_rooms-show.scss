@@ -94,10 +94,6 @@
   }
 }
 
-.reservation-form {
-
-}
-
 .reservation-date {
   padding-top: 20px;
   &__info {
@@ -134,10 +130,12 @@
 
 .date-preview-in {
   float: left;
+  font-weight: bold;
 }
 
 .date-preview-out {
   float: right;
+  font-weight: bold;
 }
 
 .s-main-left {
@@ -329,18 +327,10 @@
   font-size: 16px;
 }
 
-#calendar {
-  width: 400px;
-  height: 600px;
-}
-
 .person-number-input {
   border: 1px solid #dcdcdc;
   height: 35px;
   padding: 5px 12px;
-}
-
-.person-number-frame {
 }
 
 .fa-angle-down {

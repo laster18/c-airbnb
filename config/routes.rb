@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :show, :new, :create] do
     resources :room_calendars, only: [:index, :create]
     delete '/room_calendars' => 'room_calendars#destroy'
+    resources :room_appointments, only: [:index, :new, :create]
 
     collection do
       get  'room_type'

@@ -121,11 +121,21 @@
 .date-preview {
   margin-top: 10px;
   border: 1px solid #dcdcdc;
+  height: 38px;
+  position: relative;
 }
 
 .date-preview-frame {
   padding: 5px 14px;
   text-align: center;
+  height: 38px;
+
+}
+
+.date-preview-arrow {
+  position: absolute;
+  top: 5px;
+  left: 47%;
 }
 
 .date-preview-in {
@@ -424,4 +434,10 @@
 
 .show-input-modal {
   display: none;
+}
+
+.reservation-subscription {
+  padding: 7px 0;
+  text-align: center;
+  font-size: 12px;
 }

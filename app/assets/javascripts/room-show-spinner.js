@@ -65,23 +65,23 @@ $(function(){
   });
 
   $('#room_appointment_number_of_child').change(function() {
-    console.log('test');
     $('.child-output').text(`子ども${childCount}人`);
   });
 
   $('.infant-count__input').change(function() {
-    console.log('test');
     $('.infant-output').text(`乳幼児${infantCount}人`);
   });
 
   // 予約日セレクトに対してのアウトプット
   $('#room_appointment_check_in_date').change(function(){
     var checkInDate = $('#room_appointment_check_in_date option:selected').text();
+    var checkInDate = checkInDate.replace(/-/g, '/');
     $('.checkin-preview').text(checkInDate);
   });
 
   $('#room_appointment_check_out_date').change(function(){
     var checkOutDate = $('#room_appointment_check_out_date option:selected').text();
+    var checkOutDate = checkOutDate.replace(/-/g, '/');
     $('.checkout-preview').text(checkOutDate);
   });
 });

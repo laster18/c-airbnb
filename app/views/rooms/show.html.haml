@@ -197,13 +197,12 @@
 
                   .date-preview
                     .date-preview-frame
-                      →
+                      %span.date-preview-arrow
+                        →
                       .date-preview-in
                         %span.checkin-preview
-                          2018/05/14
                       .date-preview-out
                         %span.checkout-preview
-                          2018/05/16
 
               .reservation-person-number
                 .reservation-person-number__info
@@ -251,3 +250,5 @@
 
               .reservation-submit
                 = f.button "予約をリクエスト", class: "reservation-submit__button"
+              .reservation-subscription
+                まだ請求は発生しません。

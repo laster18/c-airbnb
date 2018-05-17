@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require autonumeric
 //= require moment
+//= require bootstrap-datetimepicker
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 // require_tree .

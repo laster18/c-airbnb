@@ -254,6 +254,11 @@
   }
 }
 
+.review-main {
+  border-bottom: 1px solid #D8D8D8;
+  padding: 20px 0;
+}
+
 .review-user-info {
   padding: 6px 0;
   &__avatar {
@@ -276,4 +281,9 @@
 .review-comment {
   font-family: 'arial';
   font-size: 16px;
+}
+
+#calendar {
+  width: 400px;
+  height: 600px;
 }

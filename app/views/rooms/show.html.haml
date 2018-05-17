@@ -1,3 +1,5 @@
+= javascript_include_tag "calendar"
+
 = render partial: "./header"
 
 .s-main
@@ -140,6 +142,32 @@
               .review-comment
                 最高な宿でした。
 
+            .review-main
+              .review-user-info.clearfix
+                .review-user-info__avatar
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .review-user-info__name
+                  Jane
+                .review-user-info__date
+                  2018年4月
+              .review-rate
+                ★★★★★
+              .review-comment
+                ゴミのような宿でした。
+
+            .review-main
+              .review-user-info.clearfix
+                .review-user-info__avatar
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .review-user-info__name
+                  Jane
+                .review-user-info__date
+                  2018年4月
+              .review-rate
+                ★★★★★
+              .review-comment
+                まぁ普通かな。
+
       .s-main-right
         .s-main-right-body
           .s-main-right-head
@@ -154,9 +182,9 @@
                 日付
               .reservation-date__input
                 .reservation-date__check-in
-                  %input{type: "text"}
+                  %input{type: "date"}
                 .reservation-date__check-out
-                  %input{type: "text"}
+                  %input{type: "date"}
 
 
             .reservation-person-number
@@ -164,5 +192,6 @@
                 人数
               .reservation-person-number__input
 
-
+.calendar
+  #calendar
 

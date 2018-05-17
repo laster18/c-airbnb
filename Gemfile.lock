@@ -49,8 +49,10 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bcrypt (3.1.11)
+    bcrypt (3.1.12)
     bindex (0.5.0)
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (10.0.2)
     capistrano (3.10.2)
@@ -488,6 +490,7 @@ PLATFORMS
 
 DEPENDENCIES
   autonumeric-rails
+  bootstrap3-datetimepicker-rails
   byebug
   capistrano
   capistrano-bundler

@@ -29,12 +29,18 @@ class RoomAppointmentsController < ApplicationController
 
     @total_fee = @number_of_nights.to_i * @room.day_fee_cents.to_i
     session[:total_fee] = @total_fee
-
   end
 
   def create
     @room_appointment = RoomAppointment.new(appointment_params)
     if @room_appointment.save
+      check_in_date = @room_appointment.check_in_date
+      check_out_date = @room_appointment.check_out_date - 1
+      while check_out_date >= check_in_date do
+        @room_calendar = RoomCalendar.find_by(room_id: params[:room_id], date: check_out_date)
+        @room_calendar.destroy
+        check_out_date -= 1
+      end
       redirect_to action: :index
     else
       render :preview

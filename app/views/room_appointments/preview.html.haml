@@ -58,9 +58,9 @@
         .room-fee
           .room-fee-basis.fee-item.clearfix
             .room-fee-basis__left.fee-item__left
-              ¥ #{@room.day_fee_cents} x #{@number_of_nights}泊
+              ¥ #{humanized_money @room.day_fee_cents} x #{@number_of_nights}泊
             .room-fee-basis__right.fee-item__right
-              ¥ #{@total_fee}
+              ¥ #{humanized_money @total_fee}
           .room-fee-cleaning.fee-item.clearfix
             .room-fee-cleaning__left.fee-item__left
               清掃料金
@@ -75,7 +75,7 @@
           .total-fee__left
             合計額 (JPY)
           .total-fee__right
-            ¥ #{@total_fee}
+            ¥ #{humanized_money @total_fee}
 
         .total-description
           見積りには為替手数料が含まれています。

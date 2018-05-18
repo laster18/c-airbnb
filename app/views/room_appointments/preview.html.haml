@@ -1,0 +1,96 @@
+= render partial: 'appointment-header'
+
+.reservation-back
+  .reservation-body.clearfix
+
+    .reservation-left
+      .reservation-left-body
+        %h2.reservation-title
+          旅行の詳細を見る
+
+        .check-point
+          .check-point__title
+            初めてのAirbnb旅行で気をつけたいこと
+          .check-point__list
+            宿は個性派揃い。間取りやアメニティ・設備はひとつひとつ異なります。
+          .check-point__list
+            お家は大切に使いましょう。ホストの自宅ということもあります！
+          .check-point__list
+            滞在前と滞在中はホストと連絡が取れるようにしておきましょう。
+
+        .guest-message
+          .guest-message-left
+            .guest-message-left__title
+              ホストにひとことご挨拶を
+            .guest-message-left__info
+              Toshさんに簡単に自己紹介をして旅の目的を伝えましょう。
+          .guest-message-right
+            %img.guest-message-right__avatar{src: @room.user.avatar, style: "width: 55px; height: 55px;"}
+          = form_for @room_appointment, url: room_room_appointments_path(@room) do |f|
+            .guest-message-input
+              = f.text_area :message, placeholder: "お世話になります○○です。今から楽しみです！"
+
+            .c-reservation-submit
+              = button_tag "予約を確定する"
+
+    .reservation-right
+      .reservation-right-body.clearfix
+        .room-info.clearfix
+          .room-info-left
+            .room-info-left__title
+              = @room.title
+            .room-info-left__type
+              = @room.room_building_type.name
+              = @room.room_type_i18n
+            .room-info-left__review
+              ★★★★ レビュー16件
+          .room-info-right
+            %img.guest-message-right__avatar{src: "#", style: "width: 55px; height: 55px;"}
+
+        .request
+          .request-guest
+            .i.fa.fa-users
+            %span ゲスト#{@people}人
+          .request-date
+            %i.fa.fa-calendar
+            %span #{@check_in_date} → #{@check_out_date}
+
+        .room-fee
+          .room-fee-basis.fee-item.clearfix
+            .room-fee-basis__left.fee-item__left
+              ¥ #{humanized_money @room.day_fee_cents} x #{@number_of_nights}泊
+            .room-fee-basis__right.fee-item__right
+              ¥ #{humanized_money @total_fee}
+          .room-fee-cleaning.fee-item.clearfix
+            .room-fee-cleaning__left.fee-item__left
+              清掃料金
+            .room-fee-cleaning__right.fee-item__right
+              ¥ 0
+          .room-fee-service.fee-item.clearfix
+            .room-fee-service__left.fee-item__left
+              サービス料
+            .room-fee-service__left.fee-item__right
+              ¥ 0
+        .total-fee.clearfix
+          .total-fee__left
+            合計額 (JPY)
+          .total-fee__right
+            ¥ #{humanized_money @total_fee}
+
+        .total-description
+          見積りには為替手数料が含まれています。
+
+        .room-cancel
+          .room-cancel-left
+            .room-cancel-left__main
+              厳格 (返金保証期間付き) - キャンセル無料
+            .room-cancel-left__sub
+              予約後48時間以内に解約すれば全額返金されます。
+          .room-cancel-right
+            %img.guest-message-right__avatar{src: "/assets/cancel.png", style: "width: 55px; height: 55px;"}
+
+.footer
+  .footer-left
+    © Airbnb, Inc.
+  .footer-right
+    日本語  JPY

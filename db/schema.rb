@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510024042) do
+ActiveRecord::Schema.define(version: 20180516115352) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",                   null: false
@@ -70,6 +70,22 @@ ActiveRecord::Schema.define(version: 20180510024042) do
     t.index ["amenity_id"], name: "index_room_amenities_on_amenity_id", using: :btree
     t.index ["room_id", "amenity_id"], name: "index_room_amenities_on_room_id_and_amenity_id", using: :btree
     t.index ["room_id"], name: "index_room_amenities_on_room_id", using: :btree
+  end
+
+  create_table "room_appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id",                                    null: false
+    t.integer  "user_id",                                    null: false
+    t.date     "check_in_date",                              null: false
+    t.date     "check_out_date",                             null: false
+    t.integer  "number_of_adult",                default: 1, null: false
+    t.integer  "number_of_child",                default: 0, null: false
+    t.integer  "number_of_infant",               default: 0, null: false
+    t.text     "message",          limit: 65535,             null: false
+    t.integer  "total_fee",                                  null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["room_id"], name: "index_room_appointments_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_room_appointments_on_user_id", using: :btree
   end
 
   create_table "room_available_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -236,6 +252,8 @@ ActiveRecord::Schema.define(version: 20180510024042) do
   add_foreign_key "house_rules", "rooms"
   add_foreign_key "room_amenities", "amenities"
   add_foreign_key "room_amenities", "rooms"
+  add_foreign_key "room_appointments", "rooms"
+  add_foreign_key "room_appointments", "users"
   add_foreign_key "room_available_spaces", "available_spaces"
   add_foreign_key "room_available_spaces", "rooms"
   add_foreign_key "room_calendars", "rooms"

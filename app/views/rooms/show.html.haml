@@ -1,3 +1,8 @@
+/ = javascript_include_tag "calendar"
+/ = javascript_include_tag "datetimepicker.js"
+= javascript_include_tag "room-show.js"
+= javascript_include_tag "room-show-spinner.js"
+
 = render partial: "./header"
 
 .s-main
@@ -140,6 +145,32 @@
               .review-comment
                 最高な宿でした。
 
+            .review-main
+              .review-user-info.clearfix
+                .review-user-info__avatar
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .review-user-info__name
+                  Jane
+                .review-user-info__date
+                  2018年4月
+              .review-rate
+                ★★★★★
+              .review-comment
+                ゴミのような宿でした。
+
+            .review-main
+              .review-user-info.clearfix
+                .review-user-info__avatar
+                  %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
+                .review-user-info__name
+                  Jane
+                .review-user-info__date
+                  2018年4月
+              .review-rate
+                ★★★★★
+              .review-comment
+                まぁ普通かな。
+
       .s-main-right
         .s-main-right-body
           .s-main-right-head
@@ -148,21 +179,76 @@
                 = humanized_money @room.day_fee_cents
               %span.s-main-right-head__one /1泊
             .s-main-right-head__rate ★★★★ 300
-          .reservation-form
-            .reservation-date
-              .reservation-date__info
-                日付
-              .reservation-date__input
-                .reservation-date__check-in
-                  %input{type: "text"}
-                .reservation-date__check-out
-                  %input{type: "text"}
+          = form_for @room_appointment, url: room_room_appointments_preview_path(room_id: @room.id) do |f|
+            / = f.hidden_field :room_id, value: @room.id
+            .reservation-form
+              .reservation-date
+                .reservation-date__info
+                  日付
+                .reservation-date__input
+                  .reservation-date__check-in.clearfix
+                    = f.label :チェックイン日
+                    .reservation-date__select
+                      = f.collection_select :check_in_date, @room_calendars, :id, :date
+                  .reservation-date__check-in.clearfix
+                    = f.label :チェックアウト日
+                    .reservation-date__select
+                      = f.collection_select :check_out_date, @room_calendars, :id, :date
 
+                  .date-preview
+                    .date-preview-frame
+                      %span.date-preview-arrow
+                        →
+                      .date-preview-in
+                        %span.checkin-preview
+                      .date-preview-out
+                        %span.checkout-preview
 
-            .reservation-person-number
-              .reservation-person-number__info
-                人数
-              .reservation-person-number__input
+              .reservation-person-number
+                .reservation-person-number__info
+                  人数
+                .person-number-input
+                  .person-number-frame
+                    %span.adult-output
+                      大人:1人
+                    %span.child-output
+                    %span.infant-output
+                    .i.fa.fa-angle-down
 
+                .number-of-people.show-input-modal
+                  .number-of-people__body
+                    .adult-form.clearfix
+                      .adult-form__info
+                        大人
+                      .adult-count
+                        = f.button "−", type: "button", class: "adult-count__spinner-down reservation-spinner"
+                        = f.number_field :number_of_adult, class: "adult-count__input reservation-number-input", value: "1", tabindex: "1"
+                        = f.button "+", type: "button", class: "adult-count__spinner-up reservation-spinner"
+                    .child-form.clearfix
+                      .child-form__info
+                        %p 子ども
+                        %p.child-form__description 年齢2 - 12
+                      .child-count
+                        = f.button "−", type: "button", class: "child-count__spinner-down reservation-spinner"
+                        = f.number_field :number_of_child, class: "child-count__input reservation-number-input", value: "0", tabindex: "1"
+                        = f.button "+", type: "button", class: "child-count__spinner-up reservation-spinner"
+                    .infant-form.clearfix
+                      .infant-form__info
+                        %p 乳幼児
+                        %p.infant-form__description 2歳未満
+                      .infant-count
+                        = f.button "−", type: "button", class: "infant-count__spinner-down reservation-spinner"
+                        = f.number_field :number_of_infant, class: "infant-count__input reservation-number-input", value: "0", tabindex: "1"
+                        = f.button "+", type: "button", class: "infant-count__spinner-up reservation-spinner"
 
+                    .number-of-people__description
+                      最大#{@room.person_capacity}名まで宿泊可能。乳幼児は人数にカウントされません。
 
+                    .show-input-close
+                      %button.show-input-close__button{type: "button"}
+                        %span 閉じる
+
+              .reservation-submit
+                = f.button "予約をリクエスト", class: "reservation-submit__button"
+              .reservation-subscription
+                まだ請求は発生しません。

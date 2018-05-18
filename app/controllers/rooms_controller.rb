@@ -7,6 +7,9 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @room_appointment = RoomAppointment.new
+    @room_calendars = RoomCalendar.where(room_id: params[:id]).order(:date)
+    gon.capacity = @room.person_capacity
   end
 
   def new() end

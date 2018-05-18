@@ -3,3 +3,6 @@ $(document).ready ->
   lang: 'ja'
   }
   return
+
+$ ->
+  $(".datetimepicker").datetimepicker()

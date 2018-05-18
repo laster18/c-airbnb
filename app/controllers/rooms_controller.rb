@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
     @room_appointment = RoomAppointment.new
     @room_calendars = RoomCalendar.where(room_id: params[:id]).order(:date)
     gon.capacity = @room.person_capacity
+    gon.address = @room.state + @room.city + @room.street
   end
 
   def new() end
@@ -116,6 +117,7 @@ class RoomsController < ApplicationController
   def third_step_finish
     @room = Room.find(params[:id])
     @room.update(third_step_update_params)
+    redirect_to action: :index
   end
 
   private

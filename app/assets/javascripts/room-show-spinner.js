@@ -84,8 +84,16 @@ $(function(){
     var checkOutDate = checkOutDate.replace(/-/g, '/');
     $('.checkout-preview').text(checkOutDate);
   });
+
+  // 予約できる日に制限をかける
+  // $('#room_appointment_check_in_date').change(function(){
+  //   var selectInDate = $('#room_appointment_check_in_date option:selected').text();
+  //   console.log(selectInDate);
+  //   $('option:contains(`${selectInDate}`)').remove();
+  //   // var test = $(“:contains('2018-05-19')”);
+  //   // console.log(test);
+  //   // // console.log(test);
+  // });
 });
-
-
 
 

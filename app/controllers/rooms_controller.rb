@@ -117,6 +117,7 @@ class RoomsController < ApplicationController
   def third_step_finish
     @room = Room.find(params[:id])
     @room.update(third_step_update_params)
+    redirect_to action: :index
   end
 
   private

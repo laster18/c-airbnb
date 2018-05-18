@@ -1,5 +1,5 @@
 .reservation-back {
-  min-height: 1000px;
+  min-height: 700px;
   color: #4d4d4d;
 }
 
@@ -52,6 +52,17 @@
   float: right;
   &__avatar {
     border-radius: 50%;
+  }
+}
+
+.guest-message-input {
+  margin-bottom: 25px;
+  & textarea {
+    width: 100%;
+    height: 100px;
+    outline: 0;
+    font-size: 18px;
+    padding: 6px 6px;
   }
 }
 
@@ -110,7 +121,7 @@
 }
 
 .total-fee {
-  padding: 20px 0;
+  padding: 20px 0 15px 0;
   &__left {
     float: left;
   }
@@ -121,4 +132,61 @@
 
 .total-description {
   font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.room-cancel {
+  padding: 15px 0;
+}
+
+.room-cancel-left {
+  float: left;
+  width: 70%;
+  &__sub {
+    font-size: 13px;
+  }
+}
+
+.room-cancel-right {
+  float: right;
+}
+
+.c-reservation-submit {
+  width: 180px;
+  height: 65px;
+  & button {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    border-radius: 4px;
+    background: #008489;
+    color: white;
+    font-weight: 700;
+    border-color: transparent;
+    cursor: pointer;
+    @include hover();
+  }
+}
+
+.footer {
+  margin: 0 80px;
+  border-top: 1px solid #d3d3d3;
+  height: 80px;
+}
+
+.footer-left {
+  float: left;
+  display: inline-block;
+  height: 100%;
+  line-height: 80px;
+  padding-left: 10px;
+}
+
+.footer-right {
+  float: right;
+  display: inline-block;
+  height: 100%;
+  line-height: 80px;
+  padding-right: 10px;
 }

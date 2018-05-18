@@ -1,7 +1,6 @@
-/ = javascript_include_tag "calendar"
-/ = javascript_include_tag "datetimepicker.js"
 = javascript_include_tag "room-show.js"
 = javascript_include_tag "room-show-spinner.js"
+= javascript_include_tag "google_map_API.js"
 
 = render partial: "./header"
 
@@ -252,3 +251,8 @@
                 = f.button "予約をリクエスト", class: "reservation-submit__button"
               .reservation-subscription
                 まだ請求は発生しません。
+
+      #floating-panel
+      #map
+      %script{:src => "https://maps.googleapis.com/maps/api/js"}
+

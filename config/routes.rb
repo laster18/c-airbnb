@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :show, :new, :create] do
     resources :room_calendars, only: [:index, :create]
     delete '/room_calendars' => 'room_calendars#destroy'
-    resources :room_appointments, only: [:index, :new, :create]
+    resources :room_appointments, only: [:create]
+    post '/room_appointments_preview' => 'room_appointments#preview'
 
     collection do
       get  'room_type'
@@ -45,6 +46,8 @@ Rails.application.routes.draw do
       patch 'third_step_finish'
     end
   end
+
+  resources :room_appointments, only: [:index ]
 
   resources :users, only: [:edit, :update] do
     collection do

@@ -1,23 +1,51 @@
 = render partial: 'step1-header'
 
-.rooms-new-main
-  .rooms-form
-    .rooms-form-body
-      .rooms-form-body__title
+.rooms-amenities-main
+  .amenities-form
+    .amenities-form-body
+      .amenities-form-body__title
         ご用意するアメニティ・設備は?
 
       = form_for @room, url: { controlllers: :rooms, action: :spaces } do |f|
         .amenities
           = fields_for :amenities do |ff|
-            = collection_check_boxes(:room, :amenity_ids, Amenity.all, :id, :content) do |b|
-              = b.label { b.check_box + b.text }
+            .amenity-item
+              = collection_check_boxes(:room, :amenity_ids, Amenity.all, :id, :content) do |b|
+                %label{ class:"amenity-list"}
+                  %span
+                    = b.check_box
+                  %span
+                    = b.text
+                  %p.amenity-description
+                    = b.object.description
 
         .safety_amenities
-          %p 安全対策アメニティ
-          = fields_for :safety_amenities do |fff|
-            = collection_check_boxes(:room, :safety_amenity_ids, SafetyAmenity.all, :id, :content) do |bb|
-              = bb.label { bb.check_box + bb.text }
+          .safety__info
+            安全対策アメニティ
+          .amenities
+            = fields_for :safety_amenities do |fff|
+              .amenity-item
+                = collection_check_boxes(:room, :safety_amenity_ids, SafetyAmenity.all, :id, :content) do |bb|
+                  %label{ class:"amenity-list"}
+                    %span
+                      = bb.check_box
+                    %span
+                      = bb.text
+                    %p.amenity-description
+                      = bb.object.description
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+        .pagenate.clearfix
+          / .pagenate__button-frame.back-button
+          /   = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "次へ", type: "submit", class: "pagenate__button"
+
+  .amenity-right
+    .amenity-right-body
+      .amenity-right-body__light
+        %img{ src: "/assets/light.png", style: "width: 40px;"}
+      .amenity-right-body__info
+        生活必需品を揃えておくと、ゲストも自分の家のようにくつろげます。
+      .amenity-right-body__sub
+        朝食を用意する方もいれば、コーヒーやお茶だけにする方も。どれも義務というわけではないけれど、あると温かいおもてなしの気持ちが伝わるアイテムです。
+

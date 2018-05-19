@@ -1,0 +1,49 @@
+.confirmation-main {
+  padding-top: 85px;
+  padding: 85px 40px 0px 10vw;
+  color: #333333;
+}
+
+.confirmation-form {
+  width: 43vw;
+  float: left;
+  margin-right: 20px;
+}
+
+.confirmation-form-body {
+  padding: 30px 35px;
+  &__title {
+    font-size: 30px;
+
+  }
+  &__question {
+    font-size: 17px;
+    color: #767676;
+  }
+}
+
+.review-step1, .review-step2, .review-step3 {
+  border-bottom: 1px solid #dcdcdc;
+  padding: 25px 0;
+  width: 87%;
+  &__text {
+    font-size: 15px;
+    color: #bbb;
+    font-weight: bold;
+  }
+  &__info {
+    font-size: 18px;
+  }
+  &__title {
+    font-size: 22px;
+  }
+  &__link {
+    text-decoration: none;
+    color: #008489 !important;
+  }
+}
+
+.confirmation-right-image {
+  float: left;
+  padding-top: 30px;
+}

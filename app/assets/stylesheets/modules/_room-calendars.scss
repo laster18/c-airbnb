@@ -2,10 +2,11 @@
   width: 100vw;
   min-height: 1000px;
   border-color: red;
+  color: #484848;
 }
 
 .calendar-form {
-  width: 65%;
+  width: 60%;
   padding: 20px 0;
   margin: 0 auto;
 }
@@ -25,12 +26,30 @@
   }
 }
 
+.calendar-info-last {
+  padding-bottom: 10px;
+}
+
+.calendar-all-button {
+  border: 1px solid #c4c4c4;
+  background: white;
+  color: #484848;
+  cursor: pointer;
+  padding: 9px 27px;
+  font-size: 16px;
+  border-radius: 4px;
+  & span {
+    color: #007a87;
+    font-weight: 700;
+  }
+}
+
 .calendar-frame {
   padding-top: 30px;
 }
 
 .fc-day {
-  background-color: gray;
+  background-color: #dee0de;
 }
 
 .reservation-true {
@@ -38,5 +57,21 @@
 }
 
 .fc-past {
-  background-color: gray;
+  background-color: #dee0de;
+}
+
+.fc th, .fc td {
+  border: 1px solid #ccc;
+}
+
+th {
+  border: none;
+}
+
+.fc-future {
+  @include hover();
+}
+
+.fc-past {
+  cursor:no-drop;
 }

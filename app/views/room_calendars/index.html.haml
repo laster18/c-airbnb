@@ -12,9 +12,12 @@
       %p.calendar-body__info
         予約不可日 ⇨
         %span.impossible
-      %p.calendar-body__info
+      %p.calendar-body__info.calendar-info-last
         予約可能日 ⇨
         %span.possible
+      %button{ type: "button", class: "calendar-all-button"}
+        %span この月は予約OKにする
+
       .calendar-frame
         #calendar
 

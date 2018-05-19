@@ -1,8 +1,8 @@
 = render partial: './rooms/step3-header'
 
 .rooms-new-main
-  .rooms-form
-    .rooms-form-body
+  .rooms-form.availability-setting-block
+    .rooms-form-body.clearfix
       = form_for @room, url: third_step_finish_room_path do |f|
         .deadline
           .deadline__info
@@ -38,4 +38,4 @@
           / .pagenate__button-frame.back-button
           /   = link_to "戻る", bedrooms_room_path, class: "pagenate__button"
           .pagenate__button-frame.next-button
-            = f.button "次へ", type: "submit", class: "pagenate__button"
+            = f.button "完了", type: "submit", class: "pagenate__button"

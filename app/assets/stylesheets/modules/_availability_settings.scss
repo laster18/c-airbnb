@@ -1,17 +1,30 @@
+.availability-setting-block {
+  width: 50vw;
+}
+
 .deadline, .checkin, .lodging-min, .lodging-max {
   &__info {
     font-size: 20px;
     padding-top: 16px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
   &__input {
-    width: 200px;
+    width: 250px;
     height: 36px;
     & select {
-      width: 100%;
+      padding: 10px;
       height: 100%;
-      padding: 0 20px;
-      font-size: 14px;
+      width: 100%;
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      appearance: button;
+      background: white url(/assets/down_arrow.png) no-repeat;
+      background-size: 22px 17px;
+      background-position: right center;
+      outline: 0;
+      border-radius: 0;
+      border-color: #cccccc;
+      height: 42px;
     }
   }
 }
@@ -27,4 +40,8 @@
   height: 46px;
   width: 220px;
   padding: 10px;
+}
+
+.lodging-max {
+  margin-bottom: 15vh;
 }

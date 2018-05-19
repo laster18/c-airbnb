@@ -1,25 +1,43 @@
 .capacity-count {
-  margin: 20px 0;
+  margin: 26px 0;
   &__info {
-    font-size: 22px;
-    padding-right: 90px;
+
   }
+}
+
+.bedrooms-label {
+  font-size: 20px;
+  float: left;
+}
+
+.bedrooms-count {
+  float: right;
+  height: 35px;
+  line-height: 35px;
+  margin-right: 100px;
 }
 
 .bed-count {
   margin: 30px 0;
   &__info {
-    font-size: 22px;
+    font-size: 20px;
     padding-bottom: 10px;
   }
   &__sub {
-    font-size: 22px;
-    padding-right: 40px;
+    font-size: 20px;
   }
 }
 
+.bed-room-info {
+  margin: 20px 0;
+}
+
+.bed-room-input {
+  width: 77%;
+}
+
 .number-input {
-  font-size: 20px;
+  font-size: 18px;
   width: 35px;
   margin: 0 20px;
   text-align: center;
@@ -30,11 +48,12 @@
 
 .spinner-button {
   display: inline-block;
-  text-decoration: none;
-  border-radius: 50%;
-  font-size: 20px;
-  border: solid 1px #008489;
-  outline: 0;
+    text-decoration: none;
+    border-radius: 40%;
+    font-size: 19px;
+    color: #008489;
+    border: solid 1px #008489;
+    outline: 0;
   @include hover();
 }
 

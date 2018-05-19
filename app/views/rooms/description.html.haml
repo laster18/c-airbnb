@@ -1,27 +1,44 @@
 = render partial: "step2-header"
 
-.rooms-new-main
-  .rooms-form
-    .rooms-form-body
-      .rooms-form-body__title
-        説明文を編集する
+.rooms-description-main
+  .description-frame.clearfix
+    .description-form
+      .description-form-body
+        .description-form-body__title
+          説明文を編集する
 
-      = form_for @room, url: { controllers: :rooms, action: :title } do |f|
-        .rooms-introduction
-          .rooms-introduction__info
-            概要
-          .rooms-introduction__input-form
-            = f.text_area :overview, class: "rooms-introduction__input"
+        = form_for @room, url: { controllers: :rooms, action: :title } do |f|
+          .rooms-introduction
+            .rooms-introduction__info
+              概要
+            .rooms-introduction__input-form
+              = f.text_area :overview, class: "rooms-introduction__input", placeholder: "インテリア、照明、近所にあるものなど説明してください。"
 
-        .rooms-match-person
-          .rooms-match-person__info
-            こんな旅にぴったりの宿です
+          .rooms-match-person
+            .rooms-match-person__info
+              こんな旅にぴったりの宿です
 
-          .rooms-math-person__list
-            = fields_for :recommendations do |ff|
-              = collection_check_boxes(:room, :recommendation_ids, Recommendation.all, :id, :content) do |b|
-                = b.label { b.check_box + b.text }
+            .rooms-macth-person__list
+              = fields_for :recommendations do |ff|
+                = collection_check_boxes(:room, :recommendation_ids, Recommendation.all, :id, :content) do |b|
+                  %label.rooms-match-person__check
+                    %label
+                      = b.check_box
+                    %span
+                      = b.text
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+          .pagenate.clearfix
+            / .pagenate__button-frame.back-button
+            /   = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
+            .pagenate__button-frame.next-button
+              = f.button "次へ", type: "submit", class: "pagenate__button"
+
+    .amenity-right
+      .amenity-right-body
+        .amenity-right-body__light
+          %img{ src: "/assets/light.png", style: "width: 40px;"}
+        .amenity-right-body__info
+          概要説明は宿泊施設の特徴を短くまとめる欄です。ゲストはここで全体像を掴んでから、詳しい説明に読み進みます。必需品を揃えておくと、ゲストも自分の家のようにくつろげます。
+        .amenity-right-body__sub
+          お部屋の説明文で、あらゆるバックグラウンドの人びとを歓迎します、と書いてももちろんOKです。
+

@@ -2,15 +2,17 @@
 }
 
 .photos-main {
-  padding: 25px 70px;
+  padding: 25px 15vw;
 }
 
 .photos-body {
   &__title {
-    font-size: 28px;
+    font-size: 25px;
     border-radius: 6px;
     padding-top: 20px;
     padding-bottom: 30px;
+    font-weight: 700;
+    color: rgb(72, 72, 72);
   }
  }
 
@@ -21,6 +23,7 @@
   height: 400px;
   margin: 0 auto;
   position: relative;
+  margin-bottom: 40px;
 
 }
 
@@ -60,7 +63,7 @@
   max-width: 900px;
   min-height: 400px;
   &__first {
-
+    width: 100%;
   }
 }
 

@@ -1,17 +1,17 @@
 = render partial: "./header"
 
-.rooms-review-back
-  .rooms-review-main
-    .rooms-review-body
-      .rooms-review-body__title
+.confirmation-main.clearfix
+  .confirmation-form
+    .confirmation-form-body
+      .confirmation-form-body__title
         だいぶはかどりましたね、#{current_user.first_name}さん！
-      .rooms-review-body__sub-title
+      .confirmation-form-body__question
         さあ、今度はリスティング掲載用にお部屋の詳しい説明を書きましょう。
 
       .review-step1
         .review-step1__text
           ステップ1
-          %br
+        .review-step1__info
           ベッド数、バスルーム数、アメニティなど
         = link_to room_type_room_path(@room), class: "review-step1__link" do
           変更する
@@ -19,21 +19,24 @@
       .review-step2
         .review-step2__text
           ステップ2
-          %br
+        .review-step2__title
           次に特徴をPR
-          %br
+        .review-step2__info
           写真、概要、タイトル
 
         = link_to photos_room_path(@room), class: "review-step2__link" do
           変更する
 
-      .review-step2
-        .review-step2__text
+      .review-step3
+        .review-step3__text
           ステップ3
-          %br
+        .review-step3__title
           予約準備を整えてフィニッシュ！
-          %br
+        .review-step3__info
           予約受付設定、カレンダー、料金
 
         = link_to room_room_calendars_path(@room), class: "review-step2__link" do
           変更する
+
+  .confirmation-right-image
+    %img{ src: "/assets/photos.png", style: "height: 40vw;"}

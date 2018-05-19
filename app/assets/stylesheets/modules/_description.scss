@@ -1,0 +1,66 @@
+.rooms-description-main {
+  margin: 0 10vw;
+  color: #767676;
+}
+
+.description-frame {
+  padding: 35px 0px;
+  margin: 0 auto;
+}
+
+.description-form {
+  margin-left: 7vw;
+  margin-right: 40px;
+  float: left;
+  width: 500px;
+}
+
+.description-form-body {
+  &__title {
+    margin: 24px 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: #484848;
+  }
+}
+
+.rooms-introduction {
+  &__info {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  &__input-form {
+    width: 100%;
+    & textarea {
+      width: 100%;
+      height: 123px;
+      font-size: 19px;
+      border-radius: 3px;
+      border: solid 1px #dce0e0;
+      padding: 16px;
+      resize: none;
+      outline: 0 solid transparent;
+    }
+  }
+}
+
+.rooms-match-person {
+  margin-bottom: 10px;
+  &__info {
+    font-size: 19px;
+    padding: 20px 0;
+  }
+  &__list {
+
+  }
+  &__check {
+    padding: 10px 0;
+    font-size: 17px;
+    display: block;
+    cursor: pointer;
+    & label {
+      margin-right: 10px;
+    }
+  }
+}
+

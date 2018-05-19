@@ -2,8 +2,8 @@
 
 = render partial: './rooms/step3-header'
 
-.rooms-new-main
-  .rooms-form
+.rooms-new-main.clearfix
+  .rooms-form.rooms-fee-form
     .rooms-form-body
       %h2.rooms-form-body__title
         お部屋の料金
@@ -12,7 +12,7 @@
           予約が入る機会を増やそう
           %br
           スマートプライシングを設定すると、地域の需要変動に合わせて競争力のある価格が自動的に適用されます。
-        %h3.fee-sub
+        %h3.fee-info-sub
           1泊あたりの料金を同じ基本料金に設定する
         .fee-basic
           .fee-basic__title
@@ -20,6 +20,8 @@
           .fee-basic__info
             スマートプライシングを一泊オフにした場合、それがデフォルト料金になります。
           .fee-basic__input
+            .money-mark
+              %span ¥
             = f.text_field :day_fee_cents, data: { autonumeric: { mDec: 0 } }
             / f.text_field :amount, data: { autonumeric: true } %>
 
@@ -35,4 +37,12 @@
           .pagenate__button-frame.next-button
             = f.button "次へ", type: "submit", class: "pagenate__button"
 
+  .fee-right-info
+    .fee-right-body
+      .fee-right-body__light
+        %img{ src: "/assets/light.png", style: "width: 40px;"}
+      .fee-right-body__title
+        最初は料金を低めにして予約を呼び込みましょう
+      .fee-right-body__info
+        ホスト初心者の方は料金を低めにし、最初の予約を何件か呼び込みましょう。推奨料金の5%以内に設定するホストは、予約獲得率が4倍近くになっています。
 

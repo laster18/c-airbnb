@@ -16,22 +16,22 @@
             .location-postal-code__info
               郵便番号
             .location-postal-code__form
-              = f.text_field :zipcode, class: "location-postal-code__input"
+              = f.text_field :zipcode, class: "location-postal-code__input location-required"
           .location-state
             .location-state__info
               都道府県(例: Tokyo)
             .location-state__form
-              = f.text_field :state, class: "location-state__input"
+              = f.text_field :state, class: "location-state__input location-required "
           .location-city
             .location-city__info
               市区町村(例: Minato-ku)
             .location-city__form
-              = f.text_field :city, class: "location-city__input"
+              = f.text_field :city, class: "location-city__input location-required "
           .location-street
             .location-street__info
               所番地(例: 1-1-1 Roppongi)※数字は半角
             .location-street__form
-              = f.text_field :street, class: "location-street__input"
+              = f.text_field :street, class: "location-street__input location-required "
           .location-apartment
             .location-apartment__info
               アパート名、部屋番号(任意)
@@ -43,3 +43,5 @@
           /   = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
           .pagenate__button-frame.next-button
             = f.button "次へ", type: "submit", class: "pagenate__button"
+
+  = render partial: 'room-craete-image'

@@ -1,17 +1,32 @@
 = render partial: 'step1-header'
 
-.rooms-new-main
-  .rooms-form
-    .rooms-form-body
-      .rooms-form-body__title
+.rooms-amenities-main
+  .amenities-form
+    .amenities-form-body
+      .amenities-form-body__title
         ゲストが利用可能なスペースは?
 
       = form_for @room, url: { controllers: :rooms, action: :first_step_finish } do |f|
-        .shared-spaces
+        .amenities
           = fields_for :available_spaces do |ff|
-            = collection_check_boxes(:room, :available_space_ids, AvailableSpace.all, :id, :content) do |b|
-              = b.label { b.check_box + b.text }
+            .amenity-item
+              = collection_check_boxes(:room, :available_space_ids, AvailableSpace.all, :id, :content) do |b|
+                %label{ class:"amenity-list"}
+                  %span
+                    = b.check_box
+                  %span
+                    = b.text
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "完了", type: "submit"
+
+        .pagenate.clearfix
+          / .pagenate__button-frame.back-button
+          /   = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
+          .pagenate__button-frame.next-button
+            = f.button "完了", type: "submit", class: "pagenate__button"
+
+  .amenity-right
+    .amenity-right-body
+      .amenity-right-body__light
+        %img{ src: "/assets/light.png", style: "width: 40px;"}
+      .amenity-right-body__info
+        スペースは敷地内から選び、敷地外のコインランドリーや近所のスポットまで含めないようにしましょう。近隣から許可を得ている場合は、プール、ジャグジーなどの公共スペースも含めてOKです。

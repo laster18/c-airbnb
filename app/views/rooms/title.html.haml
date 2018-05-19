@@ -1,15 +1,21 @@
 = render partial: "step2-header"
 
-.rooms-new-main
-  .rooms-form
-    .rooms-form-body
-      .rooms-form-body__title
-        物件に名前を付ける
+.rooms-title-main
+  .rooms-title-frame
+    .rooms-title-form
+      .rooms-title-form-body
+        .rooms-title-form-body__title
+          物件に名前を付ける
 
-      = form_for @room, url: { controllers: :rooms, action: :second_step_finish } do |f|
-        .rooms-title
-          = f.text_field :title, class: "rooms-title__input"
+        = form_for @room, url: { controllers: :rooms, action: :second_step_finish } do |f|
+          .rooms-title-input
+            = f.text_field :title, class: "rooms-title-input__text", placeholder: "リスティングのタイトル"
 
-        .pagenate
-          .pagenate__next-button
-            = f.button "次へ", type: "submit"
+          .pagenate.clearfix
+            / .pagenate__button-frame.back-button
+            /   = link_to "戻る", bathrooms_room_path, class: "pagenate__button"
+            .pagenate__button-frame.next-button
+              = f.button "完了", type: "submit", class: "pagenate__button"
+
+    .right-image
+      %img{ src: "/assets/title-image.png", style: "width: 30vw;"}

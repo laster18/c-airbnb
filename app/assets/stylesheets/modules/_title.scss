@@ -1,0 +1,40 @@
+.rooms-title-main {
+
+}
+
+
+.rooms-title-frame {
+  margin: 0 0 0 10vw;
+  padding: 30px;
+}
+
+.rooms-title-form {
+  margin-right: 65px;
+  width: 45vw;
+  float: left;
+  max-width: 500px;
+}
+
+.rooms-title-form-body {
+  padding: 20px 0;
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #484848;
+    margin-bottom: 20px;
+  }
+}
+
+.rooms-title-input {
+  &__text {
+    width: 100%;
+    margin-bottom: 46vh;
+  }
+  & input {
+    border-radius: 3px;
+    border: solid 1px #dce0e0;
+    padding: 20px;
+    resize: none;
+    outline: 0 solid transparent;
+  }
+}

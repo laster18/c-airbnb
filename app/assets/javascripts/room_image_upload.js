@@ -2,7 +2,7 @@ $(function(){
 
   function appendImageFirst(data) {
     var image = data.image
-    var html = `<img src= ${image}>`
+    var html = `<img src= ${image} style= " width: 100%;">`
     var form = `<label class="photos-frame__field" for="room_image_image">写真を追加する。
                   <input class="photos-frame__hidden" type="file" name="room_image[image]" id="room_image_image">
                 </label>`

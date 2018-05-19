@@ -7,15 +7,14 @@
 
 .bedrooms-label {
   font-size: 20px;
-    padding-right: 90px;
-    float: left;
+  float: left;
 }
 
 .bedrooms-count {
   float: right;
   height: 35px;
   line-height: 35px;
-  margin-right: 25px;
+  margin-right: 100px;
 }
 
 .bed-count {
@@ -26,7 +25,6 @@
   }
   &__sub {
     font-size: 20px;
-    padding-right: 40px;
   }
 }
 
@@ -35,7 +33,7 @@
 }
 
 .bed-room-input {
-  width: 94%;
+  width: 77%;
 }
 
 .number-input {

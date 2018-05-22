@@ -1,0 +1,2 @@
+class FavoriteFolder < ApplicationRecord
+end

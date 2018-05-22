@@ -1,13 +1,16 @@
 .house-item
-  %a.house-item__image{href: "/rooms/1"}
-    %img{alt: "", src: "https://a0.muscache.com/im/pictures/6722906/b4bc6418_original.jpg?aki_policy=large", style: "width: 100%;"}
+  %a.house-item__image{href: "/rooms/#{room.id}"}
+    - if room.room_images.present?
+      %img{alt: "no-image", src: room.room_images.first.image.url, style: "width: 100%;"}
+    - else
+      %img{alt: "no-image", src: "#", style: "width: 100%;"}
     .house-item-text
       .house-item-text__kind
-        一軒家貸切 · オストゥーニ
+        #{room.room_building_type} · #{room.state}
       .house-item-text__name
-        I SETTE CONI - TRULLO EDERA
+        #{room.title}
       .house-item-text__fee
-        ¥ 9,483/泊·キャンセル無料
+        ¥ #{humanized_money room.day_fee_cents}/泊·キャンセル無料
       .house-item-text__rate
         %span ★★★★★
         %span スーパーホスト

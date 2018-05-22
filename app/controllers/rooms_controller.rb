@@ -3,7 +3,9 @@ class RoomsController < ApplicationController
 
   before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
 
-  def index() end
+  def index
+    @rooms = Room.all
+  end
 
   def show
     @room = Room.find(params[:id])

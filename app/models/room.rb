@@ -18,6 +18,7 @@ class Room < ApplicationRecord
 
   has_many :room_calendars, dependent: :delete_all
   has_many :room_images, dependent: :delete_all
+  has_many :favorites, dependent: :destroy
 
   has_one :house_rule, dependent: :destroy
 

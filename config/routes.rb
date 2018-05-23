@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   end
 
   resources :room_appointments, only: [:index ]
-  resources :favorites, only: [:index ]
+  resources :favorites, only: [:index, :show ]
 
   resources :users, only: [:edit, :update] do
     collection do

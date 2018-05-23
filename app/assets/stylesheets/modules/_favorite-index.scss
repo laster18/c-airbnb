@@ -1,0 +1,74 @@
+.favorite-index {
+  padding-top: 85px;
+}
+
+.favorite-index-body {
+  padding: 30px 15vw;
+}
+
+.favorite-index-title {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 36px;
+  &__text {
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  &__create {
+    float: right;
+    height: 100%;
+  }
+  &__button {
+    height: 44px;
+    width: 200px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid #008489;
+    color: #008489;
+    & span {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}
+
+.favorite-index-my {
+  margin-bottom: 40px;
+  &__text {
+    float: left;
+  }
+  &__number {
+    float: right;
+  }
+}
+
+.favorite-index-folders {
+
+}
+
+.favorite-index-list {
+  // background-image: url("/assets/back_black.JPG");
+  height: 240px;
+  width: 300px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.favorite-index-list-text {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  padding: 12px 15px;
+  font-size: 14px;
+  &__name {
+    padding-bottom: 4px;
+  }
+  &__number {
+
+  }
+}

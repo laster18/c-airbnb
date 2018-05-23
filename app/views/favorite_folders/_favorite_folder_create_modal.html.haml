@@ -14,7 +14,7 @@
         .f-favorite-setting__info
           公開範囲の設定
         .f-favorite-setting__input
-          %select
+          %select :release, FavoriteFolder.releases_i18n.keys.map {|k| [Room.countries_i18n[k], k]}
 
       .f-favorite-footer.clearfix
         .f-favorite-save

@@ -58,4 +58,6 @@ Rails.application.routes.draw do
       resources :favorites, only: [:create, :update]
     end
   end
+
+  get '/favorite' => 'favorites#index'
 end

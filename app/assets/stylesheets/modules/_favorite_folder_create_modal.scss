@@ -1,0 +1,97 @@
+.f-favorite-modal-wrapper {
+  color: $standard-font-color;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  // display: none;
+}
+
+.f-favorite-modal {
+  position: absolute;
+  background-color: white;
+  padding: 24px 40px 40px;
+  width: 580px;
+  height: 60vh;
+  top: 18%;
+  left: 50%;
+  width: 560px;
+  margin-left: -(540px / 2);
+}
+
+.f-favorite-body {
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 18px;
+    padding-bottom: 38px;
+  }
+}
+
+.favorite-close-button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.f-favorite-name, .f-favorite-setting {
+  &__info {
+    padding-bottom: 10px;
+    padding-top: 24px;
+  }
+  &__input {
+    & input, & select {
+      width: 100%;
+      height: 44px;
+      padding: 11px;
+      font-size: 16px;
+      outline: 0;
+      border-radius: 0px;
+      -webkit-appearance: none;
+      display: block;
+      border: 1px solid #dcdcdc;
+      background-color: transparent;
+      &:focus {
+        border: 1px solid $link-color;
+      }
+    }
+  }
+}
+
+.f-favorite-footer {
+  margin-top: 16px;
+}
+
+.f-favorite-save {
+  float: left;
+  margin-right: 10px;
+  & button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    background: rgb(0, 132, 137);
+    border-color: transparent;
+    color: white;
+    border-radius: 3px;
+    height: 100%;
+  }
+}
+
+.f-favorite-cansel {
+  float: left;
+  & button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 11px 23px;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(0, 132, 137);
+    border: 2px solid rgb(0, 132, 137);
+    border-radius: 3px;
+  }
+}

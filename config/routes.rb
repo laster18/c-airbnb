@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:index, :show, :new, :create] do
     resources :favorite_folders do
-      resources :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:create ]
+      delete '/favorites' => 'favorites#destroy'
     end
     resources :room_calendars, only: [:index, :create]
     delete '/room_calendars' => 'room_calendars#destroy'

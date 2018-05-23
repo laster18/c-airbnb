@@ -8,8 +8,15 @@
       .favorite-body__folder-create
         お気にいりを新規作成
       - @favorite_folders.each do |favorite_folder|
-        .favorite-item.clearfix{"data-id": favorite_folder.id}
-          .favorite-item__text
-            = favorite_folder.name
-          .favorite-item__mark
-            %i.fa.fa-heart
+        - if favorite_folder.favorites.find_by(room_id: @room.id).present?
+          .favorite-item.delete-favorite.clearfix{"data-id": favorite_folder.id}
+            .favorite-item__text
+              = favorite_folder.name
+            .favorite-item__mark
+              %i.fa.fa-heart.favorite-heart{ style: "color: red;"}
+        - else
+          .favorite-item.clearfix{"data-id": favorite_folder.id}
+            .favorite-item__text
+              = favorite_folder.name
+            .favorite-item__mark
+              %i.fa.fa-heart.favorite-heart{ style: "color: black;"}

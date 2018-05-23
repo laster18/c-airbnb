@@ -1,12 +1,7 @@
-= javascript_include_tag "room-show.js"
-= javascript_include_tag "room-show-spinner.js"
-= javascript_include_tag "google_map_API.js"
-= javascript_include_tag "favorite_modal.js"
-
 = render partial: "./header"
 = render partial: "./favorites/favorite_modal"
 
-.s-main{"data-id": @room.id}
+.s-main{"data-room-id": @room.id}
   .s-top-wrapper
     %img{src: "https://minpakukyoka.com/wp-content/uploads/2016/04/maara.jpg"}
     %bottun.save-button.btn{"data-id": ""}
@@ -259,3 +254,8 @@
       %script{:src => "https://maps.googleapis.com/maps/api/js"}
 
 = render partial: './footer'
+
+= javascript_include_tag "room-show.js"
+= javascript_include_tag "room-show-spinner.js"
+= javascript_include_tag "google_map_API.js"
+= javascript_include_tag "favorite_modal.js"

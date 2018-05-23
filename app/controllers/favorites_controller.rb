@@ -1,9 +1,9 @@
 class FavoritesController < ApplicationController
-  def index
+  def create
 
   end
 
-  def show
+  def update
 
   end
 end

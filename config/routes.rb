@@ -48,11 +48,14 @@ Rails.application.routes.draw do
   end
 
   resources :room_appointments, only: [:index ]
-  resources :favorites, only: [:index, :show ]
+
 
   resources :users, only: [:edit, :update] do
     collection do
       get 'avatar'
+    end
+    resources :favorite_folders, only: [:index, :show, :create, :update] do
+      resources :favorites, only: [:create, :update]
     end
   end
 end

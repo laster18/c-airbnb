@@ -32,10 +32,10 @@
         .room-type-form
           %p.room-type-form__info
             = f.label :こちらはゲスト専用の部屋ですか？
-          .room-type-form__button
+          %label.room-type-form__button
             = f.radio_button :only_for_guest, "true"
             はい、主にゲスト専用のお部屋です
-          .room-type-form__button
+          %label.room-type-form__button
             = f.radio_button :only_for_guest, "false"
             いいえ、こちらに私物も置いています
 

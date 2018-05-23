@@ -19,3 +19,8 @@ ja:
         JPY: 日本円
         USD: 米ドル
         KRW: ウォン
+
+    favorite_folder:
+      release:
+        everyone: すべてのユーザー
+        invite_only: 招待者のみ

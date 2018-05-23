@@ -6,7 +6,7 @@
 = render partial: "./header"
 = render partial: "./favorites/favorite_modal"
 
-.s-main
+.s-main{"data-id": @room.id}
   .s-top-wrapper
     %img{src: "https://minpakukyoka.com/wp-content/uploads/2016/04/maara.jpg"}
     %bottun.save-button.btn{"data-id": ""}

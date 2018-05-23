@@ -3,6 +3,7 @@ class CreateFavoriteFolders < ActiveRecord::Migration[5.0]
     create_table :favorite_folders do |t|
       t.references :user, foreign_key: true, null: false
       t.string     :name, null: false
+      t.boolean    :release, default: 1, null: false
       t.timestamps
     end
   end

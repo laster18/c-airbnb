@@ -1,25 +1,26 @@
-.f-favorite-modal-wrapper
+.f-favorite-modal-wrapper.favorite-folder-modal
   .f-favorite-modal
     .f-favorite-body
       .favorite-close-button.clearfix
         %i.fa.fa-2x.fa-times
       .f-favorite-body__title
         お気にいりを作成する
-      .f-favorite-name
-        .f-favorite-name__info
-          タイトル
-        .f-favorite-name__input
-          %input{type: "text", placeholder: "お気に入りに名前を付ける"}
-      .f-favorite-setting
-        .f-favorite-setting__info
-          公開範囲の設定
-        .f-favorite-setting__input
-          %select :release, FavoriteFolder.releases_i18n.keys.map {|k| [Room.countries_i18n[k], k]}
+      = form_for @favorite_folder, url: { controller: :favorite_folders, action: :create} do |f|
+        .f-favorite-name
+          .f-favorite-name__info
+            タイトル
+          .f-favorite-name__input
+            = f.text_field :name ,placeholder: "お気に入りに名前を付ける"
+        .f-favorite-setting
+          .f-favorite-setting__info
+            公開範囲の設定
+          .f-favorite-setting__input
+            = f.select :release, FavoriteFolder.releases_i18n.keys.map {|k| [FavoriteFolder.releases_i18n[k], k]}
 
-      .f-favorite-footer.clearfix
-        .f-favorite-save
-          %button
-            %span 保存する
-        .f-favorite-cansel
-          %button
-            %span キャンセル
+        .f-favorite-footer.clearfix
+          .f-favorite-save
+            %button{type: 'submit'}
+              %span 保存する
+          .f-favorite-cansel
+            %button
+              %span キャンセル

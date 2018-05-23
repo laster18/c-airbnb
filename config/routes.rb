@@ -55,7 +55,7 @@ Rails.application.routes.draw do
       get 'avatar'
     end
     resources :favorite_folders, only: [:index, :show, :create, :update] do
-      resources :favorites, only: [:create, :update]
+      resources :favorites, only: [:create, :destroy]
     end
   end
 

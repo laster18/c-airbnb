@@ -7,7 +7,10 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
-  // display: none;
+}
+
+.favorite-folder-modal {
+  display: none;
 }
 
 .f-favorite-modal {
@@ -54,6 +57,7 @@
       display: block;
       border: 1px solid #dcdcdc;
       background-color: transparent;
+      color: $standard-font-color;
       &:focus {
         border: 1px solid $link-color;
       }

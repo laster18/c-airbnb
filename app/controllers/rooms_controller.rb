@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
     @room_calendars = RoomCalendar.where(room_id: params[:id]).order(:date)
     gon.capacity = @room.person_capacity
     gon.address = @room.state + @room.city + @room.street
+    @favorite_folders = FavoriteFolder.where(user_id: current_user.id)
   end
 
   def new() end

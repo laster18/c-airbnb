@@ -1,7 +1,7 @@
 class FavoriteFolder < ApplicationRecord
   belongs_to :user
-  has_many :favorites, dependent: :destory
+  has_many :favorites, dependent: :destroy
   has_many :rooms, through: :favorites
 
-  enum release: { everyone: 0, invite_only: 1}
+  enum release: { invite_only: 0, everyone: 1}
 end

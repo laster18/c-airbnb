@@ -1,0 +1,15 @@
+.favorite-modal-wrapper.favorite-modal
+  .modal
+    .favorite-body
+      .favorite-close-button.clearfix
+        %i.fa.fa-2x.fa-times
+      .favorite-body__title
+        お気にいりに保存
+      .favorite-body__folder-create
+        お気にいりを新規作成
+      - @favorite_folders.each do |favorite_folder|
+        .favorite-item.clearfix{"data-id": favorite_folder.id}
+          .favorite-item__text
+            = favorite_folder.name
+          .favorite-item__mark
+            %i.fa.fa-heart

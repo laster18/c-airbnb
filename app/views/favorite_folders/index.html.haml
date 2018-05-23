@@ -1,4 +1,7 @@
+= javascript_include_tag "favorite_folder_modal.js"
+
 = render partial: './header'
+= render partial: 'favorite_folder_create_modal'
 
 .favorite-index
   .favorite-index-body
@@ -12,7 +15,7 @@
       .favorite-index-my__text
         マイお気にいり
       .favorite-index-my__number
-        お気にいり2件
+        お気にいり #{@favorite_folders.count}件
     .favorite-index-folders
       %a.favorite-index-list{href: '/users/1/favorite_folders/1',style: "background-image:url(/assets/back_black.JPG);"}
         .favorite-index-list-text

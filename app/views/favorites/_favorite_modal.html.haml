@@ -1,0 +1,47 @@
+.favorite-modal-wrapper.favorite-modal
+  .modal
+    .favorite-body
+      .favorite-close-button.clearfix
+        %i.fa.fa-2x.fa-times
+      .favorite-body__title
+        お気にいりに保存
+      .favorite-modal-create-body
+        .favorite-body__folder-create
+          お気にいりを新規作成
+        = form_for @favorite_folder, url: "/users/#{current_user.id}/favorite_folders", html: { class: "s-favorite-create-folder close-favorite-folder-form", enctype:"multipart/form-data"}  do |f|
+          .f-favorite-name
+            .f-favorite-name__info
+              タイトル
+            .f-favorite-name__input
+              = f.text_field :name ,placeholder: "お気に入りに名前を付ける"
+
+          .f-favorite-setting
+            .f-favorite-setting__info
+              公開範囲の設定
+            .f-favorite-setting__input
+              = f.select :release, FavoriteFolder.releases_i18n.keys.map {|k| [FavoriteFolder.releases_i18n[k], k]}
+
+          .f-favorite-footer.clearfix
+            .f-favorite-save
+              %button{type: 'submit'}
+                %span 保存する
+            .f-favorite-cansel
+              %button{type: 'button'}
+                %span キャンセル
+
+        .favorite-folder-lists
+          - @favorite_folders.each do |favorite_folder|
+            - if favorite_folder.favorites.find_by(room_id: @room.id).present?
+              .favorite-item.delete-favorite.clearfix{"data-id": favorite_folder.id}
+                .favorite-item__text
+                  = favorite_folder.name
+                .favorite-item__mark
+                  %i.fa.fa-heart.favorite-heart{ style: "color: red;"}
+            - else
+              .favorite-item.clearfix{"data-id": favorite_folder.id}
+                .favorite-item__text
+                  = favorite_folder.name
+                .favorite-item__mark
+                  %i.fa.fa-heart.favorite-heart{ style: "color: black;"}
+
+= javascript_include_tag "favorite_modal_create_button.js"

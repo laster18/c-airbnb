@@ -1,15 +1,16 @@
-= javascript_include_tag "room-show.js"
-= javascript_include_tag "room-show-spinner.js"
-= javascript_include_tag "google_map_API.js"
-
 = render partial: "./header"
+= render partial: "./favorites/favorite_modal"
 
-.s-main
+.s-main{"data-room-id": @room.id}
   .s-top-wrapper
     %img{src: "https://minpakukyoka.com/wp-content/uploads/2016/04/maara.jpg"}
     %bottun.save-button.btn{"data-id": ""}
-      %i{class: "fa fa-heart",style: "margin-right: 2px;"}
-      %span 保存
+      - if current_user.favorites.find_by(room_id: @room.id).present?
+        %i{class: "fa fa-heart s-like-button",style: "margin-right: 2px; color: red;"}
+        %span 保存
+      - else
+        %i{class: "fa fa-heart s-like-button",style: "margin-right: 2px;"}
+        %span 保存
     %bottun.share-button.btn{"data-id": ""}
       %i{class: "fa fa-angle-double-up",style: "margin-right: 2px;"}
       %span シェアする
@@ -32,7 +33,7 @@
                 .s-info-head__adrress
                   = @room.state
               %a.s-info-head__user{href: "#{}"}
-                - if current_user.avatar?
+                - if @room.user.avatar.present?
                   %img.s-info-head__user-avatar{src: @room.user.avatar, style: "width: 60px; height: 60px;"}
                 - else
                   %img.s-info-head__user-avatar{src: "http://no-bird.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 60px; height: 60px;"}
@@ -254,6 +255,12 @@
 
       #floating-panel
       #map
-      %script{:src => "https://maps.googleapis.com/maps/api/js"}
+      / %script{:src => "https://maps.googleapis.com/maps/api/js"}
+      %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyArVU9AkzUD4Z_iyc4p840kvJhD-I7zoYM"}
 
 = render partial: './footer'
+
+= javascript_include_tag "room-show.js"
+= javascript_include_tag "room-show-spinner.js"
+= javascript_include_tag "google_map_API.js"
+= javascript_include_tag "favorite_modal.js"

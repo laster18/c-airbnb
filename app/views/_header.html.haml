@@ -27,9 +27,15 @@
                     ログアウト
             %li
               .nav-i
-                = link_to room_type_rooms_path do
+                = link_to room_type_rooms_path, target: "_blank" do
                   %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                     ホストを始める
+            %li
+              .nav-i
+                = link_to "/users/1/favorite_folders" do
+                  %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
+                    お気に入り
+
           - else
             %li
               .nav-i.login-show

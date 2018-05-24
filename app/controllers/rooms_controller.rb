@@ -3,7 +3,9 @@ class RoomsController < ApplicationController
 
   before_action :first_step_update, only: [ :bedrooms, :bathrooms, :location, :amenities, :spaces]
 
-  def index() end
+  def index
+    @rooms = Room.all
+  end
 
   def show
     @room = Room.find(params[:id])
@@ -11,6 +13,8 @@ class RoomsController < ApplicationController
     @room_calendars = RoomCalendar.where(room_id: params[:id]).order(:date)
     gon.capacity = @room.person_capacity
     gon.address = @room.state + @room.city + @room.street
+    @favorite_folders = FavoriteFolder.where(user_id: current_user.id)
+    @favorite_folder = FavoriteFolder.new
   end
 
   def new() end

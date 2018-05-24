@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RoomAppointmentTest < ActiveSupport::TestCase
+class FavoriteFoldersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

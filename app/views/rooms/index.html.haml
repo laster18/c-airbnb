@@ -35,8 +35,8 @@
       .t-main-content__title
         世界のお家
       .house-content.clearfix
-        - 8.times do |i|
-          = render partial: "house-item"
+        - @rooms.each do |room|
+          = render partial: "house-item", locals: { room: room }
 
     .t-main-content
       .t-main-content__title

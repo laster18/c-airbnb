@@ -1,0 +1,37 @@
+= render partial: './header'
+
+.s-favorite-left
+  .s-favorite-top-wrapper
+    .s-favorite-head.clearfix
+      %a.s-favorite-head__link{href: user_favorite_folders_path(current_user)}
+        お気にいり一覧へ
+      .s-favorite-head__edit
+        %i.fa.fa-pencil
+    .s-favorite-title
+      フォルダ名
+    .s-favorite-invitation
+      %button.s-favorite-invitation
+        %span 仲間を招待する
+
+  .s-favorite-main-wrapper
+    .s-favorite-number
+      #{@favorites.count}件の宿泊先
+    - @favorites.each do |favorite|
+      %a.s-favorite-list{href: room_path(favorite.room)}
+        .s-favorite-list__image
+          %img{src: favorite.room.room_images.first.image.url}
+        .s-favorite-list__type
+          #{favorite.room.room_type_i18n} · ベッド#{favorite.room.bed_number}台
+        .s-favorite-list__title
+          = favorite.room.title
+        .s-favorite-list__fee
+          ¥ #{humanized_money favorite.room.day_fee_cents}/泊
+        .s-favorite-list__rate
+          ★★★★★238 · スーパーホスト
+
+.s-favorite-right
+  #floating-panel
+  #map.favorites-map
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyArVU9AkzUD4Z_iyc4p840kvJhD-I7zoYM"}
+
+= javascript_include_tag "favorites_google_API.js"

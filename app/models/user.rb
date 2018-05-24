@@ -6,6 +6,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   has_many :rooms
+  has_many :favorite_folders
+  has_many :favorites
 
   enum gender: { male: 0, female: 1, noselect: 2 }
 

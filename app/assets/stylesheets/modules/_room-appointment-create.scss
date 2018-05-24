@@ -53,6 +53,7 @@
   &__avatar {
     border-radius: 50%;
   }
+
 }
 
 .guest-message-input {
@@ -99,6 +100,8 @@
 
 .room-info-right {
   float: right;
+  &__image {
+  }
 }
 
 .request, .room-fee {

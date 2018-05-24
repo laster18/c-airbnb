@@ -53,11 +53,68 @@
     line-height: 65px;
     color: #484848;
     float: left;
-    font-size: 14px;
+    font-size: 16px;
   }
   &__mark {
     float: right;
     line-height: 65px;
     font-size: 24px;
   }
+}
+
+.favorite-modal-create-body {
+  height: 60vh;
+  overflow: scroll;
+}
+
+// .s-favorite-footer {
+//   margin-bottom: 13px;
+// }
+
+.s-f-favorite-footer {
+  margin-top: 16px;
+}
+
+.s-f-favorite-save {
+  float: left;
+  margin-right: 10px;
+  & button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 16px;
+    background: rgb(0, 132, 137);
+    border-color: transparent;
+    color: white;
+    border-radius: 3px;
+    height: 100%;
+  }
+}
+
+.s-f-favorite-cansel {
+  float: left;
+  & button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 11px 23px;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(0, 132, 137);
+    border: 2px solid rgb(0, 132, 137);
+    border-radius: 3px;
+  }
+}
+
+
+.s-favorite-create-folder {
+  margin-bottom: 13px;
+}
+
+.close-folder-create-button {
+  display: none;
+}
+
+.close-favorite-folder-form {
+  display: none;
 }

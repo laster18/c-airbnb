@@ -5,4 +5,8 @@ $(function(){
   $('.favorite-close-button').on('click', function(){
     $('.f-favorite-modal-wrapper').addClass('favorite-folder-modal');
   });
+
+  $('.f-favorite-cansel').on('click', function(){
+    $('.f-favorite-modal-wrapper').addClass('favorite-folder-modal');
+  });
 });

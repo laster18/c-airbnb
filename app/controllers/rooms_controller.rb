@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
     gon.capacity = @room.person_capacity
     gon.address = @room.state + @room.city + @room.street
     @favorite_folders = FavoriteFolder.where(user_id: current_user.id)
+    @favorite_folder = FavoriteFolder.new
   end
 
   def new() end

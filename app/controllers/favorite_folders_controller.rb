@@ -17,9 +17,11 @@ class FavoriteFoldersController < ApplicationController
 
   def create
     @favorite_folder = FavoriteFolder.new(favorite_folder_params)
-    if current_user = params[:user_id]
-      @favorite_folder.save
-      redirect_to user_favorite_folders_path(current_user)
+    if @favorite_folder.save
+      respond_to do |format|
+        format.html { redirect_to user_favorite_folders_path(current_user) }
+        format.json
+      end
     else
       redirect_to root_path
     end

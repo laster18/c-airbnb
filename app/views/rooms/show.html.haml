@@ -6,10 +6,10 @@
     %img{src: "https://minpakukyoka.com/wp-content/uploads/2016/04/maara.jpg"}
     %bottun.save-button.btn{"data-id": ""}
       - if current_user.favorites.find_by(room_id: @room.id).present?
-        %i{class: "fa fa-heart",style: "margin-right: 2px; color: red;"}
+        %i{class: "fa fa-heart s-like-button",style: "margin-right: 2px; color: red;"}
         %span 保存
       - else
-        %i{class: "fa fa-heart",style: "margin-right: 2px;"}
+        %i{class: "fa fa-heart s-like-button",style: "margin-right: 2px;"}
         %span 保存
     %bottun.share-button.btn{"data-id": ""}
       %i{class: "fa fa-angle-double-up",style: "margin-right: 2px;"}

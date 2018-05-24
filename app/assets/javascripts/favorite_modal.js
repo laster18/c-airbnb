@@ -48,9 +48,17 @@ $(function(){
         type: 'DELETE',
         dataType: 'json'
       })
+      .always(function(){
+        if ($('.favorite-item').hasClass('delete-favorite')) {
+          ""
+        } else {
+          $('.s-like-button').attr("style", "color: black;");
+        }
+      })
     } else {
       $(this).addClass('delete-favorite');
-      $(this).find('.favorite-heart').attr("style", "color: red;")
+      $(this).find('.favorite-heart').attr("style", "color: red;");
+      $('.s-like-button').attr("style", "color: red;");
       var favoriteFolderId = $(this).data('id');
       var roomId = $('.s-main').data('roomId');
       $.ajax ({

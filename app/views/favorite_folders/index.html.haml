@@ -15,25 +15,21 @@
       .favorite-index-my__text
         マイお気にいり
       .favorite-index-my__number
-        お気にいり #{@favorite_folders.count}件
+        お気にいり #{@favorite_folders.count}フォルダ
     .favorite-index-folders
-      %a.favorite-index-list{href: '/users/1/favorite_folders/1',style: "background-image:url(/assets/back_black.JPG);"}
-        .favorite-index-list-text
-          .favorite-index-list-text__name
-            フォルダ名
-          .favorite-index-list-text__number
-            3軒の宿泊先
-
-      %a.favorite-index-list{href: '#',style: "background-image:url(/assets/back_black.JPG);"}
-        .favorite-index-list-text
-          .favorite-index-list-text__name
-            フォルダ名
-          .favorite-index-list-text__number
-            3軒の宿泊先
-
-      %a.favorite-index-list{href: 'root_path',style: "background-image:url(/assets/back_black.JPG);"}
-        .favorite-index-list-text
-          .favorite-index-list-text__name
-            フォルダ名
-          .favorite-index-list-text__number
-            3軒の宿泊先
+      - @favorite_folders.each do |favorite_folder|
+        - if favorite_folder.favorites.present?
+          %a.favorite-index-list{href: '/users/1/favorite_folders/1'}
+            %img{src: "#{favorite_folder.rooms.last.room_images.first.image.url}"}
+            .favorite-index-list-text
+              .favorite-index-list-text__name
+                = favorite_folder.name
+              .favorite-index-list-text__number
+                #{favorite_folder.favorites.count}軒の宿泊先
+        - else
+          %a.favorite-index-list{href: '/users/1/favorite_folders/1',style: "background-image:url(/assets/back_black.JPG);"}
+            .favorite-index-list-text
+              .favorite-index-list-text__name
+                = favorite_folder.name
+              .favorite-index-list-text__number
+                #{favorite_folder.favorites.count}軒の宿泊先

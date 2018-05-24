@@ -6,10 +6,7 @@ Rails.application.routes.draw do
   root 'rooms#index'
 
   resources :rooms, only: [:index, :show, :new, :create] do
-    resources :favorite_folders do
-      resources :favorites, only: [:create ]
-      delete '/favorites' => 'favorites#destroy'
-    end
+
     resources :room_calendars, only: [:index, :create]
     delete '/room_calendars' => 'room_calendars#destroy'
     resources :room_appointments, only: [:create]
@@ -61,5 +58,8 @@ Rails.application.routes.draw do
     resources :favorite_folders, only: [:index, :show, :create, :update] do
     end
   end
+
+  post '/rooms/:room_id/favorite_folders/:favorite_folder_id/favorites' => 'favorites#create', :as => :favorites_create
+  delete '/rooms/:room_id/favorite_folders/:favorite_folder_id/favorites' => 'favorites#destroy', :as => :favorites_destroy
 
 end

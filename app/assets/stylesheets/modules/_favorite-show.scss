@@ -4,6 +4,7 @@
   min-width: 30vw;
   height: 100vh;
   overflow: scroll;
+  float: left;
 }
 
 .s-favorite-top-wrapper {
@@ -76,6 +77,7 @@
     width: 100%;
     & img {
       width: 100%;
+      height: auto;
     }
   }
   &__type {
@@ -95,3 +97,23 @@
   }
 }
 
+.s-favorite-right {
+  padding-top: 85px;
+  width: 66vw;
+  height: 100vh;
+  float: left;
+}
+
+.favorites-map {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#infoWindow {
+  width: 200px;
+  height: 200px;
+}
+
+#infoWindow span{
+  color: blue;
+}

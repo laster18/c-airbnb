@@ -6,6 +6,13 @@ class FavoriteFoldersController < ApplicationController
   end
 
   def show
+    @favorites = FavoriteFolder.find(params[:id]).favorites
+    gon.addresses = []
+    @favorites.each do |favorite|
+      @room = favorite.room
+      gon.address = @room.state + @room.city + @room.street
+      gon.addresses << gon.address
+    end
   end
 
   def create

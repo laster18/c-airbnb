@@ -25,6 +25,13 @@ ja:
         everyone: すべてのユーザー
         invite_only: 招待者のみ
 
+    message:
+      kind:
+        star: スター付き
+        unread: 未読
+        already_read: 既読
+        appointment: 予約
+
 ---
 ja:
   activerecord:

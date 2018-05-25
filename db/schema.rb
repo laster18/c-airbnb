@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180522102638) do
+ActiveRecord::Schema.define(version: 20180525015123) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content",                   null: false
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20180522102638) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.index ["room_id"], name: "index_house_rules_on_room_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "messages",        limit: 65535, null: false
+    t.integer  "send_user_id",                  null: false
+    t.integer  "receive_user_id",               null: false
+    t.integer  "kind"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "notice_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -8,7 +8,7 @@
 
     .d-message-main-wrapper
 
-      - 4.times do
+      - @messages.each do |message|
         .d-message-item
           .d-message-item-body.clearfix
             %a{href: "/users/1/my_messages/1"}
@@ -18,13 +18,13 @@
                 .d-message-info__user-name
                   ひろし
                 .d-message-info__date
-                  2018/05/24
+                  = message.create_date
               .d-message-content
                 .d-message-content__title
                   こんにちは
                 .d-message-content__message
-                  この物件に対しての問い合わせをしたい・・・
+                  = message.message
               .d-message-kind
                 .d-message-kind__text
-                  未読
+                  = message.kind_i18n
 

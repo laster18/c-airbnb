@@ -1,0 +1,48 @@
+= render partial: './header'
+
+.s-message-wrapper
+  .s-message-body
+    .s-message-left
+
+    .s-message-right
+      .s-message-right-body.clearfix
+
+        .s-message-send-form.clearfix
+          .s-messsge-avatar
+            %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
+          .s-message-area
+            .s-message-area__input
+              %textarea
+            .s-message-area-send
+              %button.s-message-area-send__button
+                %span メッセージを送信
+
+        .s-message-lists
+
+          .s-message-send
+            .s-message-send-avatar
+              %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
+            CSSだけで吹き出しをつくる - 会話風
+            %br
+            ttttttt
+            %br
+            tttttttttt
+            %br
+            eeeeeeeee
+
+          .s-message-receive
+            .s-message-receive-avatar
+              %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
+            CSSだけで吹き出しをつくる - 会話風
+
+
+          / .s-message-receive
+          /   .s-message-receive-avatar
+          /     %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
+          /   .s-message-receive-display
+          /     textメッセージ
+
+          / .s-message-send
+          /   .s-message-receive-avatar
+          /     %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
+          /   .s-message-receive-display

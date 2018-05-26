@@ -55,7 +55,7 @@
             .s-info-overview__text
               = simple_format(@room.overview)
             .s-info-overview__message
-              %a{ href: "#"}
+              %a{ href: new_room_send_message_path(@room)}
                 ホストに連絡
 
           .s-info-amenity

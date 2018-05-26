@@ -1,0 +1,19 @@
+.send-message-head {
+  height: 65px;
+}
+
+.send-message-head-body {
+  padding: 10px 20px;
+}
+
+.send-message-icon {
+  float: left;
+}
+
+.send-message-link {
+  float: left;
+  & a {
+    text-decoration: none;
+    color: $standard-font-color;
+  }
+}

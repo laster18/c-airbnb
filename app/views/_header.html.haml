@@ -32,12 +32,12 @@
                     ホストを始める
             %li
               .nav-i
-                = link_to user_favorite_folders_path(current_user) do
+                = link_to  user_favorite_folders_path(current_user) do
                   %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                     お気に入り
             %li
               .nav-i
-                = link_to user_messages_path(current_user) do
+                = link_to user_my_messages_path(current_user) do
                   %button{"aria-busy": "false", "aria-expanded": "true", "aria-haspopup": "true", type: "button"}
                     メッセージ
 

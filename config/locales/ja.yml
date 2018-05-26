@@ -27,9 +27,9 @@ ja:
 
     message:
       kind:
-        star: スター付き
         unread: 未読
         already_read: 既読
+        star: スター付き
         appointment: 予約
 
 ---

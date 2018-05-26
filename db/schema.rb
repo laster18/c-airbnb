@@ -59,13 +59,12 @@ ActiveRecord::Schema.define(version: 20180525015123) do
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
-    t.text     "messages",        limit: 65535, null: false
-    t.integer  "send_user_id",                  null: false
-    t.integer  "receive_user_id",               null: false
-    t.integer  "kind"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "message",         limit: 65535,             null: false
+    t.integer  "send_user_id",                              null: false
+    t.integer  "receive_user_id",                           null: false
+    t.integer  "kind",                          default: 0, null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "notice_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

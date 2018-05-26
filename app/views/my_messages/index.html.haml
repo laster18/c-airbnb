@@ -7,7 +7,7 @@
         %select.d-message-top-wrapper__select
 
     .d-message-main-wrapper
-      - @messages.each do |message|
+      - @new_messages.each do |message|
         .d-message-item
           .d-message-item-body.clearfix
             %a{href: user_my_message_path(current_user, message.send_user)}

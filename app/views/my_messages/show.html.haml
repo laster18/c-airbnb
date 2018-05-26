@@ -1,48 +1,36 @@
 = render partial: './header'
 
 .s-message-wrapper
-  .s-message-body
+  .s-message-body.clearfix
     .s-message-left
 
     .s-message-right
       .s-message-right-body.clearfix
 
-        .s-message-send-form.clearfix
-          .s-messsge-avatar
-            %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
-          .s-message-area
-            .s-message-area__input
-              %textarea
-            .s-message-area-send
-              %button.s-message-area-send__button
-                %span メッセージを送信
+        = form_for @message, url: user_send_messages_path(@receive_user) do |f|
+          .s-message-send-form.clearfix
+            .s-messsge-avatar
+              %img{src: current_user.avatar, alt: "avatar", class: "s-message-avatar-image"}
+            .s-message-area
+              .s-message-area__input
+                = f.text_area :message, placeholder: "ここにメッセージを入力（例：明日ひまですか？）"
+
+          .s-message-area-send
+            %button.s-message-area-send__button
+              %span メッセージを送信
 
         .s-message-lists
+          - @messages.each do |message|
+            - if message.receive_user_id == current_user.id
+              .s-message-receive
+                .s-message-receive-avatar
+                  %img{src: message.send_user.avatar, alt: "avatar", class: "s-message-avatar-image"}
+                = simple_format(message.message)
 
-          .s-message-send
-            .s-message-send-avatar
-              %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
-            CSSだけで吹き出しをつくる - 会話風
-            %br
-            ttttttt
-            %br
-            tttttttttt
-            %br
-            eeeeeeeee
+            - else
+              .s-message-send
+                .s-message-send-avatar
+                  %img{src: message.send_user.avatar, alt: "avatar", class: "s-message-avatar-image"}
+                = simple_format(message.message)
 
-          .s-message-receive
-            .s-message-receive-avatar
-              %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
-            CSSだけで吹き出しをつくる - 会話風
-
-
-          / .s-message-receive
-          /   .s-message-receive-avatar
-          /     %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
-          /   .s-message-receive-display
-          /     textメッセージ
-
-          / .s-message-send
-          /   .s-message-receive-avatar
-          /     %img{src: "/assets/no-image.png", alt: "avatar-image", class: "s-message-avatar-image"}
-          /   .s-message-receive-display
+= javascript_include_tag "my_message_send.js"

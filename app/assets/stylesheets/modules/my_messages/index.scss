@@ -1,0 +1,106 @@
+.d-message {
+  padding-top: 85px;
+  color: $standard-font-color;
+  font-family: arial, sans-serif !important;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.d-message-body {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 50px 30px;
+  & a {
+    color: $standard-font-color;
+  }
+}
+
+.d-message-top-wrapper {
+  width: 100%;
+  margin-bottom: 10px;
+  & label {
+    position: relative;
+    display: block;
+    width: 220px;
+    border: 1px solid $standard-font-color;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 17px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      display: block;
+      width: 0;
+      height: 0;
+      margin: -2px 0 0 0;
+      border: 5px solid transparent;
+      border-top: 7px solid $standard-font-color;
+    }
+    & select {
+      outline: 0;
+      cursor: pointer;
+      position: relative;
+      -webkit-appearance: none;
+      -moz-appearance: button;
+      appearance: none;
+      display: block;
+      width: 200px;
+      padding: 0.5em 1em;
+      border: none;
+      background: transparent;
+      border-radius: 0px;
+      font-weight: inherit;
+    }
+  }
+}
+
+.d-message-main-wrapper {
+  width: 100%;
+  height: 600px;
+  border: 1px solid $border-color;
+  padding: 20px 20px;
+}
+
+.d-message-item {
+  border-bottom: 1px solid $border-color;
+}
+
+.d-message-item-body {
+  padding: 14px 0;
+  height: 80px;
+}
+
+.d-message-avatar, .d-message-info, .d-message-content {
+  float: left;
+  margin-right: 30px;
+}
+
+.d-message-avatar {
+  height: 80px;
+  width: 4%;
+  margin-right: 50px;
+  & img {
+    border-radius: 50%;
+    line-height: 80px;
+  }
+}
+
+.d-message-info {
+  width: 15%;
+}
+
+.d-message-content {
+  width: 55%;
+}
+
+.d-message-kind {
+  float: right;
+  margin-right: 10px;
+  width: 5%;
+  height: calc(80px - 28px);
+  &__text {
+    line-height: (80px - 28px);
+  }
+}

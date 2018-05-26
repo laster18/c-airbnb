@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root 'rooms#index'
 
   resources :rooms, only: [:index, :show, :new, :create] do
-
-    resources :room_calendars, only: [:index, :create]
+    resources :send_messages, only: [:new]
+    resources :room_calendars, only: [:index, :create, :destroy]
     delete '/room_calendars' => 'room_calendars#destroy'
     resources :room_appointments, only: [:create]
     post '/room_appointments_preview' => 'room_appointments#preview'
@@ -55,8 +55,9 @@ Rails.application.routes.draw do
     collection do
       get 'avatar'
     end
-    resources :favorite_folders, only: [:index, :show, :create, :update] do
-    end
+    resources :favorite_folders, only: [:index, :show, :create, :update]
+    resources :my_messages, only: [:index, :show]
+    resources :send_messages, only: [ :create, :destroy]
   end
 
   post '/rooms/:room_id/favorite_folders/:favorite_folder_id/favorites' => 'favorites#create', :as => :favorites_create

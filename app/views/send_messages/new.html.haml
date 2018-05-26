@@ -1,0 +1,39 @@
+.send-message-head.clearfix
+  .send-message-head-body
+    .send-message-icon
+      %img{ src: "/assets/logo.png", style: "width: 37px; height: 37px;"}
+    .send-message-link
+      %a{href: '#'}
+        リスティングに戻る
+
+.send-message-main-wrapper.clearfix
+  .send-message-main-wrapper-body.clearfix
+
+    .send-message-left
+      .send-message-left-body
+        - if @message.errors.any?
+          #error_explanation.alert.alert-danger
+            %ul
+              - @message.errors.full_messages.each do |message|
+                %li= message
+
+        .send-message-left-head.clearfix
+          .send-head-text
+            .send-head-text__main
+              Robynさんに連絡
+            .send-head-test__sub
+              通常、Robynさんは1時間以内に返信をくれます（嘘）
+          .send-head-avatar
+            %img{src: "/assets/no-image.png" }
+
+        = form_for @message, url: user_send_messages_path(@receive_user) do |f|
+          .send-message-question
+            %label.send-message-question__info
+              Robynさんについて他にも質問がありますか?
+            .send-message-question__input
+              = f.text_area :message, placeholder: "メッセージをお書きください（例：好きなくだものはスイカですか？）"
+            .send-message-question__button
+              %button
+                %span メッセージを送信
+
+    .send-message-right

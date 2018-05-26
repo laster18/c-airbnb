@@ -11,6 +11,12 @@
 
     .send-message-left
       .send-message-left-body
+        - if @message.errors.any?
+          #error_explanation.alert.alert-danger
+            %ul
+              - @message.errors.full_messages.each do |message|
+                %li= message
+
         .send-message-left-head.clearfix
           .send-head-text
             .send-head-text__main
@@ -20,13 +26,14 @@
           .send-head-avatar
             %img{src: "/assets/no-image.png" }
 
-        .send-message-question
-          %label.send-message-question__info
-            Robynさんについて他にも質問がありますか?
-          .send-message-question__input
-            %textarea{ placeholder: "メッセージをお書きください（例：好きなくだものはスイカですか？）"}
-          .send-message-question__button
-            %button
-              %span メッセージを送信
+        = form_for @message, url: user_send_messages_path(@receive_user) do |f|
+          .send-message-question
+            %label.send-message-question__info
+              Robynさんについて他にも質問がありますか?
+            .send-message-question__input
+              = f.text_area :message, placeholder: "メッセージをお書きください（例：好きなくだものはスイカですか？）"
+            .send-message-question__button
+              %button
+                %span メッセージを送信
 
     .send-message-right

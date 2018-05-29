@@ -1,7 +1,3 @@
-.send-message-head {
-
-}
-
 .send-message-head-body {
   height: 80px;
   padding: 0 30px;
@@ -13,7 +9,6 @@
   float: left;
   display: flex;
   align-items: center;
-
 }
 
 .send-message-link {
@@ -40,7 +35,7 @@
   min-width: 50%;
   min-height: 500px;
   float: left;
-  margin-right: 7%;
+  margin-right: 4%;
 }
 
 .send-message-left-body {
@@ -110,8 +105,51 @@
 
 .send-message-right {
   width: 30%;
-  min-width: 30%;
-  min-height: 360px;
   border: 1px solid $border-color;
   float: left;
+}
+
+.send-message-right-body {
+  padding: 20px 20px;
+}
+
+.send-message-room {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+.send-message-room-left {
+  float: left;
+  margin-right: 10px;
+  &__room-type {
+    color: #585a3a;
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 4px;
+  }
+  &__fee {
+    padding-bottom: 4px;
+    & span {
+      font-weight: bold;
+    }
+  }
+  &__review-count {
+    font-size: 13px;
+    color: #808080;
+  }
+}
+
+.send-message-room-right {
+  float: right;
+}
+
+.send-message-info {
+  padding-top: 20px;
+  &__text {
+    float: left;
+    width: 70%;
+  }
+  &__image {
+    float: right;
+  }
 }

@@ -3,12 +3,11 @@
     .send-message-icon
       %img{ src: "/assets/logo.png", style: "width: 37px; height: 37px;"}
     .send-message-link
-      %a{href: '#'}
+      %a{href: room_path(@room)}
         リスティングに戻る
 
 .send-message-main-wrapper.clearfix
   .send-message-main-wrapper-body.clearfix
-
     .send-message-left
       .send-message-left-body
         - if @message.errors.any?
@@ -16,20 +15,19 @@
             %ul
               - @message.errors.full_messages.each do |message|
                 %li= message
-
         .send-message-left-head.clearfix
           .send-head-text
             .send-head-text__main
-              Robynさんに連絡
+              #{@room.user.last_name}さんに連絡
             .send-head-test__sub
-              通常、Robynさんは1時間以内に返信をくれます（嘘）
+              通常、#{@room.user.last_name}さんは1時間以内に返信をくれます（嘘）
           .send-head-avatar
-            %img{src: "/assets/no-image.png" }
+            %img{src: @room.user.avatar }
 
         = form_for @message, url: user_send_messages_path(@receive_user) do |f|
           .send-message-question
             %label.send-message-question__info
-              Robynさんについて他にも質問がありますか?
+              #{@room.user.last_name}さんについて他にも質問がありますか?
             .send-message-question__input
               = f.text_area :message, placeholder: "メッセージをお書きください（例：好きなくだものはスイカですか？）"
             .send-message-question__button
@@ -37,3 +35,22 @@
                 %span メッセージを送信
 
     .send-message-right
+      .send-message-right-body
+        .send-message-room.clearfix
+          .send-message-room-left
+            .send-message-room-left__room-type
+              #{@room.room_building_type.name} #{@room.room_type_i18n}
+            .send-message-room-left__fee
+              1泊あたり
+              %span
+                ¥ #{humanized_money @room.day_fee_cents}
+            .send-message-room-left__review-count
+              ★★★★★★レビュー16件
+          .send-message-room-right
+            %img{src: @room.room_images.first.image, style: "width: 90px; height: 80px;"}
+        .send-message-info.clearfix
+          .send-message-info__text
+            希望の日付を入力して予約可能状況を確認する
+          .send-message-info__image
+            %img{src: '/assets/mini_calender', style: "width: 50px; height: 50px;"}
+

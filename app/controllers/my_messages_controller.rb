@@ -14,7 +14,7 @@ class MyMessagesController < ApplicationController
     @send_messages = Message.where(receive_user_id: params[:id], send_user_id: current_user.id)
     @messages = @receive_messages + @send_messages
     @messages = @messages.sort { |a, b| a[:created_at] <=> b[:created_at] }
-    @receive_user = User.find(params[:id])
+    @receive_user = User.find(params[:id])  #送る相手の情報
     @message = Message.new
 
     kind_update(@receive_messages) # kindをalready_readにするメソッド

@@ -5,12 +5,22 @@
     .d-message-top-wrapper
       %label
         %select.d-message-top-wrapper__select
+          %option{value: "all"}
+            すべて
+          %option{value: 'unread'}
+            未読
+          %option{value: 'already_read'}
+            既読
+          %option{value: 'star'}
+            スター付き
+          %option{value: 'appointment'}
+            予約
 
     .d-message-main-wrapper
       - @new_messages.each do |message|
-        .d-message-item
+        .d-message-item{'data-kind': message.kind}
           .d-message-item-body.clearfix
-            %a{href: user_my_message_path(current_user, message.send_user)}
+            %a{href: user_my_message_path(current_user, message.send_user), class: "message-show-link"}
               .d-message-avatar
                 - if message.send_user.avatar.present?
                   %img{src: message.send_user.avatar.url, alt: "avatar", style: "width: 50px; height: 50px;"}
@@ -28,3 +38,4 @@
                 .d-message-kind__text
                   = message.kind_i18n
 
+= javascript_include_tag "my_message_index.js"

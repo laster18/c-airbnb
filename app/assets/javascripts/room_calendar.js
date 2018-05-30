@@ -7,7 +7,7 @@ $(function(){
   var dates = gon.dates_json
   var dates = JSON.parse(dates);
   dates.forEach(function(date){
-    $(`[ data-date= ${date}]`).addClass('reservation-true');
+    $(`[ data-date= ${date} ]`).addClass('reservation-true');
   });
   // ↓日付クリック時の処理
   $('.fc-day').on('click', function(){

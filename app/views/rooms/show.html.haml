@@ -1,11 +1,12 @@
 = render partial: "./header"
-= render partial: "./favorites/favorite_modal"
+- if user_signed_in?
+  = render partial: "./favorites/favorite_modal"
 
 .s-main{"data-room-id": @room.id}
   .s-top-wrapper
     %img{src: "https://minpakukyoka.com/wp-content/uploads/2016/04/maara.jpg"}
     %bottun.save-button.btn{"data-id": ""}
-      - if current_user.favorites.find_by(room_id: @room.id).present?
+      - if user_signed_in? && current_user.favorites.find_by(room_id: @room.id).present?
         %i{class: "fa fa-heart s-like-button",style: "margin-right: 2px; color: red;"}
         %span 保存
       - else

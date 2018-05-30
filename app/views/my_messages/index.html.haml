@@ -17,25 +17,32 @@
             予約
 
     .d-message-main-wrapper
-      - @new_messages.each do |message|
-        .d-message-item{'data-kind': message.kind}
-          .d-message-item-body.clearfix
-            %a{href: user_my_message_path(current_user, message.send_user), class: "message-show-link"}
-              .d-message-avatar
-                - if message.send_user.avatar.present?
-                  %img{src: message.send_user.avatar.url, alt: "avatar", style: "width: 50px; height: 50px;"}
-                - else
-                  %img{src: "/assets/no-image.png", alt: "avatar", style: "width: 50px; height: 50px;"}
-              .d-message-info
-                .d-message-info__user-name
-                  = message.send_user.last_name
-                .d-message-info__date
-                  = message.create_date
-              .d-message-content
-                .d-message-content__message
-                  = message.message
-              .d-message-kind
-                .d-message-kind__text
-                  = message.kind_i18n
+      - if @new_messages.present?
+        - @new_messages.each do |message|
+          .d-message-item{'data-kind': message.kind}
+            .d-message-item-body.clearfix
+              %a{href: user_my_message_path(current_user, message.send_user), class: "message-show-link"}
+                .d-message-avatar
+                  - if message.send_user.avatar.present?
+                    %img{src: message.send_user.avatar.url, alt: "avatar", style: "width: 50px; height: 50px;"}
+                  - else
+                    %img{src: "/assets/no-image.png", alt: "avatar", style: "width: 50px; height: 50px;"}
+                .d-message-info
+                  .d-message-info__user-name
+                    = message.send_user.last_name
+                  .d-message-info__date
+                    = message.create_date
+                .d-message-content
+                  .d-message-content__message
+                    = message.message
+                .d-message-kind
+                  .d-message-kind__text
+                    = message.kind_i18n
+      - else
+        .no-new-message
+          .no-new-message__text
+            表示するメッセージはありません。
+          .no-new-message__sub
+            ご旅行手配中は、こちらにホストからのメッセージが表示されます。
 
 = javascript_include_tag "my_message_index.js"

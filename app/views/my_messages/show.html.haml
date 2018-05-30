@@ -3,6 +3,16 @@
 .s-message-wrapper
   .s-message-body.clearfix
     .s-message-left
+      .s-message-left-body
+        .s-message-left-avatar
+          %a{href: "#"}
+            %img{src: @receive_user.avatar, style: "width: 160px; height: 160px;"}
+        .s-message-left-user-name
+          %span
+            #{@receive_user.last_name} #{@receive_user.first_name}
+        .s-message-user-created
+          %span
+            #{@receive_user.created_user}からメンバー
 
     .s-message-right
       .s-message-right-body.clearfix

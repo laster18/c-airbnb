@@ -33,7 +33,7 @@
                   = @room.title
                 .s-info-head__adrress
                   = @room.state
-              %a.s-info-head__user{href: "#{}"}
+              %a.s-info-head__user{href: "#"}
                 - if @room.user.avatar.present?
                   %img.s-info-head__user-avatar{src: @room.user.avatar, style: "width: 60px; height: 60px;"}
                 - else
